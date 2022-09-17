@@ -12,7 +12,12 @@
         // esModuleInterop для использования import вместо common js
         "esModuleInterop": true,
         // allowSyntheticDefaultImports для использования import <package> вместо import * as <package>
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "plugins": [
+            {
+                "name": "typescript-plugin-css-modules"
+            }
+        ]
     },
     // дополнительная настройка для import/export
     "ts-node": {
