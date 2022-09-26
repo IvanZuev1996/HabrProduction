@@ -8,6 +8,10 @@
         "typescriptreact"
     ],
     "editor.codeActionsOnSave": {
-        "source.fixAll.eslint": true
-    }
+        "source.fixAll.eslint": true,
+        "source.fixAll.stylelint": true
+    },
+    "scss.validate": false,
+    "css.validate": false,
+    "less.validate": false
 }
