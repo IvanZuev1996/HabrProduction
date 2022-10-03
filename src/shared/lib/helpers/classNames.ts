@@ -9,7 +9,8 @@ export function classNames(
         cls,
         ...additional.filter(Boolean),
         ...Object.entries(mods)
+            // eslint-disable-next-line no-unused-vars
             .filter(([className, value]) => Boolean(value))
-            .map(([className]) => className),
+            .map(([className]) => className)
     ].join(' ');
 }
