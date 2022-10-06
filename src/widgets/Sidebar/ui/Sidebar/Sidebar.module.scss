@@ -6,10 +6,6 @@
     transition: width 0.2s;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     position: absolute;
     bottom: 20px;
@@ -20,4 +16,35 @@
 
 .lang {
     margin-left: 20px;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lang {
+        margin-left: 0;
+    }
+}
+
+.collapsedBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 40px;
+}
+
+.items {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.link {
+    margin-top: 10px;
 }
