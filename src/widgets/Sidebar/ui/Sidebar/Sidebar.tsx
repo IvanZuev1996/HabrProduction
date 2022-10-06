@@ -6,6 +6,8 @@ import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
+import AboutIcon from 'shared/assets/icons/about-page.svg';
+import MainIcon from 'shared/assets/icons/home-page.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -41,16 +43,18 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
                     to={RoutePath.main}
-                    className={cls.link}
+                    className={cls.item}
                 >
-                    {t('Главная')}
+                    <MainIcon className={cls.icon} />
+                    <span className={cls.link}>{t('Главная')}</span>
                 </AppLink>
                 <AppLink
                     theme={AppLinkTheme.SECONDARY}
                     to={RoutePath.about}
-                    className={cls.link}
+                    className={cls.item}
                 >
-                    {t('О Сайте')}
+                    <AboutIcon className={cls.icon} />
+                    <span className={cls.link}>{t('О Сайте')}</span>
                 </AppLink>
             </div>
             <div className={cls.switchers}>
