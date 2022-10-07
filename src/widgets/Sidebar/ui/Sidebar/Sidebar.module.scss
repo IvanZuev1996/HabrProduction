@@ -6,10 +6,6 @@
     transition: width 0.2s;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     position: absolute;
     bottom: 20px;
@@ -20,4 +16,53 @@
 
 .lang {
     margin-left: 20px;
+}
+
+.collapsedBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 40px;
+}
+
+.items {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+}
+
+.item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    margin-left: 10px;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.icon {
+    fill: var(--primary-color);
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .lang {
+        margin-left: 0;
+    }
+
+    .link {
+        opacity: 0;
+        width: 0;
+        transition: width 0.2s;
+    }
 }
