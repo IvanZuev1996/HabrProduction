@@ -31,7 +31,6 @@ server.post('/login', (req, res) => {
         );
 
         if (userFromBd) {
-            console.log(userFromBd);
             return res.json(userFromBd);
         }
 

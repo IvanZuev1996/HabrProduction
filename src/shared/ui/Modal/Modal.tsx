@@ -16,16 +16,33 @@ interface ModalProps {
     children?: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 200;
 
 export const Modal = (props: ModalProps) => {
-    const { className, children, isOpen, onClose } = props;
+    const { className, children, isOpen, onClose, lazy } = props;
 
+    const [isWasOpen, setIsWasOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
     const timeRef = useRef<ReturnType<typeof setTimeout>>(); // Получаем нужный тип в джейнерике
     const { theme } = useTheme();
+
+    useEffect(() => {
+        if (isMounted) {
+            timeRef.current = setTimeout(() => {
+                setIsWasOpen(true);
+            }, 5);
+        }
+    }, [isMounted]);
+
+    useEffect(() => {
+        if (isOpen) {
+            setIsMounted(true);
+        }
+    }, [isOpen]);
 
     const closeHandler = useCallback(() => {
         if (onClose) {
@@ -62,9 +79,13 @@ export const Modal = (props: ModalProps) => {
     }, [isOpen, onKeyDown]);
 
     const mods: Record<string, boolean> = {
-        [cls.opened]: isOpen,
+        [cls.opened]: isOpen && isWasOpen,
         [cls.isClosing]: isClosing
     };
+
+    if (!isMounted && lazy) {
+        return null;
+    }
 
     return (
         <Portal>
