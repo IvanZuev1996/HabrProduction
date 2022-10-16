@@ -15,9 +15,15 @@
 }
 
 .outline {
+    padding: 10px 16px;
     border: 1px solid var(--primary-color);
     color: var(--primary-color);
     background: none;
+}
+
+.disabled {
+    opacity: 0.5;
+    cursor: auto;
 }
 
 .background {
