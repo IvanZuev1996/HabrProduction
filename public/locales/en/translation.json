@@ -2,11 +2,18 @@
     "Тестовый пример": "Test example",
     "Перевод": "Translate",
     "Главная страница": "Main page",
+    "Главная": "Main",
+    "О сайте": "About us",
     "Язык": "Русский",
     "Загрузка": "Loading",
     "Страница не найдена": "Page not found",
     "Произошла непредвиденная ошибка": "Something went wrong",
     "Обновить страницу": "Reload page",
     "Короткий язык": "Ru",
-    "Войти": "Login"
+    "Войти": "Login",
+    "Введите логин": "Enter your username",
+    "Введите пароль": "Enter the password",
+    "Форма авторизации": "Authorization form",
+    "Не верный логин или пароль": "Uncorrect username or password",
+    "Выйти": "Logout"
 }

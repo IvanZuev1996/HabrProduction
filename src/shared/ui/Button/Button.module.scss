@@ -21,6 +21,11 @@
     background: none;
 }
 
+.disabled {
+    opacity: 0.5;
+    cursor: auto;
+}
+
 .background {
     background: var(--navbar-bg-color);
     color: var(--primary-color);

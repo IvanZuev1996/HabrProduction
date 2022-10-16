@@ -12,8 +12,8 @@ i18n.use(Backend)
         debug: __IS_DEV__,
 
         interpolation: {
-            escapeValue: false,
-        },
+            escapeValue: false
+        }
     });
 
 export default i18n;
