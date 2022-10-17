@@ -44,8 +44,15 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
-                <Button theme={ButtonTheme.CLEAR} onClick={onToggleSidebar}>
+            <div
+                data-testid="navbar"
+                className={classNames(cls.Navbar, {}, [className])}
+            >
+                <Button
+                    data-testid="sidebar-toggle"
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onToggleSidebar}
+                >
                     <MenuIcon className={cls.menuIcon} />
                 </Button>
                 <Button
@@ -60,8 +67,15 @@ export const Navbar = ({ className }: NavbarProps) => {
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
-            <Button theme={ButtonTheme.CLEAR} onClick={onToggleSidebar}>
+        <div
+            className={classNames(cls.Navbar, {}, [className])}
+            data-testid="navbar"
+        >
+            <Button
+                theme={ButtonTheme.CLEAR}
+                onClick={onToggleSidebar}
+                data-testid="sidebar-toggle"
+            >
                 <MenuIcon className={cls.menuIcon} />
             </Button>
             <Button

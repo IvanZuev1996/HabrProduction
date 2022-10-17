@@ -1,10 +1,10 @@
 import { screen } from '@testing-library/react';
 import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
-import { Sidebar } from './Sidebar';
+import { Navbar } from './Navbar';
 
-describe('Sidebar', () => {
+describe('Navbar', () => {
     test('Test render', () => {
-        componentRender(<Sidebar />);
-        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        componentRender(<Navbar />);
+        expect(screen.getByTestId('navbar')).toBeInTheDocument();
     });
 });
