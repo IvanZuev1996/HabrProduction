@@ -23,7 +23,6 @@ export const Navbar = ({ className }: NavbarProps) => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const onToggleSidebar = useCallback(() => {
-        console.log('321312');
         dispatch(sidebarActions.toggleState(!isSidebarOpen));
         setIsSidebarOpen(!isSidebarOpen);
     }, [dispatch, isSidebarOpen]);
@@ -85,7 +84,9 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            {isAuthModal && (
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            )}
         </div>
     );
 };
