@@ -14,7 +14,7 @@ import { getLoginError } from '../../model/selectors/getLoginError/getLoginError
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import cls from './LoginForm.module.scss';
-import { loginAction, loginReducer } from '../../model/slice/loginSlice';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 
 export interface LoginFormProps {
@@ -36,14 +36,14 @@ const LoginForm = memo(({ className }: LoginFormProps) => {
 
     const onChangeUsername = useCallback(
         (value: string) => {
-            dispatch(loginAction.setUsername(value));
+            dispatch(loginActions.setUsername(value));
         },
         [dispatch]
     );
 
     const onChangePassword = useCallback(
         (value: string) => {
-            dispatch(loginAction.setPassword(value));
+            dispatch(loginActions.setPassword(value));
         },
         [dispatch]
     );
