@@ -49,6 +49,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <Button
                     data-testid="sidebar-toggle"
                     theme={ButtonTheme.CLEAR}
+                    className={cls.button}
                     onClick={onToggleSidebar}
                 >
                     <MenuIcon className={cls.menuIcon} />
@@ -70,9 +71,10 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             data-testid="navbar"
         >
             <Button
-                theme={ButtonTheme.CLEAR}
-                onClick={onToggleSidebar}
                 data-testid="sidebar-toggle"
+                theme={ButtonTheme.CLEAR}
+                className={cls.button}
+                onClick={onToggleSidebar}
             >
                 <MenuIcon className={cls.menuIcon} />
             </Button>
