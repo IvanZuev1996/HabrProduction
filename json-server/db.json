@@ -8,5 +8,14 @@
             "password": "123456"
         }
     ],
-    "profile": { "name": "typicode" }
+    "profile": {
+        "firstname": "Иван",
+        "lastname": "Зуев",
+        "age": 18,
+        "currency": "RUB",
+        "country": "Russia",
+        "city": "Moscow",
+        "username": "admin",
+        "avatar": "https://омикрон35.рф/images/doctors/2020/Portrait_Kontakt.jpg"
+    }
 }
