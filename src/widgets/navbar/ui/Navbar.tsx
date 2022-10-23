@@ -6,6 +6,8 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import MenuIcon from 'shared/assets/icons/menu-icon.svg';
+import { sidebarActions } from 'entities/Sidebar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -18,8 +20,15 @@ export const Navbar = ({ className }: NavbarProps) => {
     const dispatch = useDispatch();
 
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+    const onToggleSidebar = useCallback(() => {
+        dispatch(sidebarActions.toggleState(!isSidebarOpen));
+        setIsSidebarOpen(!isSidebarOpen);
+    }, [dispatch, isSidebarOpen]);
 
     const onCloseModal = useCallback(() => {
+        console.log('321312');
         setIsAuthModal(false);
     }, []);
 
@@ -34,7 +43,17 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <div
+                data-testid="navbar"
+                className={classNames(cls.Navbar, {}, [className])}
+            >
+                <Button
+                    data-testid="sidebar-toggle"
+                    theme={ButtonTheme.CLEAR}
+                    onClick={onToggleSidebar}
+                >
+                    <MenuIcon className={cls.menuIcon} />
+                </Button>
                 <Button
                     theme={ButtonTheme.CLEAR}
                     className={cls.links}
@@ -47,7 +66,17 @@ export const Navbar = ({ className }: NavbarProps) => {
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <div
+            className={classNames(cls.Navbar, {}, [className])}
+            data-testid="navbar"
+        >
+            <Button
+                theme={ButtonTheme.CLEAR}
+                onClick={onToggleSidebar}
+                data-testid="sidebar-toggle"
+            >
+                <MenuIcon className={cls.menuIcon} />
+            </Button>
             <Button
                 theme={ButtonTheme.CLEAR}
                 className={cls.links}
@@ -55,7 +84,9 @@ export const Navbar = ({ className }: NavbarProps) => {
             >
                 {t('Войти')}
             </Button>
-            <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            {isAuthModal && (
+                <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
+            )}
         </div>
     );
 };
