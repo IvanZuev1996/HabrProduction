@@ -2,7 +2,7 @@ import { Suspense, useEffect } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { AppRouter } from 'app/providers/router';
-import { Navbar } from 'widgets/navbar';
+import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
 import { useDispatch } from 'react-redux';
 import { userActions } from 'entities/User';
