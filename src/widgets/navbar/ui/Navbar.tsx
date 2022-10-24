@@ -28,7 +28,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }, [dispatch, isSidebarOpen]);
 
     const onCloseModal = useCallback(() => {
-        console.log('321312');
         setIsAuthModal(false);
     }, []);
 

@@ -2,12 +2,13 @@
     width: 100%;
     padding: 7px 10px;
     border: 1px solid var(--bg-color);
-    outline: none;
+    outline: 1px solid var(--secondary-color);
     border-radius: 5px;
     color: var(--primary-color);
     background-color: var(--navbar-bg-color);
 }
 
 .Input:focus {
-    border: 1px solid var(--primary-color);
+    border: none;
+    border: 1px solid var(--additional-color);
 }

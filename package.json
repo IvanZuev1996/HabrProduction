@@ -53,6 +53,7 @@
         "@types/webpack-dev-server": "^4.7.2",
         "@typescript-eslint/eslint-plugin": "^5.12.1",
         "@typescript-eslint/parser": "^5.12.1",
+        "axios-mock-adapter": "^1.21.2",
         "babel-loader": "^8.2.3",
         "babel-plugin-i18next-extract": "^0.8.3",
         "css-loader": "^6.6.0",

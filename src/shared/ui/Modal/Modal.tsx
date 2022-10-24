@@ -5,9 +5,10 @@ import {
     useRef,
     useState,
     useEffect,
-    useCallback
+    useCallback,
+    MutableRefObject
 } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames, Mods } from 'shared/lib/helpers/classNames';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 
@@ -27,7 +28,7 @@ export const Modal = (props: ModalProps) => {
     const [isWasOpen, setIsWasOpen] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
-    const timeRef = useRef<ReturnType<typeof setTimeout>>(); // Получаем нужный тип в джейнерике
+    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>; // Получаем нужный тип в джейнерике
     const { theme } = useTheme();
 
     useEffect(() => {
@@ -78,7 +79,7 @@ export const Modal = (props: ModalProps) => {
         };
     }, [isOpen, onKeyDown]);
 
-    const mods: Record<string, boolean> = {
+    const mods: Mods = {
         [cls.opened]: isOpen && isWasOpen,
         [cls.isClosing]: isClosing
     };

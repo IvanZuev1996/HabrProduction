@@ -58,3 +58,8 @@
 -   Добавлен [Reducer Manager](src/app/providers/StoreProvider/config/reducerManager.ts) и [DynamicModuleLoader](src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx), чтобы в runtime добавлять и удалять новые reducers
 -   Создан класс [TestAsyncThunk](src/shared/lib/tests/TestAsyncThunk/TestAsyncThunk.tsx) для тестирования
 -   Оптимизированны перерисовки с помощью memo/useMemo
+-   Создан инстанс [API](src/shared/api/api.ts). Инстанс добавлен в extra аргумент AsyncThunk для удобного использования этого инстанса.
+-   Добавлена переменная окружения _API_ для задавания baseUrl из переменных окружения, на этапе сборки. Переменная добавлена в конфиг [webpack](config/build/buildPlugins.ts), в конфиг [storybook](config/storybook/webpack.config.ts), в конфиг [jest](config/jest/jest.config.ts), в конфиг [eslint](.eslintrc.js)
+-   Добавлен AsyncFunc [fetchProfileData](src/entities/Profile/model/services/fetchProfileData/fetchProfileData.ts) для получения данных пользователя.
+-   Включен typescript strict mode, исправлены все ошибки
+-   Добавлена глобальная декларация [DeepPartial](src/app/types/global.d.ts)
