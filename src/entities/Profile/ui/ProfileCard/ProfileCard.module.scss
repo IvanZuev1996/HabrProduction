@@ -1,6 +1,8 @@
 .ProfileCard {
     padding: 20px;
-    border-radius: 5px;
+    background: var(--navbar-bg-color);
+    border-radius: 8px;
+    box-shadow: 0 6px 10px -1px var(--shadow-color);
 }
 
 .header {
