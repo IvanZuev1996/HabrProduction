@@ -1,6 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
 import AxiosDecorator from 'shared/config/storybook/AxiosDecorator/AxiosDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
@@ -16,15 +18,15 @@ export default {
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
 
-export const Light = Template.bind({});
-Light.args = {};
+export const LightNoAuth = Template.bind({});
+LightNoAuth.args = {};
 
-Light.decorators = [StoreDecorator({}), AxiosDecorator()];
+LightNoAuth.decorators = [StoreDecorator({}), AxiosDecorator()];
 
-export const Dark = Template.bind({});
-Dark.args = {};
+export const DarkNoAuth = Template.bind({});
+DarkNoAuth.args = {};
 
-Dark.decorators = [
+DarkNoAuth.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({}),
     AxiosDecorator()

@@ -16,6 +16,18 @@
     }
 
     .text {
-        color: var(--red-dark);
+        color: var(--primary-color);
     }
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    text-align: right;
+}
+
+.center {
+    text-align: center;
 }

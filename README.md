@@ -63,3 +63,5 @@
 -   Добавлен AsyncFunc [fetchProfileData](src/entities/Profile/model/services/fetchProfileData/fetchProfileData.ts) для получения данных пользователя.
 -   Включен typescript strict mode, исправлены все ошибки
 -   Добавлена глобальная декларация [DeepPartial](src/app/types/global.d.ts)
+-   Добавлен модуль профиля [ProfilePage](src/pages/ProfilePage/ui/ProfilePage.tsx). Реализован функционал редактирования профиля.
+-   Добавлен флаг [authOnly](src/shared/config/routeConfig/routeConfig.tsx) для фильтрации контента для авторизованных пользователей.

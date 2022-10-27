@@ -66,7 +66,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                 />
                 {error && (
                     <Text
-                        text={t('Не верный логин или пароль')}
+                        title={t('Не верный логин или пароль')}
                         theme={TextTheme.ERROR}
                     />
                 )}
