@@ -7,9 +7,11 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidateErrors,
     profileActions,
     ProfileCard,
-    profileReducer
+    profileReducer,
+    ValidateProfileError
 } from 'entities/Profile';
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -20,6 +22,7 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 interface ProfilePageProps {
@@ -37,6 +40,31 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     const error = useSelector(getProfileError);
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorTranslations = {
+        [ValidateProfileError.INCORRECT_AGE]: t('Введите корректное значение'),
+        [ValidateProfileError.INCORRECT_CITY]: t('Поле является обязательным'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t(
+            'Поле является обязательным'
+        ),
+        [ValidateProfileError.INCORRECT_CURRENCY]: t(
+            'Поле является обязательным'
+        ),
+        [ValidateProfileError.INCORRECT_FIRSTNAME]: t(
+            'Поле является обязательным'
+        ),
+        [ValidateProfileError.INCORRECT_LASTNAME]: t(
+            'Поле является обязательным'
+        ),
+        [ValidateProfileError.INCORRECT_USERNAME]: t(
+            'Поле является обязательным'
+        ),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.SERVER_ERROR]: t(
+            'Произошла непредвиденная ошибка'
+        )
+    };
 
     useEffect(() => {
         dispath(fetchProfileData());
@@ -102,11 +130,19 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
         <DynamicModuleLoader reducers={reducers} removeAfterAnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader />
+                {validateErrors?.length &&
+                    validateErrors.map((err) => (
+                        <Text
+                            theme={TextTheme.ERROR}
+                            title={validateErrorTranslations[err]}
+                        />
+                    ))}
                 <ProfileCard
                     data={formData}
                     isLoading={isLoading}
                     error={error}
                     readonly={readonly}
+                    validateErrors={validateErrors}
                     onChangeFirstname={onChangeFirstname}
                     onChangeLastname={onChangeLastname}
                     onChangeAge={onChangeAge}

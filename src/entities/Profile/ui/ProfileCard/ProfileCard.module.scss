@@ -47,3 +47,8 @@
         box-shadow: 0 6px 10px -1px var(--shadow-color);
     }
 }
+
+.validateError {
+    // background: var(--red-simple);
+    border: 1px solid var(--red-light);
+}

@@ -4,10 +4,9 @@ import { classNames, Mods } from 'shared/lib/helpers/classNames';
 import { Avatar } from 'shared/ui/Avatar/Avatar';
 import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
-import { Select } from 'shared/ui/Select/Select';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Country, CountrySelect } from 'entities/Country';
-import { Profile } from '../../model/types/profile';
+import { Profile, ValidateProfileError } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -16,6 +15,7 @@ interface ProfileCardProps {
     isLoading?: boolean;
     error?: string;
     readonly?: boolean;
+    validateErrors?: ValidateProfileError[];
     onChangeFirstname?: (value?: string) => void;
     onChangeLastname?: (value?: string) => void;
     onChangeCity?: (value?: string) => void;
@@ -33,6 +33,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         error,
         isLoading,
         readonly,
+        validateErrors,
         onChangeAge,
         onChangeCity,
         onChangeFirstname,
@@ -91,7 +92,15 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 <Input
                     value={data?.firstname}
                     placeholder={t('Ваше имя')}
-                    className={cls.input}
+                    className={classNames(
+                        cls.input,
+                        {
+                            [cls.validateError]: validateErrors?.includes(
+                                ValidateProfileError.INCORRECT_FIRSTNAME
+                            )
+                        },
+                        []
+                    )}
                     onChange={onChangeFirstname}
                     readonly={readonly}
                 />
