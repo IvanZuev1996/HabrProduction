@@ -1,9 +1,16 @@
 .app_dark_theme {
-    --bg-color: rgb(28 28 28);
-    --navbar-bg-color: rgb(35 35 35);
+    // background
+    --bg-color: rgb(15 15 15);
+    --navbar-bg-color: rgb(15 15 15);
+    --input-bg-color: rgb(60 60 60);
+    --second-bg-color: rgb(18 18 18);
+
+    // primary (test, elements) colors
     --primary-color: rgb(255 255 255);
     --secondary-color: rgb(255 255 255 / 80%);
     --additional-color: rgb(220 220 220);
-    --input-bg-color: rgb(60 60 60);
+    --line-color: rgb(255 255 255 / 12%);
+
+    // shadow
     --shadow-color: rgb(0 0 0 / 10%);
 }

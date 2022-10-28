@@ -4,8 +4,10 @@
     width: 100%;
     height: var(--navbar-height);
     padding: 0 20px;
+    border-bottom: 1px solid var(--line-color);
     background: var(--navbar-bg-color);
-    box-shadow: 0 5px 5px -5px rgb(0 0 0 / 20%);
+
+    // box-shadow: 0 5px 5px -5px rgb(0 0 0 / 20%);
 }
 
 .links {
