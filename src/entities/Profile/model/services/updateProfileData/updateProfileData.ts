@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
+import { AxiosResponse } from 'axios';
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { Profile, ValidateProfileError } from '../../types/profile';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
@@ -20,7 +21,15 @@ export const updateProfileData = createAsyncThunk<
     }
 
     try {
-        const response = await extra.api.put<Profile>('/profile', formData);
+        const response: AxiosResponse<Profile> = await extra.api.put<Profile>(
+            '/profile',
+            formData
+        );
+
+        if (!response.data) {
+            throw new Error();
+        }
+
         return response.data;
     } catch (e) {
         console.log(e);

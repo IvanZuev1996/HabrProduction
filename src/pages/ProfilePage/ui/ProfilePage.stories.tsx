@@ -6,6 +6,7 @@ import { Currency } from 'entities/Currency';
 import AxiosDecorator from 'shared/config/storybook/AxiosDecorator/AxiosDecorator';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
 import ProfilePage from './ProfilePage';
 
 export default {
@@ -18,16 +19,45 @@ export default {
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
 
-export const LightNoAuth = Template.bind({});
-LightNoAuth.args = {};
+export const Light = Template.bind({});
+Light.args = {};
 
-LightNoAuth.decorators = [StoreDecorator({}), AxiosDecorator()];
+Light.decorators = [
+    StoreDecorator({
+        profile: {
+            form: {
+                firstname: 'Иван',
+                lastname: 'Зуев',
+                age: 18,
+                currency: Currency.RUB,
+                country: Country.Russia,
+                city: 'Moscow',
+                username: 'admin',
+                avatar: AvatarImg
+            }
+        }
+    }),
+    AxiosDecorator()
+];
 
-export const DarkNoAuth = Template.bind({});
-DarkNoAuth.args = {};
+export const Dark = Template.bind({});
+Dark.args = {};
 
-DarkNoAuth.decorators = [
+Dark.decorators = [
     ThemeDecorator(Theme.DARK),
-    StoreDecorator({}),
+    StoreDecorator({
+        profile: {
+            form: {
+                firstname: 'Иван',
+                lastname: 'Зуев',
+                age: 18,
+                currency: Currency.RUB,
+                country: Country.Russia,
+                city: 'Moscow',
+                username: 'admin',
+                avatar: AvatarImg
+            }
+        }
+    }),
     AxiosDecorator()
 ];

@@ -67,7 +67,9 @@ const ProfilePage = memo(({ className }: ProfilePageProps) => {
     };
 
     useEffect(() => {
-        dispath(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispath(fetchProfileData());
+        }
     }, [dispath]);
 
     const onChangeFirstname = useCallback(
