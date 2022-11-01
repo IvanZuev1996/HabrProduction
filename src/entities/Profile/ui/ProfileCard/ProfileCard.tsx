@@ -148,7 +148,11 @@ export const ProfileCard = (props: ProfileCardProps) => {
             <div className={cls.infoItem}>
                 <Text text={t('Аватар')} className={cls.text} />
                 <Input
-                    value={data?.avatar}
+                    value={
+                        __PROJECT__ !== 'storybook'
+                            ? data?.avatar
+                            : 'hello storybook'
+                    }
                     placeholder={t('Введите ссылку на аватар')}
                     className={cls.input}
                     onChange={onChangeAvatar}

@@ -66,5 +66,6 @@
 -   Добавлен модуль профиля [ProfilePage](src/pages/ProfilePage/ui/ProfilePage.tsx). Реализован функционал редактирования профиля.
 -   Добавлен флаг [authOnly](src/shared/config/routeConfig/routeConfig.tsx) для фильтрации контента для авторизованных пользователей.
 -   Добавлена глобальная переменная [_PROJECT_](webpack.config.ts) для различия сред frontend, jest и storybook.
--   Добвалены тесты для модуля [профиля](src/entities/Profile/ui/ProfileCard/ProfileCard.tsx)
+-   Добавлены тесты для модуля [профиля](src/entities/Profile/ui/ProfileCard/ProfileCard.tsx)
 -   Добавлено расширение [Folder Template](https://github.com/Huuums/vscode-folder-templates)
+-   Добавлен [npm concurrently](https://www.npmjs.com/package/concurrently)
