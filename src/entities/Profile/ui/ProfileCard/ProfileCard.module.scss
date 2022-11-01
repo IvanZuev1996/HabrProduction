@@ -1,0 +1,54 @@
+.ProfileCard {
+    padding: 20px;
+    background: var(--second-bg-color);
+    border-radius: 8px;
+
+    // box-shadow: 0 6px 10px -1px var(--shadow-color);
+    box-shadow: 0 3px 10px 2px var(--shadow-color);
+    border: 1px solid var(--navbar-bg-color);
+    transition: border 0.2s;
+}
+
+.select,
+.input {
+    flex: 4;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    padding-left: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--bg-color);
+}
+
+.text {
+    flex: 1;
+}
+
+.isLoading,
+.error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.avatarWrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.editing {
+    border: 1px solid var(--additional-color);
+
+    .infoItem {
+        box-shadow: 0 6px 10px -1px var(--shadow-color);
+    }
+}
+
+.validateError {
+    // background: var(--red-simple);
+    border: 1px solid var(--red-light);
+}

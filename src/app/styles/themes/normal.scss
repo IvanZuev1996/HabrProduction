@@ -1,7 +1,17 @@
 :root {
-    --bg-color: rgb(246 247 251);
+    // background
+    --bg-color: rgb(255 255 255);
     --navbar-bg-color: rgb(255 255 255);
-    --primary-color: rgb(33 33 33);
-    --secondary-color: rgb(0 0 0);
-    --additional-color: #3e4684;
+    --input-bg-color: rgb(243 244 245);
+    --second-bg-color: var(--bg-color);
+    --elements-bg-color: var(--bg-color);
+
+    // primary (test, elements) colors
+    --primary-color: rgb(0 0 0);
+    --secondary-color: rgb(0 0 0 / 80%);
+    --additional-color: rgb(62 70 132);
+    --line-color: rgb(0 0 0 / 12%);
+
+    // shadow
+    --shadow-color: rgb(62 70 132 / 10%);
 }

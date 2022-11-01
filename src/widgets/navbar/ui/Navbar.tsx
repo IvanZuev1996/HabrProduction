@@ -1,34 +1,35 @@
 /* eslint-disable i18next/no-literal-string */
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import MenuIcon from 'shared/assets/icons/menu-icon.svg';
-import { sidebarActions } from 'entities/Sidebar';
+import { Theme, useTheme } from 'app/providers/ThemeProvider';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
+    onToggleSidebar?: () => void;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = memo(({ className, onToggleSidebar }: NavbarProps) => {
     const { t } = useTranslation();
+    const { theme } = useTheme();
     const authData = useSelector(getUserAuthData);
     const dispatch = useDispatch();
 
     const [isAuthModal, setIsAuthModal] = useState(false);
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-    const onToggleSidebar = useCallback(() => {
-        dispatch(sidebarActions.toggleState(!isSidebarOpen));
-        setIsSidebarOpen(!isSidebarOpen);
-    }, [dispatch, isSidebarOpen]);
+    // const onToggleSidebar = useCallback(() => {
+    //     dispatch(sidebarActions.toggleState(!isSidebarOpen));
+    //     setIsSidebarOpen(!isSidebarOpen);
+    // }, [dispatch, isSidebarOpen]);
 
     const onCloseModal = useCallback(() => {
-        console.log('321312');
         setIsAuthModal(false);
     }, []);
 
@@ -38,7 +39,6 @@ export const Navbar = ({ className }: NavbarProps) => {
 
     const onLogout = useCallback(() => {
         dispatch(userActions.logout());
-        setIsAuthModal(false);
     }, [dispatch]);
 
     if (authData) {
@@ -50,6 +50,7 @@ export const Navbar = ({ className }: NavbarProps) => {
                 <Button
                     data-testid="sidebar-toggle"
                     theme={ButtonTheme.CLEAR}
+                    className={cls.button}
                     onClick={onToggleSidebar}
                 >
                     <MenuIcon className={cls.menuIcon} />
@@ -71,9 +72,10 @@ export const Navbar = ({ className }: NavbarProps) => {
             data-testid="navbar"
         >
             <Button
-                theme={ButtonTheme.CLEAR}
-                onClick={onToggleSidebar}
                 data-testid="sidebar-toggle"
+                theme={ButtonTheme.CLEAR}
+                className={cls.button}
+                onClick={onToggleSidebar}
             >
                 <MenuIcon className={cls.menuIcon} />
             </Button>
@@ -89,4 +91,4 @@ export const Navbar = ({ className }: NavbarProps) => {
             )}
         </div>
     );
-};
+});

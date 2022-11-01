@@ -32,6 +32,20 @@
     border: none;
 }
 
+.backgroundSecondary {
+    border-radius: 7px;
+    background-color: var(--additional-color);
+    color: var(--bg-color);
+    border: none;
+}
+
+.backgroundRed {
+    border-radius: 7px;
+    background-color: var(--red-light);
+    color: white;
+    border: none;
+}
+
 .square {
     padding: 0;
 }

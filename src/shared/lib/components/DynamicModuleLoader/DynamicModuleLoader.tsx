@@ -8,8 +8,6 @@ export type ReducerList = {
     [name in StateSchemaKey]?: Reducer;
 };
 
-type ReducersListEntry = [StateSchemaKey, Reducer];
-
 interface DynamicModuleLoaderProps {
     reducers: ReducerList;
     children: ReactNode;
@@ -22,21 +20,17 @@ export const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = (props) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(
-            ([name, reducer]: ReducersListEntry) => {
-                store.reducerManager.add(name, reducer);
-                dispatch({ type: `@INIT ${name} Reducer` });
-            }
-        );
+        Object.entries(reducers).forEach(([name, reducer]) => {
+            store.reducerManager.add(name as StateSchemaKey, reducer);
+            dispatch({ type: `@INIT ${name} Reducer` });
+        });
 
         return () => {
             if (removeAfterAnmount) {
-                Object.entries(reducers).forEach(
-                    ([name]: ReducersListEntry) => {
-                        store.reducerManager.remove(name);
-                        dispatch({ type: `@DESTROY ${name} Reducer` });
-                    }
-                );
+                Object.entries(reducers).forEach(([name]) => {
+                    store.reducerManager.remove(name as StateSchemaKey);
+                    dispatch({ type: `@DESTROY ${name} Reducer` });
+                });
             }
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps

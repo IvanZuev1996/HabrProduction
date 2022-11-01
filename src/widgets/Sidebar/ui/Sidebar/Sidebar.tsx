@@ -1,22 +1,30 @@
 import { useTranslation } from 'react-i18next';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 import { classNames } from 'shared/lib/helpers/classNames';
-import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
-import AboutIcon from 'shared/assets/icons/about-page.svg';
-import MainIcon from 'shared/assets/icons/home-page.svg';
 import { useSelector } from 'react-redux';
 import { getSidebarState } from 'entities/Sidebar';
+import { memo, useMemo } from 'react';
+import { SidebarItemsList } from '../../model/items';
 import cls from './Sidebar.module.scss';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
     className?: string;
+    isOpen?: boolean;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
-    const { isOpen } = useSelector(getSidebarState);
+export const Sidebar = memo(({ className, isOpen = true }: SidebarProps) => {
+    // const { isOpen } = useSelector(getSidebarState);
     const { t } = useTranslation();
+
+    const itemsList = useMemo(
+        () =>
+            SidebarItemsList.map((item) => (
+                <SidebarItem item={item} collapsed={isOpen} key={item.path} />
+            )),
+        [isOpen]
+    );
 
     return (
         <div
@@ -25,28 +33,11 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 className
             ])}
         >
-            <div className={cls.items}>
-                <AppLink
-                    theme={AppLinkTheme.SECONDARY}
-                    to={RoutePath.main}
-                    className={cls.item}
-                >
-                    <MainIcon className={cls.icon} />
-                    <span className={cls.link}>{t('Главная')}</span>
-                </AppLink>
-                <AppLink
-                    theme={AppLinkTheme.SECONDARY}
-                    to={RoutePath.about}
-                    className={cls.item}
-                >
-                    <AboutIcon className={cls.icon} />
-                    <span className={cls.link}>{t('О сайте')}</span>
-                </AppLink>
-            </div>
+            <div className={cls.items}>{itemsList}</div>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={cls.lang} short={isOpen} />
             </div>
         </div>
     );
-};
+});

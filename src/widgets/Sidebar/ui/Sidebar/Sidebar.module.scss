@@ -4,6 +4,13 @@
     background: var(--navbar-bg-color);
     position: relative;
     transition: width 0.2s;
+
+    // fixed style
+    position: fixed;
+    z-index: 1;
+    top: var(--navbar-height);
+    left: 0;
+    overflow-x: hidden;
 }
 
 .switchers {
@@ -31,23 +38,6 @@
     margin-left: 30px;
 }
 
-.item {
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
-.link {
-    margin-left: 20px;
-    opacity: 1;
-    transition: opacity 0.2s;
-}
-
-.icon {
-    fill: var(--primary-color);
-}
-
 .collapsed {
     width: var(--sidebar-width-collapsed);
 
@@ -59,11 +49,5 @@
 
     .lang {
         margin-left: 0;
-    }
-
-    .link {
-        opacity: 0;
-        width: 0;
-        transition: width 0.2s;
     }
 }

@@ -1,12 +1,33 @@
 {
-    "posts": [{ "id": "1", "title": "json-server", "author": "typicode" }],
-    "comments": [{ "id": "1", "body": "some comment", "postId": "1" }],
-    "users": [
-        {
-            "id": "1",
-            "username": "admin",
-            "password": "123456"
-        }
-    ],
-    "profile": { "name": "typicode" }
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": "1"
+    }
+  ],
+  "users": [
+    {
+      "id": "1",
+      "username": "admin",
+      "password": "123456"
+    }
+  ],
+  "profile": {
+    "firstname": "Иван",
+    "lastname": "Зуев",
+    "age": 18,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "admin",
+    "avatar": "https://омикрон35.рф/images/doctors/2020/Portrait_Kontakt.jpg"
+  }
 }
