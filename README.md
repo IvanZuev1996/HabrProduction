@@ -69,3 +69,7 @@
 -   Добавлены тесты для модуля [профиля](src/entities/Profile/ui/ProfileCard/ProfileCard.tsx)
 -   Добавлено расширение [Folder Template](https://github.com/Huuums/vscode-folder-templates)
 -   Добавлен [npm concurrently](https://www.npmjs.com/package/concurrently)
+
+#### Статьи, комментарии. Нормализация данных. Блочная структура. Union типы. Skeleton. Protected Routes
+
+-   Добавлен компонент [RequireAuth](src/app/providers/router/ui/RequireAuth.tsx) для защиты определенных маршрутов для не авторизованных пользователей.
