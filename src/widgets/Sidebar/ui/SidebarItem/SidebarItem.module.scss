@@ -1,24 +1,39 @@
 .item {
+    height: 40px;
     margin-top: 10px;
     display: flex;
     align-items: center;
     text-decoration: none;
+    border-radius: 15px;
+    transition: background-color 0.2s;
+}
+
+.item:hover {
+    background-color: var(--input-bg-color);
 }
 
 .link {
     margin-left: 20px;
     opacity: 1;
+    width: 150px;
     transition: opacity 0.2s;
 }
 
 .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     fill: var(--primary-color);
+    margin-left: 18px;
+    z-index: 1;
 }
 
 .collapsed {
     .link {
         opacity: 0;
         width: 0;
+        margin-left: 0;
         transition: width 0.2s;
+        transition: margin 0.2s;
     }
 }

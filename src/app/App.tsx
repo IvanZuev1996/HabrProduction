@@ -28,13 +28,7 @@ function App() {
         <div className={classNames('app', {}, [])}>
             <Suspense fallback="">
                 <Navbar onToggleSidebar={onToggleSidebar} />
-                <div
-                    className={classNames(
-                        'content-page',
-                        { collapsed: isCollapsedSidebar },
-                        []
-                    )}
-                >
+                <div className={classNames('content-page', {}, [])}>
                     <Sidebar isOpen={isCollapsedSidebar} />
                     {inited && <AppRouter />}
                 </div>
