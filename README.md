@@ -73,3 +73,6 @@
 #### Статьи, комментарии. Нормализация данных. Блочная структура. Union типы. Skeleton. Protected Routes
 
 -   Добавлен компонент [RequireAuth](src/app/providers/router/ui/RequireAuth.tsx) для защиты определенных маршрутов для не авторизованных пользователей.
+-   Добавлена страница [articlesPage](src/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.tsx), [articleDetailsPage](src/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.tsx)
+-   Реализована блочкая структура статьи
+-   Реализован функционал [копирования](src/shared/ui/Code/Code.tsx) текста (кода)

@@ -13,5 +13,13 @@
     --line-color: rgb(0 0 0 / 12%);
 
     // shadow
-    --shadow-color: rgb(62 70 132 / 10%);
+    --shadow-color: rgb(48 48 48 / 10%);
+    --shadow-size: 0 3px 10px 2px var(--shadow-color);
+
+    // skeleton
+    --skeleton-color: #fff;
+    --skeleton-bg-color: #e3e3e3;
+
+    // code
+    --code-bg: #f2f1f1;
 }

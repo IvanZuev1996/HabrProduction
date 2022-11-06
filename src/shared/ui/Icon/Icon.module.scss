@@ -1,0 +1,13 @@
+.Icon,
+.normal {
+    fill: var(--primary-color);
+    transition: background-color 0.1s;
+}
+
+.copy {
+    opacity: 0.5;
+}
+
+.copy:hover {
+    opacity: 1;
+}
