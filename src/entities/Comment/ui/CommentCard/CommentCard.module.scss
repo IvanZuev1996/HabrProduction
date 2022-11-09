@@ -1,0 +1,23 @@
+.CommentCard {
+    padding: 12px;
+    background-color: var(--elements-bg-color);
+    border-radius: var(--border-size);
+    box-shadow: var(--shadow-size);
+}
+
+.isLoading {
+    box-shadow: none;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.text {
+    margin-top: 10px;
+}
+
+.username {
+    margin-left: 10px;
+}

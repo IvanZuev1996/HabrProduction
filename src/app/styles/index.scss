@@ -24,3 +24,20 @@ body {
     padding: 20px 20px 20px 10px;
     width: 100%;
 }
+
+/* полоса прокрутки (скроллбар) */
+::-webkit-scrollbar {
+    width: 8px; /* ширина для вертикального скролла */
+    height: 8px; /* высота для горизонтального скролла */
+    background-color: var(--bg-color);
+}
+
+/* ползунок скроллбара */
+::-webkit-scrollbar-thumb {
+    background-color: var(--secondary-color);
+    border-radius: 6em;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #253861;
+}

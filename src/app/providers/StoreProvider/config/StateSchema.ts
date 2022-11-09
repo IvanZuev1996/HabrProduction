@@ -13,6 +13,7 @@ import { ProfileSchema } from 'entities/Profile';
 import { SidebarSchema } from 'entities/Sidebar/model/types/sidebar';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUserName';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailsPage';
 import { NavigateOptions, To } from 'react-router-dom';
 
 export interface StateSchema {
@@ -24,6 +25,7 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

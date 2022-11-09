@@ -102,13 +102,15 @@
             "id": "1",
             "username": "admin",
             "password": "123",
-            "role": "ADMIN"
+            "role": "ADMIN",
+            "avatar": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
         },
         {
             "id": "2",
             "username": "user",
             "password": "123",
-            "role": "USER"
+            "role": "USER",
+            "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
         }
     ],
     "profile": {
@@ -119,6 +121,6 @@
         "country": "Russia",
         "city": "Moscow",
         "username": "admin",
-        "avatar": "https://омикрон35.рф/images/doctors/2020/Portrait_Kontakt.jpg"
+        "avatar": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
     }
 }

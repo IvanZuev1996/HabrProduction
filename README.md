@@ -76,3 +76,4 @@
 -   Добавлена страница [articlesPage](src/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.tsx), [articleDetailsPage](src/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.tsx)
 -   Реализована блочкая структура статьи
 -   Реализован функционал [копирования](src/shared/ui/Code/Code.tsx) текста (кода)
+-   Добавлен [EntityAdapter](src/pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice.ts) для нормализации данных.
