@@ -5,14 +5,14 @@ import { Profile } from '../../types/profile';
 
 export const fetchProfileData = createAsyncThunk<
     Profile,
-    void,
+    string,
     ThunkConfig<string>
->('profile/fetchProfileData', async (_, thunkApi) => {
+>('profile/fetchProfileData', async (profileId, thunkApi) => {
     const { extra, rejectWithValue } = thunkApi;
 
     try {
         const response: AxiosResponse<Profile> = await extra.api.get<Profile>(
-            '/profile'
+            `/profile/${profileId}`
         );
 
         if (!response.data) {
@@ -21,7 +21,6 @@ export const fetchProfileData = createAsyncThunk<
 
         return response.data;
     } catch (e) {
-        console.log(e);
         return rejectWithValue('error');
     }
 });

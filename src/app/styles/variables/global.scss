@@ -1,5 +1,8 @@
 :root {
     --font-family-main: 'Montserrat', sans-serif;
+    --font-size-s: 12px;
+    --font-line-s: 18px;
+    --font-s: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
     --font-size-m: 16px;
     --font-line-m: 34px;
     --font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
@@ -15,6 +18,7 @@
     --navbar-height: 56px;
     --sidebar-width: 240px;
     --sidebar-width-collapsed: 80px;
+    --comment-avatar-width: 40px;
 
     // z - Идексы
 
@@ -26,4 +30,7 @@
     --red-light: rgb(255 0 0);
     --red-dark: rgb(217 0 0);
     --red-simple: rgb(235 127 127);
+
+    // Параметры
+    --border-size: 8px;
 }

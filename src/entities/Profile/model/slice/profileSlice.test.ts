@@ -6,6 +6,7 @@ import { ProfileSchema, ValidateProfileError } from '../types/profile';
 import { profileActions, profileReducer } from './profileSlice';
 
 const data = {
+    id: '1',
     firstname: 'Иван',
     lastname: 'Зуев',
     age: 18,
@@ -80,7 +81,7 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as ProfileSchema,
-                fetchProfileData.fulfilled(data, '')
+                fetchProfileData.fulfilled(data, '1', '')
             )
         ).toEqual({
             isLoading: false,
@@ -110,7 +111,7 @@ describe('profileSlice.test', () => {
         expect(
             profileReducer(
                 state as ProfileSchema,
-                fetchProfileData.fulfilled(data, '')
+                fetchProfileData.fulfilled(data, '1', '')
             )
         ).toEqual({
             isLoading: false,

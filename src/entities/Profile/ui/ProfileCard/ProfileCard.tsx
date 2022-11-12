@@ -92,6 +92,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 <Input
                     value={data?.firstname}
                     placeholder={t('Ваше имя')}
+                    onChange={onChangeFirstname}
+                    readonly={readonly}
                     className={classNames(
                         cls.input,
                         {
@@ -101,8 +103,6 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         },
                         []
                     )}
-                    onChange={onChangeFirstname}
-                    readonly={readonly}
                 />
             </div>
             <div className={cls.infoItem}>
@@ -110,19 +110,35 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 <Input
                     value={data?.lastname}
                     placeholder={t('Ваша фамилия')}
-                    className={cls.input}
                     onChange={onChangeLastname}
                     readonly={readonly}
+                    className={classNames(
+                        cls.input,
+                        {
+                            [cls.validateError]: validateErrors?.includes(
+                                ValidateProfileError.INCORRECT_LASTNAME
+                            )
+                        },
+                        []
+                    )}
                 />
             </div>
             <div className={cls.infoItem}>
                 <Text text={t('Ваш возраст')} className={cls.text} />
                 <Input
                     value={data?.age || ''}
-                    placeholder={t('Ваша возраст')}
-                    className={cls.input}
+                    placeholder={t('Ваш возраст')}
                     onChange={onChangeAge}
                     readonly={readonly}
+                    className={classNames(
+                        cls.input,
+                        {
+                            [cls.validateError]: validateErrors?.includes(
+                                ValidateProfileError.INCORRECT_AGE
+                            )
+                        },
+                        []
+                    )}
                 />
             </div>
             <div className={cls.infoItem}>
@@ -130,9 +146,17 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 <Input
                     value={data?.city}
                     placeholder={t('Город')}
-                    className={cls.input}
                     onChange={onChangeCity}
                     readonly={readonly}
+                    className={classNames(
+                        cls.input,
+                        {
+                            [cls.validateError]: validateErrors?.includes(
+                                ValidateProfileError.INCORRECT_CITY
+                            )
+                        },
+                        []
+                    )}
                 />
             </div>
             <div className={cls.infoItem}>
@@ -140,9 +164,17 @@ export const ProfileCard = (props: ProfileCardProps) => {
                 <Input
                     value={data?.username}
                     placeholder={t('Имя пользователя')}
-                    className={cls.input}
                     onChange={onChangeUsername}
                     readonly={readonly}
+                    className={classNames(
+                        cls.input,
+                        {
+                            [cls.validateError]: validateErrors?.includes(
+                                ValidateProfileError.INCORRECT_USERNAME
+                            )
+                        },
+                        []
+                    )}
                 />
             </div>
             <div className={cls.infoItem}>

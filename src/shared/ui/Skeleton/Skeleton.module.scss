@@ -1,0 +1,26 @@
+.Skeleton {
+    display: inline-block;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: var(--skeleton-bg-color);
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        transform: translateX(-100%);
+        background-image: linear-gradient(to right, transparent 0%, var(--skeleton-color) 50%, transparent 100%);
+        animation: shimmer 1.4s infinite;
+        content: '';
+    }
+
+    @keyframes shimmer {
+        100% {
+            transform: translateX(100%);
+        }
+    }
+}

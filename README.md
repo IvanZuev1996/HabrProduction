@@ -69,3 +69,12 @@
 -   Добавлены тесты для модуля [профиля](src/entities/Profile/ui/ProfileCard/ProfileCard.tsx)
 -   Добавлено расширение [Folder Template](https://github.com/Huuums/vscode-folder-templates)
 -   Добавлен [npm concurrently](https://www.npmjs.com/package/concurrently)
+
+#### Статьи, комментарии. Нормализация данных. Блочная структура. Union типы. Skeleton. Protected Routes
+
+-   Добавлен компонент [RequireAuth](src/app/providers/router/ui/RequireAuth.tsx) для защиты определенных маршрутов для не авторизованных пользователей.
+-   Добавлена страница [articlesPage](src/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.tsx), [articleDetailsPage](src/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.tsx)
+-   Реализована блочкая структура статьи
+-   Реализован функционал [копирования](src/shared/ui/Code/Code.tsx) текста (кода)
+-   Добавлен [EntityAdapter](src/pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice.ts) для нормализации данных. [EntityAdapterPage](https://redux-toolkit.js.org/api/createEntityAdapter), [Normalizing State](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape)
+-   Добавлен функционал просмотра профилей разных пользователей, просмотра и отправки комментариев.

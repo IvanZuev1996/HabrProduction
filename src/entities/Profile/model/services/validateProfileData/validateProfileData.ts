@@ -16,7 +16,7 @@ export const validateProfileData = (profile?: Profile) => {
         errors.push(ValidateProfileError.INCORRECT_LASTNAME);
     }
 
-    if (!username || username.length < 5) {
+    if (!username) {
         errors.push(ValidateProfileError.INCORRECT_USERNAME);
     }
 
