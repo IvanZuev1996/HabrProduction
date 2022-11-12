@@ -1,6 +1,6 @@
 import { ArticleDetails } from 'entities/Article';
 import { CommentList } from 'entities/Comment';
-import { AddCommentForm } from 'features/addCommentForm';
+import { AddCommentForm } from 'features/AddCommentForm';
 import { fetchCommentsByArticleId } from 'pages/ArticleDetailsPage/model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { memo, Suspense, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
