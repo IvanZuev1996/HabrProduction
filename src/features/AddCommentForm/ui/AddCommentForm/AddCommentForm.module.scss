@@ -1,0 +1,16 @@
+.AddCommentForm {
+    margin-bottom: 40px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sendBtn {
+    margin-left: 10px;
+    width: 12%;
+}
+
+.input {
+    flex-grow: 1;
+}
