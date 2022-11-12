@@ -1,3 +1,4 @@
+import { EntityState } from '@reduxjs/toolkit';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Article } from 'entities/Article';
@@ -5,6 +6,7 @@ import {
     ArticleBlockType,
     ArticleType
 } from 'entities/Article/model/types/article';
+import { Comment } from 'entities/Comment';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
@@ -92,6 +94,36 @@ const article: Article = {
     ]
 };
 
+const comments = {
+    '1': {
+        id: '1',
+        text: 'some comment 1',
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png'
+        }
+    },
+    '2': {
+        id: '2',
+        text: 'some comment 2',
+        user: {
+            id: '1',
+            username: 'admin',
+            avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png'
+        }
+    },
+    '3': {
+        id: '3',
+        text: 'some comment 3',
+        user: {
+            id: '2',
+            username: 'user',
+            avatar: 'https://cdn-icons-png.flaticon.com/512/2202/2202112.png'
+        }
+    }
+};
+
 export const Normal = Template.bind({});
 Normal.args = {};
 
@@ -99,6 +131,10 @@ Normal.decorators = [
     StoreDecorator({
         articleDetails: {
             data: article
+        },
+        articleDetailsComments: {
+            entities: comments,
+            ids: ['1', '2', '3']
         }
     })
 ];
@@ -110,6 +146,45 @@ Dark.decorators = [
     StoreDecorator({
         articleDetails: {
             data: article
+        },
+        articleDetailsComments: {
+            entities: comments,
+            ids: ['1', '2', '3']
+        }
+    }),
+    ThemeDecorator(Theme.DARK)
+];
+
+export const Loading = Template.bind({});
+Loading.args = {};
+
+Loading.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+            isLoading: true
+        },
+        articleDetailsComments: {
+            isLoading: true,
+            entities: comments,
+            ids: ['1', '2', '3']
+        }
+    })
+];
+
+export const LoadingDark = Template.bind({});
+LoadingDark.args = {};
+
+LoadingDark.decorators = [
+    StoreDecorator({
+        articleDetails: {
+            data: article,
+            isLoading: true
+        },
+        articleDetailsComments: {
+            isLoading: true,
+            entities: comments,
+            ids: ['1', '2', '3']
         }
     }),
     ThemeDecorator(Theme.DARK)

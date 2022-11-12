@@ -22,7 +22,7 @@ export const updateProfileData = createAsyncThunk<
 
     try {
         const response: AxiosResponse<Profile> = await extra.api.put<Profile>(
-            '/profile',
+            `/profile/${formData?.id}`,
             formData
         );
 
@@ -32,7 +32,6 @@ export const updateProfileData = createAsyncThunk<
 
         return response.data;
     } catch (e) {
-        console.log(e);
         return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
     }
 });
