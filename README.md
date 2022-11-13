@@ -77,4 +77,7 @@
 -   Реализована блочкая структура статьи
 -   Реализован функционал [копирования](src/shared/ui/Code/Code.tsx) текста (кода)
 -   Добавлен [EntityAdapter](src/pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice.ts) для нормализации данных. [EntityAdapterPage](https://redux-toolkit.js.org/api/createEntityAdapter), [Normalizing State](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape)
+
+#### Профили. Infinite scroll, intersection API. Отправка комментариев, профили пользователей
+
 -   Добавлен функционал просмотра профилей разных пользователей, просмотра и отправки комментариев.
