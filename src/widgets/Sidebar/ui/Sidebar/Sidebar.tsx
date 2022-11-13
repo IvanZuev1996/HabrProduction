@@ -3,7 +3,6 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { useSelector } from 'react-redux';
-import { getSidebarState } from 'entities/Sidebar';
 import { memo, useMemo } from 'react';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';

@@ -25,6 +25,11 @@ const article: Article = {
     img: 'https://i.ytimg.com/vi/GkCBRKWKO_8/maxresdefault.jpg?7857057827',
     views: 1022,
     createdAt: '04.11.2022',
+    user: {
+        id: '1',
+        username: 'admin',
+        avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png'
+    },
     type: [ArticleType.IT],
     blocks: [
         {

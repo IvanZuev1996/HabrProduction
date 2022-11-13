@@ -81,3 +81,5 @@
 #### Профили. Infinite scroll, intersection API. Отправка комментариев, профили пользователей
 
 -   Добавлен функционал просмотра профилей разных пользователей, просмотра и отправки комментариев.
+-   Реализован хук [UseHover](src/shared/lib/hooks/useHover/useHover.ts)
+-   Реализованы 2 типа отображения карточек [статей](src/entities/Article/ui/ArticleList/ArticleList.tsx)

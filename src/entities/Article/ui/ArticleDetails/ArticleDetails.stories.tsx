@@ -10,7 +10,7 @@ import { Theme } from 'app/providers/ThemeProvider';
 import { ArticleDetails } from './ArticleDetails';
 
 export default {
-    title: 'entities/ArticleDetails',
+    title: 'entities/Article/ArticleDetails',
     component: ArticleDetails,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -28,6 +28,11 @@ const article: Article = {
     subtitle: 'Что нового в JS за 2022 год?',
     img: 'https://i.ytimg.com/vi/GkCBRKWKO_8/maxresdefault.jpg?7857057827',
     views: 1022,
+    user: {
+        id: '1',
+        username: 'admin',
+        avatar: 'https://cdn-icons-png.flaticon.com/512/3135/3135768.png'
+    },
     createdAt: '04.11.2022',
     type: [ArticleType.IT],
     blocks: [
