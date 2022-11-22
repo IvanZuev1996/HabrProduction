@@ -83,3 +83,4 @@
 -   Добавлен функционал просмотра профилей разных пользователей, просмотра и отправки комментариев.
 -   Реализован хук [UseHover](src/shared/lib/hooks/useHover/useHover.ts)
 -   Реализованы 2 типа отображения карточек [статей](src/entities/Article/ui/ArticleList/ArticleList.tsx)
+-   Добавлена features [ArticleViewSelector](src/features/ArticleViewSelector/ArticleViewSelector.tsx) для возможности переключения вида списка статей.
