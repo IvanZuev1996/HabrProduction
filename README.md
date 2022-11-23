@@ -84,3 +84,5 @@
 -   Реализован хук [UseHover](src/shared/lib/hooks/useHover/useHover.ts)
 -   Реализованы 2 типа отображения карточек [статей](src/entities/Article/ui/ArticleList/ArticleList.tsx)
 -   Добавлена features [ArticleViewSelector](src/features/ArticleViewSelector/ArticleViewSelector.tsx) для возможности переключения вида списка статей.
+-   Реализован хук [useIntiniteScroll](src/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll.ts) для отслеживания позиции DOM-елементов.
+-   Реализована бесконечная лента [ArticlesPage](src/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.tsx)
