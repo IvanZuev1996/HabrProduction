@@ -50,6 +50,14 @@
     cursor: pointer;
     transition: 0.2s;
 
+    .skeletonPosition {
+        margin-top: 8px;
+    }
+
+    .card {
+        padding-bottom: 22px;
+    }
+
     .data {
         position: absolute;
         top: 0;

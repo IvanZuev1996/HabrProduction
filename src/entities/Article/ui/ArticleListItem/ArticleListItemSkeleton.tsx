@@ -61,7 +61,7 @@ export const ArticleListItemSkeleton = memo(
 
         return (
             <div className={classNames('', {}, [className, cls[view]])}>
-                <Card>
+                <Card className={cls.card}>
                     <div className={cls.imageWrapper}>
                         <Skeleton
                             width="100%"
@@ -70,7 +70,12 @@ export const ArticleListItemSkeleton = memo(
                         />
                     </div>
                     <div className={cls.infoWrapper}>
-                        <Skeleton width={130} height={16} border="4px" />
+                        <Skeleton
+                            width={130}
+                            height={16}
+                            border="4px"
+                            className={cls.skeletonPosition}
+                        />
                     </div>
                     <Skeleton
                         width={150}

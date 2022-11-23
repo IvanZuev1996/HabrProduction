@@ -7,7 +7,7 @@ import { StateSchema } from 'app/providers/StoreProvider';
 import { Article, ArticleView } from 'entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
-import { ArticlePageSchema } from '../types/articlesPage';
+import { ArticlePageSchema } from '../types/articlesPageSchema';
 
 const articlesAdapter = createEntityAdapter<Article>({
     // получение id (для того, чтобы antity adapter понимал по какому полю будет идти нормализация)
@@ -25,7 +25,9 @@ const articlesPageSlice = createSlice({
         error: undefined,
         entities: {},
         ids: [],
-        view: ArticleView.SMALL
+        view: ArticleView.SMALL,
+        hasMore: true,
+        page: 1
     }),
     reducers: {
         setView: (state, action: PayloadAction<ArticleView>) => {
@@ -35,10 +37,15 @@ const articlesPageSlice = createSlice({
                 action.payload
             );
         },
+        setPage: (state, action: PayloadAction<number>) => {
+            state.page = action.payload;
+        },
         initState: (state) => {
-            state.view = localStorage.getItem(
+            const view = localStorage.getItem(
                 ARTICLES_VIEW_LOCALSTORAGE_KEY
             ) as ArticleView;
+            state.view = view;
+            state.limit = view === ArticleView.BIG ? 4 : 9;
         }
     },
     extraReducers: (builder) => {
@@ -51,7 +58,8 @@ const articlesPageSlice = createSlice({
                 fetchArticlesList.fulfilled,
                 (state, action: PayloadAction<Article[]>) => {
                     state.isLoading = false;
-                    articlesAdapter.setAll(state, action.payload);
+                    articlesAdapter.addMany(state, action.payload);
+                    state.hasMore = action.payload.length > 0;
                 }
             )
             .addCase(fetchArticlesList.rejected, (state, action) => {
