@@ -22,12 +22,6 @@ export const Navbar = memo(({ className, onToggleSidebar }: NavbarProps) => {
     const dispatch = useDispatch();
 
     const [isAuthModal, setIsAuthModal] = useState(false);
-    // const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
-    // const onToggleSidebar = useCallback(() => {
-    //     dispatch(sidebarActions.toggleState(!isSidebarOpen));
-    //     setIsSidebarOpen(!isSidebarOpen);
-    // }, [dispatch, isSidebarOpen]);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);
@@ -43,7 +37,7 @@ export const Navbar = memo(({ className, onToggleSidebar }: NavbarProps) => {
 
     if (authData) {
         return (
-            <div
+            <header
                 data-testid="navbar"
                 className={classNames(cls.Navbar, {}, [className])}
             >
@@ -62,12 +56,12 @@ export const Navbar = memo(({ className, onToggleSidebar }: NavbarProps) => {
                 >
                     {t('Выйти')}
                 </Button>
-            </div>
+            </header>
         );
     }
 
     return (
-        <div
+        <header
             className={classNames(cls.Navbar, {}, [className])}
             data-testid="navbar"
         >
@@ -89,6 +83,6 @@ export const Navbar = memo(({ className, onToggleSidebar }: NavbarProps) => {
             {isAuthModal && (
                 <LoginModal isOpen={isAuthModal} onClose={onCloseModal} />
             )}
-        </div>
+        </header>
     );
 });

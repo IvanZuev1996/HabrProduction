@@ -77,4 +77,12 @@
 -   Реализована блочкая структура статьи
 -   Реализован функционал [копирования](src/shared/ui/Code/Code.tsx) текста (кода)
 -   Добавлен [EntityAdapter](src/pages/ArticleDetailsPage/model/slice/articleDetailsCommentsSlice.ts) для нормализации данных. [EntityAdapterPage](https://redux-toolkit.js.org/api/createEntityAdapter), [Normalizing State](https://redux.js.org/usage/structuring-reducers/normalizing-state-shape)
+
+#### Профили. Infinite scroll, intersection API. Отправка комментариев, профили пользователей
+
 -   Добавлен функционал просмотра профилей разных пользователей, просмотра и отправки комментариев.
+-   Реализован хук [UseHover](src/shared/lib/hooks/useHover/useHover.ts)
+-   Реализованы 2 типа отображения карточек [статей](src/entities/Article/ui/ArticleList/ArticleList.tsx)
+-   Добавлена features [ArticleViewSelector](src/features/ArticleViewSelector/ArticleViewSelector.tsx) для возможности переключения вида списка статей.
+-   Реализован хук [useIntiniteScroll](src/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll.ts) для отслеживания позиции DOM-елементов.
+-   Реализована бесконечная лента [ArticlesPage](src/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.tsx)

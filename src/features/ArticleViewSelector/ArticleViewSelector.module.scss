@@ -1,0 +1,21 @@
+.ArticleViewSelector {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.Button {
+    padding: 0.1px;
+    margin-right: 8px;
+}
+
+.icon {
+    border-radius: 6px;
+    fill: var(--secondary-color);
+    width: 27px;
+    height: 27px;
+}
+
+.selected {
+    background-color: var(--additional-color);
+    fill: var(--bg-color);
+}
