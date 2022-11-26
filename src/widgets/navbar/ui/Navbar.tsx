@@ -3,25 +3,30 @@ import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import MenuIcon from 'shared/assets/icons/menu-icon.svg';
 import { Theme, useTheme } from 'app/providers/ThemeProvider';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getSidebarState, sidebarActions } from 'entities/Sidebar';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
     className?: string;
-    onToggleSidebar?: () => void;
 }
 
-export const Navbar = memo(({ className, onToggleSidebar }: NavbarProps) => {
+export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const { theme } = useTheme();
     const authData = useSelector(getUserAuthData);
-    const dispatch = useDispatch();
-
+    const { isOpen } = useSelector(getSidebarState);
+    const dispatch = useAppDispatch();
     const [isAuthModal, setIsAuthModal] = useState(false);
+
+    const onToggleSidebar = useCallback(() => {
+        dispatch(sidebarActions.toggleState(!isOpen));
+    }, [dispatch, isOpen]);
 
     const onCloseModal = useCallback(() => {
         setIsAuthModal(false);

@@ -86,3 +86,7 @@
 -   Добавлена features [ArticleViewSelector](src/features/ArticleViewSelector/ArticleViewSelector.tsx) для возможности переключения вида списка статей.
 -   Реализован хук [useIntiniteScroll](src/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll.ts) для отслеживания позиции DOM-елементов.
 -   Реализована бесконечная лента [ArticlesPage](src/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.tsx)
+
+#### Троттлинг. Дебаунс. Группировка редюсеров. Фильтры, сортировка, поиск. CopyPlugin и продакшн на netlify.
+
+-   Исправлен компонент [DynamicModuleLoader](src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx) для предотвращения повторного вмонтирования редюсеров.

@@ -9,10 +9,10 @@ import {
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { ArticleViewSelector } from 'features/ArticleViewSelector/ArticleViewSelector';
+import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Page } from 'shared/ui/Page/Page';
+import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 import {
     getArticlesPageError,
     getArticlesPageIsLoading,
@@ -46,12 +46,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     }, [dispatch]);
 
     useInitialEffect(() => {
-        dispatch(articlesPageActions.initState());
-        dispatch(
-            fetchArticlesList({
-                page: 1
-            })
-        );
+        dispatch(initArticlesPage());
     });
 
     const onChangeView = useCallback(
@@ -62,7 +57,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     );
 
     return (
-        <DynamicModuleLoader reducers={reducers}>
+        <DynamicModuleLoader reducers={reducers} removeAfterAnmount={false}>
             <Page
                 className={classNames(cls.ArticlesPage, {}, [className])}
                 onScrollEnd={onLoadNextPart}

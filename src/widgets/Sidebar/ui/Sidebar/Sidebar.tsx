@@ -4,17 +4,18 @@ import { LangSwitcher } from 'shared/ui/LangSwitcher/LangSwitcher';
 import { ThemeSwitcher } from 'shared/ui/ThemeSwitcher';
 import { useSelector } from 'react-redux';
 import { memo, useMemo } from 'react';
+import { getSidebarState } from 'entities/Sidebar';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
 
 interface SidebarProps {
     className?: string;
-    isOpen?: boolean;
 }
 
-export const Sidebar = memo(({ className, isOpen = true }: SidebarProps) => {
+export const Sidebar = memo(({ className }: SidebarProps) => {
     const { t } = useTranslation();
+    const { isOpen } = useSelector(getSidebarState);
     const sidebarItemsList = useSelector(getSidebarItems);
 
     const itemsList = useMemo(
