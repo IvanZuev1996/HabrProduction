@@ -8,6 +8,7 @@ import {
 import { counterReducer } from 'entities/Counter/model/slice/counterSlice';
 import { sidebarReducer } from 'entities/Sidebar';
 import { userReducer } from 'entities/User';
+import { uiReducer } from 'features/UI';
 import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
@@ -21,7 +22,8 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        sidebar: sidebarReducer
+        sidebar: sidebarReducer,
+        ui: uiReducer
     };
 
     const reducerManager = createReducerManager(rootReducer);
