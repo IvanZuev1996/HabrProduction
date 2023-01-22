@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames, Mods } from 'shared/lib/helpers/classNames';
 import cls from './Select.module.scss';
 
-interface SelectOption {
+export interface SelectOption {
     value: string;
     content: string;
 }

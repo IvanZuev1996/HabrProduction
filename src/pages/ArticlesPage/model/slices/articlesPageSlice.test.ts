@@ -163,10 +163,14 @@ describe('articlesPageSlice.test', () => {
             isLoading: false
         };
         expect(
-            articlesPageReducer(
-                state as ArticlePageSchema,
-                fetchArticlesList.pending
-            )
+            articlesPageReducer(state as ArticlePageSchema, {
+                ...fetchArticlesList.pending,
+                meta: {
+                    arg: {
+                        replace: false
+                    }
+                }
+            })
         ).toEqual({ error: undefined, isLoading: true });
     });
 
@@ -175,12 +179,13 @@ describe('articlesPageSlice.test', () => {
             error: undefined,
             isLoading: false,
             entities: {},
-            ids: []
+            ids: [],
+            hasMore: true
         };
         expect(
             articlesPageReducer(
                 state as ArticlePageSchema,
-                fetchArticlesList.fulfilled(articles, '', { page: 1 })
+                fetchArticlesList.fulfilled(articles, '', { replace: false })
             )
         ).toEqual({
             isLoading: false,
@@ -189,7 +194,7 @@ describe('articlesPageSlice.test', () => {
                 '2': articles[1]
             },
             ids: ['1', '2'],
-            hasMore: true
+            hasMore: false
         });
     });
 

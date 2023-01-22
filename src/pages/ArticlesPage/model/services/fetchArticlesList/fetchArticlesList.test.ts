@@ -170,7 +170,7 @@ describe('fetchArtilcesList.test', () => {
                 data: articles
             })
         );
-        const result = await thunk.callThunk({ page: 1 });
+        const result = await thunk.callThunk({ replace: false });
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -184,7 +184,7 @@ describe('fetchArtilcesList.test', () => {
                 status: 403
             })
         );
-        const result = await thunk.callThunk({ page: 1 });
+        const result = await thunk.callThunk({ replace: false });
 
         expect(thunk.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('rejected');

@@ -92,3 +92,5 @@
 -   Исправлен компонент [DynamicModuleLoader](src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx) для предотвращения повторного вмонтирования редюсеров.
 -   Добавлен хук [useThrottle](src/shared/lib/hooks/useThrottle/useThrottle.ts) для задержки часто повторяющихся событий.
 -   Обновлен компонент [Page](src/widgets/Page/Page.tsx) для реализации функционала сохранения позиции скрола для каждой страницы.
+-   Реализована фильтрация и сортировка списка статей
+-   Добавлен хук [useDebounce](src/shared/lib/hooks/useDebounce/useDebounce.ts) для реализвации функционала отложенного действия
