@@ -1,15 +1,15 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 import {
     getArticleCommentsError,
     getArticleCommentsIsLoading
 } from './comment';
 
 const state: DeepPartial<StateSchema> = {
-    articleDetailsComments: {
-        isLoading: true,
-        error: 'error'
+    articleDetailsPage: {
+        comments: {
+            isLoading: true,
+            error: 'error'
+        }
     }
 };
 

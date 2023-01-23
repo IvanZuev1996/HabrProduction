@@ -94,3 +94,5 @@
 -   Обновлен компонент [Page](src/widgets/Page/Page.tsx) для реализации функционала сохранения позиции скрола для каждой страницы.
 -   Реализована фильтрация и сортировка списка статей
 -   Добавлен хук [useDebounce](src/shared/lib/hooks/useDebounce/useDebounce.ts) для реализвации функционала отложенного действия
+-   Добавлен [список рекомендаций](src/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.tsx) внутри статьи
+-   Реализована [группировка редюсеров](src/pages/ArticleDetailsPage/model/types/index.ts)

@@ -52,7 +52,8 @@ module.exports = {
                     'to',
                     'border',
                     'width',
-                    'height'
+                    'height',
+                    'target'
                 ]
             }
         ],

@@ -137,9 +137,11 @@ Normal.decorators = [
         articleDetails: {
             data: article
         },
-        articleDetailsComments: {
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     })
 ];
@@ -152,9 +154,11 @@ Dark.decorators = [
         articleDetails: {
             data: article
         },
-        articleDetailsComments: {
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     }),
     ThemeDecorator(Theme.DARK)
@@ -169,10 +173,12 @@ Loading.decorators = [
             data: article,
             isLoading: true
         },
-        articleDetailsComments: {
-            isLoading: true,
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                isLoading: true,
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     })
 ];
@@ -186,10 +192,12 @@ LoadingDark.decorators = [
             data: article,
             isLoading: true
         },
-        articleDetailsComments: {
-            isLoading: true,
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                isLoading: true,
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     }),
     ThemeDecorator(Theme.DARK)
