@@ -6,7 +6,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import ArticlesPage from './ArticlesPage';
 
 export default {
-    title: 'pages/ArticlesPage',
+    title: 'pages/Article/ArticlesPage',
     component: ArticlesPage,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -338,6 +338,33 @@ Dark.decorators = [
         articlesPage: {
             entities: articles,
             ids: ['1', '2', '3', '4']
+        }
+    })
+];
+
+export const Loading = Template.bind({});
+Loading.args = {};
+
+Loading.decorators = [
+    StoreDecorator({
+        articlesPage: {
+            entities: articles,
+            ids: ['1', '2', '3', '4'],
+            isLoading: true
+        }
+    })
+];
+
+export const DarkIsLoading = Template.bind({});
+DarkIsLoading.args = {};
+
+DarkIsLoading.decorators = [
+    ThemeDecorator(Theme.DARK),
+    StoreDecorator({
+        articlesPage: {
+            entities: articles,
+            ids: ['1', '2', '3', '4'],
+            isLoading: true
         }
     })
 ];

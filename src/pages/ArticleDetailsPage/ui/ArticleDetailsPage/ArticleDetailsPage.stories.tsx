@@ -1,4 +1,3 @@
-import { EntityState } from '@reduxjs/toolkit';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { Article } from 'entities/Article';
@@ -6,13 +5,12 @@ import {
     ArticleBlockType,
     ArticleType
 } from 'entities/Article/model/types/article';
-import { Comment } from 'entities/Comment';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 export default {
-    title: 'pages/ArticleDetailsPage',
+    title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -137,9 +135,11 @@ Normal.decorators = [
         articleDetails: {
             data: article
         },
-        articleDetailsComments: {
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     })
 ];
@@ -152,9 +152,11 @@ Dark.decorators = [
         articleDetails: {
             data: article
         },
-        articleDetailsComments: {
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     }),
     ThemeDecorator(Theme.DARK)
@@ -169,10 +171,12 @@ Loading.decorators = [
             data: article,
             isLoading: true
         },
-        articleDetailsComments: {
-            isLoading: true,
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                isLoading: true,
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     })
 ];
@@ -186,10 +190,12 @@ LoadingDark.decorators = [
             data: article,
             isLoading: true
         },
-        articleDetailsComments: {
-            isLoading: true,
-            entities: comments,
-            ids: ['1', '2', '3']
+        articleDetailsPage: {
+            comments: {
+                isLoading: true,
+                entities: comments,
+                ids: ['1', '2', '3']
+            }
         }
     }),
     ThemeDecorator(Theme.DARK)

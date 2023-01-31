@@ -1,4 +1,4 @@
-import { Suspense, useCallback, useEffect, useState } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useTheme } from 'app/providers/ThemeProvider';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { AppRouter } from 'app/providers/router';
@@ -13,13 +13,6 @@ function App() {
     const dispatch = useAppDispatch();
     const inited = useSelector(getUserInited);
 
-    const [isCollapsedSidebar, setIsCollapsedSidebar] =
-        useState<boolean>(false);
-
-    const onToggleSidebar = useCallback(() => {
-        setIsCollapsedSidebar(!isCollapsedSidebar);
-    }, [isCollapsedSidebar]);
-
     useEffect(() => {
         dispatch(userActions.initAuthData());
     }, [dispatch]);
@@ -27,9 +20,9 @@ function App() {
     return (
         <div className={classNames('app', {}, [])}>
             <Suspense fallback="">
-                <Navbar onToggleSidebar={onToggleSidebar} />
+                <Navbar />
                 <div className={classNames('content-page', {}, [])}>
-                    <Sidebar isOpen={isCollapsedSidebar} />
+                    <Sidebar />
                     {inited && <AppRouter />}
                 </div>
             </Suspense>

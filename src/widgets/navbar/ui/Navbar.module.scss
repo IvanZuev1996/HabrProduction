@@ -42,3 +42,18 @@
     opacity: 1;
     transition: 0s;
 }
+
+.appName {
+    width: var(--sidebar-width);
+    margin-left: 18px;
+}
+
+.createArticle {
+    margin-left: auto;
+    margin-right: 50px;
+}
+
+.articleCreateBlock {
+    display: flex;
+    margin-left: auto;
+}

@@ -1,6 +1,4 @@
 import { StateSchema } from 'app/providers/StoreProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
 import {
     getAddCommentFormError,
     getAddCommentFormText
@@ -22,7 +20,7 @@ describe('addCommentFormSelectors.test', () => {
 
     test('should work return form text with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getAddCommentFormText(state as StateSchema)).toEqual(undefined);
+        expect(getAddCommentFormText(state as StateSchema)).toEqual('');
     });
 
     test('should return form error', () => {
@@ -31,6 +29,6 @@ describe('addCommentFormSelectors.test', () => {
 
     test('should work return form error with empty state', () => {
         const state: DeepPartial<StateSchema> = {};
-        expect(getAddCommentFormText(state as StateSchema)).toEqual(undefined);
+        expect(getAddCommentFormText(state as StateSchema)).toEqual('');
     });
 });

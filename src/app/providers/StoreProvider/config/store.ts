@@ -8,6 +8,7 @@ import {
 import { counterReducer } from 'entities/Counter/model/slice/counterSlice';
 import { sidebarReducer } from 'entities/Sidebar';
 import { userReducer } from 'entities/User';
+import { uiReducer } from 'features/UI';
 import { NavigateOptions, To } from 'react-router-dom';
 import { $api } from 'shared/api/api';
 import { createReducerManager } from './reducerManager';
@@ -15,21 +16,20 @@ import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,
-    asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void
+    asyncReducers?: ReducersMapObject<StateSchema>
 ) {
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
-        sidebar: sidebarReducer
+        sidebar: sidebarReducer,
+        ui: uiReducer
     };
 
     const reducerManager = createReducerManager(rootReducer);
 
     const extraErg: ThunkExtraArg = {
-        api: $api,
-        navigate
+        api: $api
     };
 
     const store = configureStore({

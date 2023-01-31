@@ -1,5 +1,15 @@
-.Card {
+.Card,
+.clear {
     border-radius: 6px;
-    background: var(--elements-bg-color);
     box-shadow: var(--shadow-size);
+    background: var(--elements-bg-color);
+}
+
+.normal {
+    border: 1px solid var(--additional-color);
+    opacity: 1;
+}
+
+.outlined {
+    opacity: 0.6;
 }

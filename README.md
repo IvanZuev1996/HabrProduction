@@ -86,3 +86,15 @@
 -   Добавлена features [ArticleViewSelector](src/features/ArticleViewSelector/ArticleViewSelector.tsx) для возможности переключения вида списка статей.
 -   Реализован хук [useIntiniteScroll](src/shared/lib/hooks/useInfiniteScroll/useInfiniteScroll.ts) для отслеживания позиции DOM-елементов.
 -   Реализована бесконечная лента [ArticlesPage](src/pages/ArticlesPage/ui/ArticlesPage/ArticlesPage.tsx)
+
+#### Троттлинг. Дебаунс. Группировка редюсеров. Фильтры, сортировка, поиск. CopyPlugin и продакшн на netlify.
+
+-   Исправлен компонент [DynamicModuleLoader](src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx) для предотвращения повторного вмонтирования редюсеров.
+-   Добавлен хук [useThrottle](src/shared/lib/hooks/useThrottle/useThrottle.ts) для задержки часто повторяющихся событий.
+-   Обновлен компонент [Page](src/widgets/Page/Page.tsx) для реализации функционала сохранения позиции скрола для каждой страницы.
+-   Реализована фильтрация и сортировка списка статей
+-   Добавлен хук [useDebounce](src/shared/lib/hooks/useDebounce/useDebounce.ts) для реализвации функционала отложенного действия
+-   Добавлен [список рекомендаций](src/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.tsx) внутри статьи
+-   Реализована [группировка редюсеров](src/pages/ArticleDetailsPage/model/types/index.ts)
+-   Реализован каркас для дальнейшего функционала редактирования и создания статей.
+-   Добавлены компоненты [ArticleEditPage](src/pages/ArticleEditPage/ui/ArticleEditPage.tsx) и [ArticleCreatePage](src/pages/ArticleCreatePage/ui/ArticleCreatePage.tsx)
