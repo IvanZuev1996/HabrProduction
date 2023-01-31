@@ -5,3 +5,4 @@ export { ArticleList } from './ui/ArticleList/ArticleList';
 export { ArticleSortField, ArticleType } from './model/types/article';
 export { ArticleSortSelector } from './ui/ArticleSortSelector/ArticleSortSelector';
 export { ArticleTypeTabs } from './ui/ArticleTypeTabs/ArticleTypeTabs';
+export { getArticleDetailsData } from './model/selectors/articleDetails';

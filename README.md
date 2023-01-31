@@ -96,3 +96,5 @@
 -   Добавлен хук [useDebounce](src/shared/lib/hooks/useDebounce/useDebounce.ts) для реализвации функционала отложенного действия
 -   Добавлен [список рекомендаций](src/pages/ArticleDetailsPage/ui/ArticleDetailsPage/ArticleDetailsPage.tsx) внутри статьи
 -   Реализована [группировка редюсеров](src/pages/ArticleDetailsPage/model/types/index.ts)
+-   Реализован каркас для дальнейшего функционала редактирования и создания статей.
+-   Добавлены компоненты [ArticleEditPage](src/pages/ArticleEditPage/ui/ArticleEditPage.tsx) и [ArticleCreatePage](src/pages/ArticleCreatePage/ui/ArticleCreatePage.tsx)

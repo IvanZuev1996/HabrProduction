@@ -21,6 +21,13 @@ export enum TextSize {
     XL = 'size_xl'
 }
 
+export enum TextWeight {
+    NORMAL = 'normal_weight',
+    MEDIUM = 'medium_weight',
+    BOLD = 'bold_weight',
+    EXTRABOLD = 'extra_bold_weight'
+}
+
 interface TextProps {
     className?: string;
     title?: string;
@@ -28,6 +35,7 @@ interface TextProps {
     theme?: TextTheme;
     align?: TextAlign;
     size?: TextSize;
+    weight?: TextWeight;
 }
 
 export const Text = memo((props: TextProps) => {
@@ -38,7 +46,8 @@ export const Text = memo((props: TextProps) => {
         text,
         align = TextAlign.LEFT,
         theme = TextTheme.NORMAL,
-        size = TextSize.M
+        size = TextSize.M,
+        weight = TextWeight.NORMAL
     } = props;
 
     return (
@@ -47,7 +56,8 @@ export const Text = memo((props: TextProps) => {
                 className,
                 cls[theme],
                 cls[align],
-                cls[size]
+                cls[size],
+                cls[weight]
             ])}
         >
             {title && <p className={cls.title}>{title}</p>}
