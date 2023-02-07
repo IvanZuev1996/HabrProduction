@@ -26,6 +26,10 @@ export const Page = memo((props: PageProps) => {
         getUIScrollByPath(state, pathname)
     );
 
+    if (document.body.offsetHeight <= window.innerHeight && onScrollEnd) {
+        onScrollEnd();
+    }
+
     useInfiniteScroll({
         triggerRef,
         wrapperRef,

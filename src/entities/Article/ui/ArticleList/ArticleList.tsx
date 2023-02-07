@@ -13,10 +13,19 @@ interface ArticleListProps {
     isLoading?: boolean;
     view?: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    skeletonsCount?: number;
 }
 
-const getSkeletons = (view: ArticleView) =>
-    new Array(view === ArticleView.SMALL ? 9 : 3)
+const getSkeletons = (view: ArticleView, count: number | undefined) => {
+    let skeletonsCount: number;
+
+    if (!count) {
+        skeletonsCount = view === ArticleView.SMALL ? 9 : 3;
+    } else {
+        skeletonsCount = count;
+    }
+
+    return new Array(skeletonsCount)
         .fill(0)
         .map((item, index) => (
             <ArticleListItemSkeleton
@@ -25,6 +34,7 @@ const getSkeletons = (view: ArticleView) =>
                 key={index}
             />
         ));
+};
 
 export const ArticleList = memo((props: ArticleListProps) => {
     const {
@@ -32,7 +42,8 @@ export const ArticleList = memo((props: ArticleListProps) => {
         articles,
         view = ArticleView.SMALL,
         isLoading,
-        target
+        target,
+        skeletonsCount
     } = props;
     const { t } = useTranslation();
 
@@ -57,7 +68,7 @@ export const ArticleList = memo((props: ArticleListProps) => {
     return (
         <div className={classNames('', {}, [className, cls[view]])}>
             {articles.length > 0 ? articles.map(renderArticle) : null}
-            {isLoading && getSkeletons(view)}
+            {isLoading && getSkeletons(view, skeletonsCount)}
         </div>
     );
 });

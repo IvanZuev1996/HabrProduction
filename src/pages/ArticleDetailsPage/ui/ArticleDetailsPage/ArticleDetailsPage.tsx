@@ -82,6 +82,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                         isLoading={recommendationsIsLoading}
                         className={cls.recommendations}
                         target="_blank"
+                        skeletonsCount={4}
                     />
                     <Text title={t('Комментарии')} align={TextAlign.LEFT} />
                     <Suspense fallback={<Loader />}>

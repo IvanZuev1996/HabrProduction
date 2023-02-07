@@ -176,6 +176,11 @@ Loading.decorators = [
                 isLoading: true,
                 entities: comments,
                 ids: ['1', '2', '3']
+            },
+            recommendations: {
+                entities: {},
+                ids: [],
+                isLoading: true
             }
         }
     })
@@ -195,6 +200,11 @@ LoadingDark.decorators = [
                 isLoading: true,
                 entities: comments,
                 ids: ['1', '2', '3']
+            },
+            recommendations: {
+                entities: {},
+                ids: [],
+                isLoading: true
             }
         }
     }),
