@@ -14,10 +14,12 @@
     flex: 4;
 }
 
+.input {
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
 .infoItem {
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
     padding-left: 10px;
     border-radius: 8px;
     border: 1px solid var(--bg-color);
@@ -29,15 +31,7 @@
 
 .isLoading,
 .error {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 300px;
-}
-
-.avatarWrapper {
-    display: flex;
-    justify-content: center;
 }
 
 .editing {

@@ -59,7 +59,11 @@ module.exports = {
                     'border',
                     'width',
                     'height',
-                    'target'
+                    'target',
+                    'direction',
+                    'align',
+                    'gap',
+                    'justify'
                 ]
             }
         ],

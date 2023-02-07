@@ -5,6 +5,7 @@ import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { useSelector } from 'react-redux';
 import { memo, useMemo } from 'react';
 import { getSidebarState } from 'entities/Sidebar';
+import { VStack } from 'shared/ui/Stack';
 import cls from './Sidebar.module.scss';
 import { SidebarItem } from '../SidebarItem/SidebarItem';
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
@@ -33,7 +34,9 @@ export const Sidebar = memo(({ className }: SidebarProps) => {
                 className
             ])}
         >
-            <div className={cls.items}>{itemsList}</div>
+            <VStack gap="8" className={cls.items}>
+                {itemsList}
+            </VStack>
             <div className={cls.switchers}>
                 <ThemeSwitcher />
                 <LangSwitcher className={cls.lang} short={isOpen} />
