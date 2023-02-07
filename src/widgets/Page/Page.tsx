@@ -26,10 +26,6 @@ export const Page = memo((props: PageProps) => {
         getUIScrollByPath(state, pathname)
     );
 
-    if (document.body.offsetHeight <= window.innerHeight && onScrollEnd) {
-        onScrollEnd();
-    }
-
     useInfiniteScroll({
         triggerRef,
         wrapperRef,
@@ -38,6 +34,14 @@ export const Page = memo((props: PageProps) => {
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
+
+        if (
+            wrapperRef.current.scrollHeight <=
+                wrapperRef.current.clientHeight &&
+            onScrollEnd
+        ) {
+            onScrollEnd();
+        }
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
