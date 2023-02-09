@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
 import MenuIcon from 'shared/assets/icons/menu-icon.svg';
-import { useTheme } from 'app/providers/ThemeProvider';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getSidebarState, sidebarActions } from 'entities/Sidebar';
 import { Text, TextSize, TextWeight } from 'shared/ui/Text/Text';

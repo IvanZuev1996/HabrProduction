@@ -68,6 +68,22 @@ ErrorTextDark.args = {
 
 ErrorTextDark.decorators = [ThemeDecorator(Theme.DARK)];
 
+export const SizeS = Template.bind({});
+SizeS.args = {
+    title: 'Some Title',
+    text: 'some discription',
+    size: TextSize.S
+};
+
+export const SizeSDark = Template.bind({});
+SizeSDark.args = {
+    title: 'Some Title',
+    text: 'some discription',
+    size: TextSize.S
+};
+
+SizeSDark.decorators = [ThemeDecorator(Theme.DARK)];
+
 export const SizeM = Template.bind({});
 SizeM.args = {
     title: 'Some Title',
@@ -99,3 +115,19 @@ SizeLDark.args = {
 };
 
 SizeMDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const SizeXL = Template.bind({});
+SizeXL.args = {
+    title: 'Some Title',
+    text: 'some discription',
+    size: TextSize.XL
+};
+
+export const SizeXLDark = Template.bind({});
+SizeXLDark.args = {
+    title: 'Some Title',
+    text: 'some discription',
+    size: TextSize.XL
+};
+
+SizeXLDark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -38,6 +38,15 @@ interface TextProps {
     weight?: TextWeight;
 }
 
+type HeaderTagType = 'h1' | 'h2' | 'h3' | 'h4';
+
+const mapSizeToHeaderTag: Record<TextSize, HeaderTagType> = {
+    [TextSize.S]: 'h4',
+    [TextSize.M]: 'h3',
+    [TextSize.L]: 'h2',
+    [TextSize.XL]: 'h1'
+};
+
 export const Text = memo((props: TextProps) => {
     const { t } = useTranslation();
     const {
@@ -50,6 +59,8 @@ export const Text = memo((props: TextProps) => {
         weight = TextWeight.NORMAL
     } = props;
 
+    const HeaderTag = mapSizeToHeaderTag[size];
+
     return (
         <div
             className={classNames('', {}, [
@@ -60,7 +71,7 @@ export const Text = memo((props: TextProps) => {
                 cls[weight]
             ])}
         >
-            {title && <p className={cls.title}>{title}</p>}
+            {title && <HeaderTag className={cls.title}>{title}</HeaderTag>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
     );

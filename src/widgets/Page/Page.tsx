@@ -34,14 +34,6 @@ export const Page = memo((props: PageProps) => {
 
     useInitialEffect(() => {
         wrapperRef.current.scrollTop = scrollPosition;
-
-        if (
-            wrapperRef.current.scrollHeight <=
-                wrapperRef.current.clientHeight &&
-            onScrollEnd
-        ) {
-            onScrollEnd();
-        }
     });
 
     const onScroll = useThrottle((e: UIEvent<HTMLDivElement>) => {
@@ -54,7 +46,7 @@ export const Page = memo((props: PageProps) => {
     }, 500);
 
     return (
-        <section
+        <main
             ref={wrapperRef}
             onScroll={onScroll}
             className={classNames(cls.Page, {}, [className])}
@@ -63,6 +55,6 @@ export const Page = memo((props: PageProps) => {
             {onScrollEnd ? (
                 <div ref={triggerRef} className={cls.trigger} />
             ) : null}
-        </section>
+        </main>
     );
 });
