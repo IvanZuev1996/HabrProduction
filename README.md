@@ -107,3 +107,5 @@
 -   Реализован собственный [eslint плагин](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin) для контролирования правильность написания путей в рамках одного модуля
 -   Релизован компонент [Flex](src/shared/ui/Stack/Flex/Flex.tsx) для позиционирования элементов на странице без дополнительного использования css
 -   Исправлены семмантические теги для текста
+-   Добавлена библиотека [Headlessui](https://headlessui.com)
+-   Реализован свой [ListBox](src/shared/ui/ListBox/ListBox.tsx)

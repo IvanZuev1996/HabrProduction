@@ -11,6 +11,7 @@
     --primary-color: rgb(255 255 255);
     --secondary-color: rgb(255 255 255 / 80%);
     --additional-color: rgb(220 220 220);
+    --additional-color-light: rgb(220 220 220 / 20%);
     --line-color: rgb(255 255 255 / 12%);
 
     // shadow
@@ -23,4 +24,7 @@
 
     // code
     --code-bg: rgb(31 31 31);
+
+    // listBox
+    --listbox-bg: rgb(31 31 31);
 }
