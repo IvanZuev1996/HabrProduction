@@ -9,9 +9,9 @@ import {
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
 import { Page } from 'widgets/Page/Page';
 import { useSearchParams } from 'react-router-dom';
+import { HStack } from 'shared/ui/Stack';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
 import {
@@ -20,7 +20,6 @@ import {
     getArticlesPageView
 } from '../../model/selectors/articlesPageSelectors';
 import {
-    articlesPageActions,
     articlesPageReducer,
     getArticles
 } from '../../model/slices/articlesPageSlice';

@@ -2,14 +2,20 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { ListBox } from './ListBox';
-import cls from './ListBox.module.scss';
 
 export default {
     title: 'shared/ListBox',
     component: ListBox,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    decorators: [
+        (Story) => (
+            <div style={{ padding: 100 }}>
+                <Story />
+            </div>
+        )
+    ]
 } as ComponentMeta<typeof ListBox>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
@@ -66,22 +72,74 @@ ReadonlyDark.args = {
 
 ReadonlyDark.decorators = [ThemeDecorator(Theme.DARK)];
 
-export const TopDirection = Template.bind({});
-TopDirection.args = {
+export const TopRightDirection = Template.bind({});
+TopRightDirection.args = {
     items,
     value: items[0].value,
     onChange: (value: string) => {},
-    direction: 'top',
-    className: cls.marginForStorybook
+    direction: 'top right'
 };
 
-export const TopDirectionDark = Template.bind({});
-TopDirectionDark.args = {
+export const TopRightDirectionDark = Template.bind({});
+TopRightDirectionDark.args = {
     items,
     value: items[0].value,
     onChange: (value: string) => {},
-    direction: 'top',
-    className: cls.marginForStorybook
+    direction: 'top right'
 };
 
-TopDirectionDark.decorators = [ThemeDecorator(Theme.DARK)];
+TopRightDirectionDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const TopLeftDirection = Template.bind({});
+TopLeftDirection.args = {
+    items,
+    value: items[0].value,
+    onChange: (value: string) => {},
+    direction: 'top left'
+};
+
+export const TopLeftDirectionDark = Template.bind({});
+TopLeftDirectionDark.args = {
+    items,
+    value: items[0].value,
+    onChange: (value: string) => {},
+    direction: 'top left'
+};
+
+TopLeftDirectionDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BottomLeftDirection = Template.bind({});
+BottomLeftDirection.args = {
+    items,
+    value: items[0].value,
+    onChange: (value: string) => {},
+    direction: 'bottom left'
+};
+
+export const BottomLeftDirectionDark = Template.bind({});
+BottomLeftDirectionDark.args = {
+    items,
+    value: items[0].value,
+    onChange: (value: string) => {},
+    direction: 'bottom left'
+};
+
+BottomLeftDirectionDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const BottomRightDirection = Template.bind({});
+BottomRightDirection.args = {
+    items,
+    value: items[0].value,
+    onChange: (value: string) => {},
+    direction: 'bottom right'
+};
+
+export const BottomRightDirectionDark = Template.bind({});
+BottomRightDirectionDark.args = {
+    items,
+    value: items[0].value,
+    onChange: (value: string) => {},
+    direction: 'bottom right'
+};
+
+BottomRightDirectionDark.decorators = [ThemeDecorator(Theme.DARK)];

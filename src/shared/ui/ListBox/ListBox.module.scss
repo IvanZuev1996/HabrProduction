@@ -1,10 +1,11 @@
 .ListBox {
     position: relative;
+    width: fit-content;
 }
 
 .trigger {
     min-width: 150px;
-    width: 100%;
+    width: fit-content;
     background: none;
     outline: none;
     padding: 0;
@@ -19,11 +20,10 @@
     z-index: 10000;
     border-radius: 12px;
     margin-top: 5px;
-    width: 100%;
 }
 
-.optionsTop {
-    bottom: 100%;
+.max {
+    width: 100%;
 }
 
 .optionsBottom {
@@ -55,6 +55,26 @@
     fill: var(--additional-color);
 }
 
-.marginForStorybook {
-    margin-top: 150px;
+.label {
+    margin: 0 6px;
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    right: 0;
 }

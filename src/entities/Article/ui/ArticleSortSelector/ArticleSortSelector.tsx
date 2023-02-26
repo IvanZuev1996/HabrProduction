@@ -1,10 +1,11 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useMemo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Select, SelectOption } from 'shared/ui/Select/Select';
+import { SelectOption } from 'shared/ui/Select/Select';
 import { SortOrder } from 'shared/types';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { HStack } from 'shared/ui/Stack';
+import { classNames } from 'shared/lib/helpers/classNames';
 import { ArticleSortField } from '../../model/types/article';
-import cls from './ArticleSortSelector.module.scss';
 
 interface ArticleSortSelectorProps {
     className?: string;
@@ -65,20 +66,19 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     );
 
     return (
-        <div className={classNames(cls.ArticleSortSelector, {}, [className])}>
-            <Select
-                options={sortFieldOptions}
-                label={t('Сортировать по')}
-                value={sort}
+        <HStack className={classNames('', {}, [className])}>
+            <ListBox
                 onChange={changeSortHandler}
+                value={sort}
+                items={sortFieldOptions}
+                label={t('Сортировать по')}
             />
-            <Select
-                options={orderOptions}
-                label={t('по')}
-                value={order}
+            <ListBox
                 onChange={changeOrderHandler}
-                className={cls.order}
+                value={order}
+                items={orderOptions}
+                label={t('по')}
             />
-        </div>
+        </HStack>
     );
 });

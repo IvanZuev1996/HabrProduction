@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useCallback } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
@@ -15,6 +15,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { SortOrder } from 'shared/types';
 import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 import { ArticleType } from 'entities/Article/model/types/article';
+import { HStack } from 'shared/ui/Stack';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
 import {
@@ -91,7 +92,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
 
     return (
         <div className={classNames('', {}, [className])}>
-            <div className={cls.sortWrapper}>
+            <HStack justify="between">
                 <ArticleSortSelector
                     onChangeOrder={onChangeOrder}
                     onChangeSort={onChangeSort}
@@ -99,7 +100,7 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
                     sort={sort}
                 />
                 <ArticleViewSelector view={view} onViewClick={onChangeView} />
-            </div>
+            </HStack>
             <Card className={cls.search}>
                 <Input
                     placeholder={t('Поиск...')}

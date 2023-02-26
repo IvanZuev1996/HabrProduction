@@ -42,6 +42,7 @@ export const CurrencySelect = memo(
                 value={value}
                 items={options}
                 readonly={readonly}
+                max
             />
         );
     }

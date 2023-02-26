@@ -8,7 +8,8 @@
     background: var(--navbar-bg-color);
 }
 
-.links {
+.links,
+.dropdown {
     margin-left: auto;
 }
 
@@ -55,5 +56,6 @@
 
 .articleCreateBlock {
     display: flex;
+    align-items: center;
     margin-left: auto;
 }
