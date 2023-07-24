@@ -10,6 +10,7 @@
     --primary-color: rgb(0 0 0);
     --secondary-color: rgb(0 0 0 / 80%);
     --additional-color: rgb(62 70 132);
+    --additional-color-light: rgb(62 70 132 / 20%);
     --line-color: rgb(0 0 0 / 12%);
 
     // shadow
@@ -25,4 +26,7 @@
 
     // card
     --card-bg: #f2f1f1;
+
+    // listBox
+    --listbox-bg: #f2f1f1;
 }

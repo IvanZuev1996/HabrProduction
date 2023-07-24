@@ -15,6 +15,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { Text, TextAlign } from 'shared/ui/Text/Text';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Page } from 'widgets/Page/Page';
+import { VStack } from 'shared/ui/Stack';
 import { getArticleRecommendations } from '../../model/slice/articleDetailsPageRecommendationsSlice';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
@@ -59,9 +60,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     if (!id) {
         return (
-            <div
-                className={classNames(cls.ArticleDetailsPage, {}, [className])}
-            >
+            <div className={classNames('', {}, [className])}>
                 {t('Статья не найдена')}
             </div>
         );
@@ -69,34 +68,31 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     return (
         <DynamicModuleLoader reducers={reducers}>
-            <Page
-                className={classNames(cls.ArticleDetailsPage, {}, [className])}
-            >
-                <ArticleDetailsPageHeader />
-                <ArticleDetails id={id} />
-                <Text
-                    title={t('Рекомендуем')}
-                    align={TextAlign.LEFT}
-                    className={cls.commentTitle}
-                />
-                <ArticleList
-                    articles={recommendations}
-                    isLoading={recommendationsIsLoading}
-                    className={cls.recommendations}
-                    target="_blank"
-                />
-                <Text
-                    title={t('Комментарии')}
-                    align={TextAlign.LEFT}
-                    className={cls.commentTitle}
-                />
-                <Suspense fallback={<Loader />}>
-                    <AddCommentForm onSendComment={onSendComment} />
-                </Suspense>
-                <CommentList
-                    isLoading={commentsIsLoading}
-                    comments={comments}
-                />
+            <Page className={classNames('', {}, [className])}>
+                <VStack gap="16" max align="normal">
+                    <ArticleDetailsPageHeader />
+                    <ArticleDetails id={id} />
+                    <Text
+                        title={t('Рекомендуем')}
+                        align={TextAlign.LEFT}
+                        className={cls.recommendationsTitle}
+                    />
+                    <ArticleList
+                        articles={recommendations}
+                        isLoading={recommendationsIsLoading}
+                        className={cls.recommendations}
+                        target="_blank"
+                        skeletonsCount={4}
+                    />
+                    <Text title={t('Комментарии')} align={TextAlign.LEFT} />
+                    <Suspense fallback={<Loader />}>
+                        <AddCommentForm onSendComment={onSendComment} />
+                    </Suspense>
+                    <CommentList
+                        isLoading={commentsIsLoading}
+                        comments={comments}
+                    />
+                </VStack>
             </Page>
         </DynamicModuleLoader>
     );

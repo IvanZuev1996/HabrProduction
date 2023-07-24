@@ -1,0 +1,80 @@
+.ListBox {
+    position: relative;
+    width: fit-content;
+}
+
+.trigger {
+    min-width: 150px;
+    width: fit-content;
+    background: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: none;
+    border-radius: none;
+}
+
+.options {
+    background-color: var(--listbox-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 12px;
+    margin-top: 5px;
+}
+
+.max {
+    width: 100%;
+}
+
+.optionsBottom {
+    opacity: 1;
+}
+
+.item {
+    padding: 7px 15px 7px 53px;
+    cursor: pointer;
+}
+
+.selectedItem {
+    padding-left: 15px;
+}
+
+.activeItem {
+    background-color: var(--additional-color-light);
+}
+
+.disabledItem {
+    opacity: 0.6;
+}
+
+.readonly {
+    opacity: 0.6;
+}
+
+.icon {
+    fill: var(--additional-color);
+}
+
+.label {
+    margin: 0 6px;
+}
+
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
+
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
+
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
+
+.optionsTopLeft {
+    bottom: 100%;
+    right: 0;
+}

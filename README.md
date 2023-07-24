@@ -98,3 +98,18 @@
 -   Реализована [группировка редюсеров](src/pages/ArticleDetailsPage/model/types/index.ts)
 -   Реализован каркас для дальнейшего функционала редактирования и создания статей.
 -   Добавлены компоненты [ArticleEditPage](src/pages/ArticleEditPage/ui/ArticleEditPage.tsx) и [ArticleCreatePage](src/pages/ArticleCreatePage/ui/ArticleCreatePage.tsx)
+-   Добавлен [CopyWebpackPlugin](https://webpack.js.org/plugins/copy-webpack-plugin/) для добавления переводов в директорию сборки.
+-   [Деплой](https://peaceful-monstera-10ac6a.netlify.app) на [netlify](https://www.netlify.com)
+-   Добавлен конфигурационный файл [netlify.toml](netlify.toml) для редиректа на index.html файл
+
+#### Виртуализация. Собственный Eslint плагин. Анализ AST дерева. Доступность и семантика. Кастомные dropdowns
+
+-   Реализован собственный [eslint плагин](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin) для контролирования правильность написания путей в рамках одного модуля
+-   Релизован компонент [Flex](src/shared/ui/Stack/Flex/Flex.tsx) для позиционирования элементов на странице без дополнительного использования css
+-   Исправлены семмантические теги для текста
+-   Добавлена библиотека [Headlessui](https://headlessui.com)
+-   Реализован свой [ListBox](src/shared/ui/ListBox/ListBox.tsx)
+
+#### Генератор слоев. RTK query. Начало большого рефакторинга. Роли пользователя. 18 реакт. Babel loader. Кольцевые зависимости.
+
+-  Реализован скрипт [createSlice](scripts/createSlice/index.js) для автоматического создания слайсов и структуры папок

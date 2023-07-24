@@ -19,7 +19,13 @@ module.exports = {
         ecmaVersion: 'latest',
         sourceType: 'module'
     },
-    plugins: ['react', '@typescript-eslint', 'i18next', 'react-hooks'],
+    plugins: [
+        'react',
+        '@typescript-eslint',
+        'i18next',
+        'react-hooks',
+        'babun4ek-fsd-plugin'
+    ],
     ignorePatterns: ['**/*.scss'],
     rules: {
         'react/jsx-filename-extension': [
@@ -53,7 +59,14 @@ module.exports = {
                     'border',
                     'width',
                     'height',
-                    'target'
+                    'target',
+                    'direction',
+                    'align',
+                    'gap',
+                    'justify',
+                    'role',
+                    'as',
+                    'fill'
                 ]
             }
         ],
@@ -63,7 +76,8 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'no-undef': 'off',
-        'react/no-array-index-key': 'off'
+        'react/no-array-index-key': 'off',
+        'babun4ek-fsd-plugin/path-checker': 'error'
     },
     globals: {
         __IS_DEV__: true,

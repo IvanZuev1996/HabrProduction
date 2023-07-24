@@ -23,7 +23,8 @@
         "analyze:dev": "webpack --env mode=development analyze=true",
         "analyze:prod": "webpack --env mode=production analyze=true",
         "storybook": "start-storybook -p 6006 -c ./config/storybook",
-        "storybook:build": "build-storybook -c ./config/storybook"
+        "storybook:build": "build-storybook -c ./config/storybook",
+        "create:slice": "node ./scripts/createSlice/index.js"
     },
     "keywords": [],
     "author": "",
@@ -62,6 +63,7 @@
         "eslint": "8.10.0",
         "eslint-config-airbnb": "^19.0.4",
         "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-babun4ek-fsd-plugin": "^0.0.1",
         "eslint-plugin-i18next": "^5.1.2",
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-jsx-a11y": "^6.5.1",
@@ -93,6 +95,7 @@
         "webpack-dev-server": "^4.7.4"
     },
     "dependencies": {
+        "@headlessui/react": "^1.6.6",
         "@reduxjs/toolkit": "^1.8.0",
         "axios": "^0.26.1",
         "concurrently": "^7.0.0",

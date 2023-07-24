@@ -6,6 +6,7 @@ import { Input } from 'shared/ui/Input/Input';
 import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Country, CountrySelect } from 'entities/Country';
+import { HStack, VStack } from 'shared/ui/Stack';
 import { Profile, ValidateProfileError } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
@@ -47,20 +48,24 @@ export const ProfileCard = (props: ProfileCardProps) => {
 
     if (isLoading) {
         return (
-            <div
+            <HStack
+                justify="center"
+                max
                 className={classNames(cls.ProfileCard, {}, [
                     className,
                     cls.isLoading
                 ])}
             >
                 <Loader />
-            </div>
+            </HStack>
         );
     }
 
     if (error) {
         return (
-            <div
+            <HStack
+                justify="center"
+                max
                 className={classNames(cls.ProfileCard, {}, [
                     className,
                     cls.error
@@ -72,7 +77,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     title={t('Произошла ошибка при загрузке профиля')}
                     text={t('Попробуйте обновить страницу')}
                 />
-            </div>
+            </HStack>
         );
     }
 
@@ -81,13 +86,17 @@ export const ProfileCard = (props: ProfileCardProps) => {
     };
 
     return (
-        <div className={classNames(cls.ProfileCard, mods, [className])}>
+        <VStack
+            gap="8"
+            max
+            className={classNames(cls.ProfileCard, mods, [className])}
+        >
             {data?.avatar && (
-                <div className={cls.avatarWrapper}>
+                <HStack justify="center" max>
                     <Avatar src={data?.avatar} alt={t('avatar')} />
-                </div>
+                </HStack>
             )}
-            <div className={cls.infoItem}>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Ваше имя')} className={cls.text} />
                 <Input
                     value={data?.firstname}
@@ -104,8 +113,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         []
                     )}
                 />
-            </div>
-            <div className={cls.infoItem}>
+            </HStack>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Ваша фамилия')} className={cls.text} />
                 <Input
                     value={data?.lastname}
@@ -122,8 +131,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         []
                     )}
                 />
-            </div>
-            <div className={cls.infoItem}>
+            </HStack>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Ваш возраст')} className={cls.text} />
                 <Input
                     value={data?.age || ''}
@@ -140,8 +149,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         []
                     )}
                 />
-            </div>
-            <div className={cls.infoItem}>
+            </HStack>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Город')} className={cls.text} />
                 <Input
                     value={data?.city}
@@ -158,8 +167,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         []
                     )}
                 />
-            </div>
-            <div className={cls.infoItem}>
+            </HStack>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Имя пользователя')} className={cls.text} />
                 <Input
                     value={data?.username}
@@ -176,8 +185,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                         []
                     )}
                 />
-            </div>
-            <div className={cls.infoItem}>
+            </HStack>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Аватар')} className={cls.text} />
                 <Input
                     value={
@@ -190,8 +199,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     onChange={onChangeAvatar}
                     readonly={readonly}
                 />
-            </div>
-            <div className={cls.infoItem}>
+            </HStack>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Укажите валюту')} className={cls.text} />
                 <CurrencySelect
                     className={cls.select}
@@ -199,8 +208,8 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                     onChange={onChangeCurrency}
                 />
-            </div>
-            <div className={cls.infoItem}>
+            </HStack>
+            <HStack max className={cls.infoItem}>
                 <Text text={t('Укажите страну')} className={cls.text} />
                 <CountrySelect
                     className={cls.select}
@@ -208,7 +217,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     readonly={readonly}
                     onChange={onChangeCountry}
                 />
-            </div>
-        </div>
+            </HStack>
+        </VStack>
     );
 };

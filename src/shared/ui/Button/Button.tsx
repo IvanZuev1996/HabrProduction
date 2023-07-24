@@ -1,6 +1,22 @@
-import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import { classNames, Mods } from 'shared/lib/helpers/classNames';
 import cls from './Button.module.scss';
+
+export type BorderType = '2' | '4' | '8' | '16';
+export type JustifyType = 'center' | 'start' | 'end';
+
+const borderClasses: Record<BorderType, string> = {
+    2: cls.border2,
+    4: cls.border4,
+    8: cls.border8,
+    16: cls.border16
+};
+
+const justifyClasses: Record<JustifyType, string> = {
+    center: cls.justifyCenter,
+    start: cls.justifyStart,
+    end: cls.justifyEnd
+};
 
 export enum ButtonTheme {
     CLEAR = 'clear',
@@ -23,6 +39,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     square?: boolean;
     size?: ButtonSize;
     disabled?: boolean;
+    border?: BorderType;
+    max?: boolean;
+    justify?: JustifyType;
     children?: ReactNode;
 }
 
@@ -33,23 +52,31 @@ export const Button = memo((props: ButtonProps) => {
         children,
         square,
         size = ButtonSize.M,
+        justify = 'center',
         disabled,
+        max,
+        border,
         ...otherProps
     } = props;
 
     const mods: Mods = {
         [cls.square]: square,
-        [cls.disabled]: disabled
+        [cls.disabled]: disabled,
+        [cls.max]: max
     };
+
+    const classes = [
+        className,
+        cls[theme],
+        cls[size],
+        justifyClasses[justify],
+        border && borderClasses[border]
+    ];
 
     return (
         <button
             type="button"
-            className={classNames(cls.Button, mods, [
-                className,
-                cls[theme],
-                cls[size]
-            ])}
+            className={classNames(cls.Button, mods, classes)}
             disabled={disabled}
             {...otherProps}
         >

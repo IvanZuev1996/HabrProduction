@@ -1,10 +1,10 @@
 .item {
     height: 40px;
-    margin-top: 10px;
     display: flex;
     align-items: center;
     text-decoration: none;
     border-radius: 15px;
+    margin-left: 8px;
     transition: background-color 0.2s;
 }
 
@@ -24,7 +24,9 @@
     justify-content: center;
     align-items: center;
     fill: var(--primary-color);
-    margin-left: 18px;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
     z-index: 1;
 }
 

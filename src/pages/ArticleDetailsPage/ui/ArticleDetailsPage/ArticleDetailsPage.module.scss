@@ -1,15 +1,11 @@
-.ArticleDetailsPage {
-    display: block;
-}
-
-.commentTitle {
-    margin-top: 50px;
-}
-
 .recommendations {
-    margin-top: 20px;
-    padding-bottom: 15px;
     flex-wrap: nowrap;
+    margin-top: 10px;
+    padding: 0 10px 15px;
     overflow-y: hidden;
     overflow-x: auto;
+}
+
+.recommendationsTitle {
+    margin-top: 10px;
 }
