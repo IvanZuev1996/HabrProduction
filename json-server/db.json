@@ -1430,6 +1430,12 @@
       "userId": "1",
       "text": "HELLO!",
       "id": "3LPK4Qg"
+    },
+    {
+      "articleId": "16",
+      "userId": "1",
+      "text": "YES!",
+      "id": "lniohj8"
     }
   ],
   "users": [
@@ -1453,7 +1459,7 @@
       "id": "1",
       "firstname": "Иван",
       "lastname": "Зуев",
-      "age": 18,
+      "age": 19,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",

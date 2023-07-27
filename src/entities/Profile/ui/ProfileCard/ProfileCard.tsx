@@ -7,7 +7,8 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Country, CountrySelect } from 'entities/Country';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { Profile, ValidateProfileError } from '../../model/types/profile';
+import { ValidateProfileError } from 'features/editableProfileCard/model/types/editableProfileCardSchema';
+import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
