@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { t } from 'i18next';
 import { Button } from '../Button/Button';
 import { Dropdown } from './Dropdown';
 
@@ -17,7 +18,7 @@ const Template: ComponentStory<typeof Dropdown> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {
-    trigger: <Button>OPEN</Button>,
+    trigger: <Button>{t('OPEN')}</Button>,
     items: [
         {
             content: 'content1',

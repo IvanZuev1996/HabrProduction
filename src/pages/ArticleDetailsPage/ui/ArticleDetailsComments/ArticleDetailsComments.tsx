@@ -11,7 +11,6 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import { VStack } from 'shared/ui/Stack';
 import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
 import { getArticleCommentsIsLoading } from '../../model/selectors/comment/comment';
-import { getArticleRecommendationsIsLoading } from '../../model/selectors/recommendations/recommendations';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 
@@ -28,9 +27,6 @@ export const ArticleDetailsComments = memo(
 
         const comments = useSelector(getArticleComments.selectAll);
         const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
-        const recommendationsIsLoading = useSelector(
-            getArticleRecommendationsIsLoading
-        );
 
         const onSendComment = useCallback(
             (text: string) => {

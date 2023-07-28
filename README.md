@@ -112,4 +112,6 @@
 
 #### Генератор слоев. RTK query. Начало большого рефакторинга. Роли пользователя. 18 реакт. Babel loader. Кольцевые зависимости.
 
--  Реализован скрипт [createSlice](scripts/createSlice/index.js) для автоматического создания слайсов и структуры папок
+-   Реализован скрипт [createSlice](scripts/createSlice/index.js) для автоматического создания слайсов и структуры папок
+-   Добавлен [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) и его [конфиг](src/shared/api/rtkApi.ts)
+-   Добавлен [html reporter](https://www.npmjs.com/package/jest-html-reporters) для unit-тестов
