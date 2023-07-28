@@ -1,3 +1,6 @@
+### Используемые технологии:
+React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storybook, html reports for ui & unit tests,  webpack, i18n, eslint, prettier, Loki
+
 ### Файловая структура: [_Feature-Sliced Design_](https://feature-sliced.design/ru/)
 
 1. **Shared** — переиспользуемый код, не имеющий отношения к специфике приложения/бизнеса.
