@@ -115,3 +115,5 @@
 -   Реализован скрипт [createSlice](scripts/createSlice/index.js) для автоматического создания слайсов и структуры папок
 -   Добавлен [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) и его [конфиг](src/shared/api/rtkApi.ts)
 -   Добавлен [html reporter](https://www.npmjs.com/package/jest-html-reporters) для unit-тестов
+-   Установлен [user-event](https://testing-library.com/docs/user-event/intro) для эмитации пользовательского взаимодействия
+-   Написаны [тесты](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.test.tsx) для компонента [EditableProfileCard](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.tsx)
