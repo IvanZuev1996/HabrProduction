@@ -120,3 +120,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлен [html reporter](https://www.npmjs.com/package/jest-html-reporters) для unit-тестов
 -   Установлен [user-event](https://testing-library.com/docs/user-event/intro) для эмитации пользовательского взаимодействия
 -   Написаны [тесты](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.test.tsx) для компонента [EditableProfileCard](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.tsx)
+-   Реализован компонент [RequireRoles](src/app/providers/router/ui/RequireRoles.tsx) для сокрытия определенных страниц по ролям пользователей
