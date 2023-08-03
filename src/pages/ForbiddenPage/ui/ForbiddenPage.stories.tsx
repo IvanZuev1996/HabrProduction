@@ -1,4 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import ForbiddenPage from './ForbiddenPage';
 
 export default {
@@ -6,7 +7,8 @@ export default {
     component: ForbiddenPage,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof ForbiddenPage>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading

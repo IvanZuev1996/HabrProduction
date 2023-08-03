@@ -31,7 +31,7 @@ Normal.args = {
             content: 'tab 3'
         }
     ],
-    value: 'tab 2',
+    value: 'tab 1',
     onTabClick: action('onTabClick')
 };
 

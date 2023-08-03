@@ -121,3 +121,6 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Установлен [user-event](https://testing-library.com/docs/user-event/intro) для эмитации пользовательского взаимодействия
 -   Написаны [тесты](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.test.tsx) для компонента [EditableProfileCard](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.tsx)
 -   Реализован компонент [RequireRoles](src/app/providers/router/ui/RequireRoles.tsx) для сокрытия определенных страниц по ролям пользователей
+-   Миграция на [react 18](https://react.dev/blog/2022/03/29/react-v18)
+-   Добавлен [SuspenseDecorator](src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator.tsx) для отрисовки lazy компонентов в storybook
+-   Добавлен [storybook-addon-mock](https://storybook.js.org/addons/storybook-addon-mock) для работы с rtk-query в storybook

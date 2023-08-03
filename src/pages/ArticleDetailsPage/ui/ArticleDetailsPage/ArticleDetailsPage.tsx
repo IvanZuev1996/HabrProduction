@@ -1,7 +1,6 @@
 import { ArticleDetails } from 'entities/Article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router-dom';
 import {
     DynamicModuleLoader,
     ReducerList
@@ -10,6 +9,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Page } from 'widgets/Page/Page';
 import { VStack } from 'shared/ui/Stack';
 import { ArticleRecomendationsList } from 'features/articleRecomendationsList';
+import { useParams } from 'react-router-dom';
 import { articleDetailsPageReducer } from '../../model/slice';
 import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
@@ -25,15 +25,7 @@ const reducers: ReducerList = {
 
 const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { t } = useTranslation('article-details');
-    const { id = '1' } = useParams<{ id: string }>();
-
-    if (!id) {
-        return (
-            <div className={classNames('', {}, [className])}>
-                {t('Статья не найдена')}
-            </div>
-        );
-    }
+    const { id } = useParams<{ id: string }>();
 
     return (
         <DynamicModuleLoader reducers={reducers}>

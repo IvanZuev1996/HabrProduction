@@ -348,8 +348,8 @@ Loading.args = {};
 Loading.decorators = [
     StoreDecorator({
         articlesPage: {
-            entities: articles,
-            ids: ['1', '2', '3', '4'],
+            entities: {},
+            ids: [],
             isLoading: true
         }
     })
@@ -362,8 +362,8 @@ DarkIsLoading.decorators = [
     ThemeDecorator(Theme.DARK),
     StoreDecorator({
         articlesPage: {
-            entities: articles,
-            ids: ['1', '2', '3', '4'],
+            entities: {},
+            ids: [],
             isLoading: true
         }
     })
