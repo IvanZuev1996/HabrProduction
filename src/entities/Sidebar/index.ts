@@ -1,5 +1,3 @@
-import { getSidebarState } from './model/selectors/getSidebarState/getSidebarState';
-import { sidebarActions, sidebarReducer } from './model/slice/sidebarSlice';
-import { SidebarSchema } from './model/types/sidebar';
-
-export { getSidebarState, SidebarSchema, sidebarActions, sidebarReducer };
+export { getSidebarState } from './model/selectors/getSidebarState/getSidebarState';
+export { sidebarActions, sidebarReducer } from './model/slice/sidebarSlice';
+export type { SidebarSchema } from './model/types/sidebar';

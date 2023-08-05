@@ -5,7 +5,7 @@ import { SortOrder } from 'shared/types';
 import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { HStack } from 'shared/ui/Stack';
 import { classNames } from 'shared/lib/helpers/classNames';
-import { ArticleSortField } from '../../model/types/article';
+import { ArticleSortField } from '../../model/consts/articleConsts';
 
 interface ArticleSortSelectorProps {
     className?: string;

@@ -1,7 +1,5 @@
-import { ArticleList } from 'entities/Article';
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
 import {
     DynamicModuleLoader,
     ReducerList
@@ -13,15 +11,7 @@ import { Page } from 'widgets/Page/Page';
 import { useSearchParams } from 'react-router-dom';
 import { initArticlesPage } from '../../model/services/initArticlesPage/initArticlesPage';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlesPage/fetchNextArticlesPage';
-import {
-    getArticlesPageError,
-    getArticlesPageIsLoading,
-    getArticlesPageView
-} from '../../model/selectors/articlesPageSelectors';
-import {
-    articlesPageReducer,
-    getArticles
-} from '../../model/slices/articlesPageSlice';
+import { articlesPageReducer } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPage.module.scss';
 import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters';
 import { ArticleInfiniteList } from '../ArticleInfiniteList/ArticleInfiniteList';

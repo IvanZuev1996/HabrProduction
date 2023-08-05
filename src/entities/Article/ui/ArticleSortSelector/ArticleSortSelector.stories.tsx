@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { ArticleSortField } from '../../../Article/model/types/article';
+import { ArticleSortField } from '../../model/consts/articleConsts';
 import { ArticleSortSelector } from './ArticleSortSelector';
 
 export default {
