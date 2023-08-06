@@ -1,5 +1,6 @@
 ### Используемые технологии:
-React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storybook, html reports for ui & unit tests,  webpack, i18n, eslint, prettier, Loki
+
+React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storybook, html reports for ui & unit tests, webpack, i18n, eslint, prettier, Loki
 
 ### Файловая структура: [_Feature-Sliced Design_](https://feature-sliced.design/ru/)
 
@@ -125,3 +126,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлен [SuspenseDecorator](src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator.tsx) для отрисовки lazy компонентов в storybook
 -   Добавлен [storybook-addon-mock](https://storybook.js.org/addons/storybook-addon-mock) для работы с rtk-query в storybook
 -   Добавлен флаг isolatedModules в [tsconfig](/tsconfig.json), исправлены все экспорты/импорты типов
+-   Добавлен webpack плагин [CircularDependencyPlugin](https://www.npmjs.com/package/circular-dependency-plugin) в [конфиг webpack](/config/build/buildPlugins.ts) для отслеживания наличия кольцевых зависимостей.
