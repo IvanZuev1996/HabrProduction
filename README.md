@@ -127,3 +127,7 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлен [storybook-addon-mock](https://storybook.js.org/addons/storybook-addon-mock) для работы с rtk-query в storybook
 -   Добавлен флаг isolatedModules в [tsconfig](/tsconfig.json), исправлены все экспорты/импорты типов
 -   Добавлен webpack плагин [CircularDependencyPlugin](https://www.npmjs.com/package/circular-dependency-plugin) в [конфиг webpack](/config/build/buildPlugins.ts) для отслеживания наличия кольцевых зависимостей.
+-   Удален [ts-loader](/config/build/buildLoaders.ts)
+-   Настроен [babel-loader](/config/build/loaders/buildBabelLoader.ts) для обработки typesctipt/javascript файлов (ts, js, tsx, jsx)
+-   Добавлен [fork-ts-checker](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin) для выноса процесса проверки типов в отдельный процесс
+-   Реализован кастомный [babel-плагин](/config/babel/babelRemovePropsPlugin.ts) для удаления data-testid атрибутов из сборки
