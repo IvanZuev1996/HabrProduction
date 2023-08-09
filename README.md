@@ -131,3 +131,5 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Настроен [babel-loader](/config/build/loaders/buildBabelLoader.ts) для обработки typesctipt/javascript файлов (ts, js, tsx, jsx)
 -   Добавлен [fork-ts-checker](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin) для выноса процесса проверки типов в отдельный процесс
 -   Реализован кастомный [babel-плагин](/config/babel/babelRemovePropsPlugin.ts) для удаления data-testid атрибутов из сборки
+-   Добавлен shared-компонент [Popover](src/shared/ui/Popups/ui/Popover/Popover.tsx)
+-   Реализована фича [notificationPopup](src/features/notificationPopup/ui/NotificationPopup/NotificationPopup.tsx) для получения уведомлений

@@ -1,0 +1,18 @@
+.NotificationItem {
+    width: 100%;
+    padding: 12px;
+    border-radius: 16px;
+}
+
+.circle {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-top: 12px;
+    background-color: var(--additional-color);
+}
+
+.link {
+    text-decoration: underline;
+    color: var(--additional-color);
+}

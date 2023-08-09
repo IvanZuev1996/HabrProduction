@@ -1,0 +1,26 @@
+.active {
+    background-color: var(--additional-color) !important;
+    color: var(--bg-color) !important;
+}
+
+.menu {
+    background: var(--card-bg);
+    position: absolute;
+    width: max-content;
+    z-index: 10000;
+    border-radius: 8px;
+    flex-direction: column;
+    display: flex;
+    margin-top: 10px;
+}
+
+.item {
+    padding: 10px 20px;
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+    cursor: pointer;
+}

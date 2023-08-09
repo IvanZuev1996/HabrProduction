@@ -3,17 +3,12 @@ import { Listbox as HListBox } from '@headlessui/react';
 import { classNames, Mods } from 'shared/lib/helpers/classNames';
 import { DropdownDirection } from 'shared/types/ui';
 import cls from './ListBox.module.scss';
-import CompleteIcon from '../../assets/icons/complete-icon.svg';
-import { Icon } from '../Icon/Icon';
-import { HStack } from '../Stack';
-import { Button, ButtonTheme } from '../Button/Button';
-
-const mapDirectionClass: Record<DropdownDirection, string> = {
-    'bottom left': cls.optionsBottomLeft,
-    'bottom right': cls.optionsBottomRight,
-    'top right': cls.optionsTopRight,
-    'top left': cls.optionsTopLeft
-};
+import popupCls from '../../styles/popup.module.scss';
+import CompleteIcon from '../../../../assets/icons/complete-icon.svg';
+import { Icon } from '../../../Icon/Icon';
+import { HStack } from '../../../Stack';
+import { Button, ButtonTheme } from '../../../Button/Button';
+import { mapDirectionClass } from '../../styles/consts';
 
 export interface ListBoxItem {
     value: string;
@@ -58,7 +53,10 @@ export function ListBox(props: ListBoxProps) {
             <HListBox
                 as="div"
                 disabled={readonly}
-                className={classNames(cls.ListBox, listBoxMods, [className])}
+                className={classNames(cls.ListBox, listBoxMods, [
+                    className,
+                    popupCls.popup
+                ])}
                 value={value}
                 onChange={onChange}
             >
