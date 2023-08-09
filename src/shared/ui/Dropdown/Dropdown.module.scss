@@ -15,7 +15,7 @@
 .menu {
     background: var(--card-bg);
     position: absolute;
-    width: fit-content;
+    width: max-content;
     z-index: 10000;
     border-radius: 8px;
     flex-direction: column;

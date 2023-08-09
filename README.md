@@ -1,3 +1,7 @@
+### Используемые технологии:
+
+React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storybook, html reports for ui & unit tests, webpack, i18n, eslint, prettier, Loki
+
 ### Файловая структура: [_Feature-Sliced Design_](https://feature-sliced.design/ru/)
 
 1. **Shared** — переиспользуемый код, не имеющий отношения к специфике приложения/бизнеса.
@@ -112,4 +116,18 @@
 
 #### Генератор слоев. RTK query. Начало большого рефакторинга. Роли пользователя. 18 реакт. Babel loader. Кольцевые зависимости.
 
--  Реализован скрипт [createSlice](scripts/createSlice/index.js) для автоматического создания слайсов и структуры папок
+-   Реализован скрипт [createSlice](scripts/createSlice/index.js) для автоматического создания слайсов и структуры папок
+-   Добавлен [RTK Query](https://redux-toolkit.js.org/rtk-query/overview) и его [конфиг](src/shared/api/rtkApi.ts)
+-   Добавлен [html reporter](https://www.npmjs.com/package/jest-html-reporters) для unit-тестов
+-   Установлен [user-event](https://testing-library.com/docs/user-event/intro) для эмитации пользовательского взаимодействия
+-   Написаны [тесты](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.test.tsx) для компонента [EditableProfileCard](src/features/editableProfileCard/ui/EditableProfileCard/EditableProfileCard.tsx)
+-   Реализован компонент [RequireRoles](src/app/providers/router/ui/RequireRoles.tsx) для сокрытия определенных страниц по ролям пользователей
+-   Миграция на [react 18](https://react.dev/blog/2022/03/29/react-v18)
+-   Добавлен [SuspenseDecorator](src/shared/config/storybook/SuspenseDecorator/SuspenseDecorator.tsx) для отрисовки lazy компонентов в storybook
+-   Добавлен [storybook-addon-mock](https://storybook.js.org/addons/storybook-addon-mock) для работы с rtk-query в storybook
+-   Добавлен флаг isolatedModules в [tsconfig](/tsconfig.json), исправлены все экспорты/импорты типов
+-   Добавлен webpack плагин [CircularDependencyPlugin](https://www.npmjs.com/package/circular-dependency-plugin) в [конфиг webpack](/config/build/buildPlugins.ts) для отслеживания наличия кольцевых зависимостей.
+-   Удален [ts-loader](/config/build/buildLoaders.ts)
+-   Настроен [babel-loader](/config/build/loaders/buildBabelLoader.ts) для обработки typesctipt/javascript файлов (ts, js, tsx, jsx)
+-   Добавлен [fork-ts-checker](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin) для выноса процесса проверки типов в отдельный процесс
+-   Реализован кастомный [babel-плагин](/config/babel/babelRemovePropsPlugin.ts) для удаления data-testid атрибутов из сборки

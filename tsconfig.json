@@ -21,7 +21,8 @@
             {
                 "name": "typescript-plugin-css-modules"
             }
-        ]
+        ],
+        "isolatedModules": true
     },
     // дополнительная настройка для import/export
     "ts-node": {

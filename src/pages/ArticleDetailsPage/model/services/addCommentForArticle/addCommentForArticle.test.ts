@@ -5,7 +5,7 @@ import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import {
     ArticleBlockType,
     ArticleType
-} from 'entities/Article/model/types/article';
+} from 'entities/Article/model/consts/articleConsts';
 import { addCommentForArticle } from './addCommentForArticle';
 
 const comment: Comment = {

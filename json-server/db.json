@@ -1274,7 +1274,7 @@
           "type": "TEXT",
           "title": "Заголовок этого блока",
           "paragraphs": [
-            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную,  некоего языка.",
             "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
           ]
         },
@@ -1430,6 +1430,30 @@
       "userId": "1",
       "text": "HELLO!",
       "id": "3LPK4Qg"
+    },
+    {
+      "articleId": "16",
+      "userId": "1",
+      "text": "YES!",
+      "id": "lniohj8"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "YES!",
+      "id": "XgTGm0G"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "OMG!",
+      "id": "LnsYqEg"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "fpjewfew",
+      "id": "-JWSHWF"
     }
   ],
   "users": [
@@ -1437,15 +1461,28 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "roles": [
+        "ADMIN"
+      ],
       "avatar": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "roles": [
+        "USER"
+      ],
       "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "roles": [
+        "MANAGER"
+      ],
+      "avatar": "https://work2.ru/upload/iblock/704/wicwpqq6kozl4woijhcfrpvlmgvwvqy7.jpg"
     }
   ],
   "profile": [
@@ -1453,7 +1490,7 @@
       "id": "1",
       "firstname": "Иван",
       "lastname": "Зуев",
-      "age": 18,
+      "age": 19,
       "currency": "RUB",
       "country": "Russia",
       "city": "Moscow",
@@ -1470,6 +1507,17 @@
       "city": "Moscow",
       "username": "user",
       "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
+    },
+    {
+      "id": "3",
+      "firstname": "Иван",
+      "lastname": "Зуев",
+      "age": 19,
+      "currency": "RUB",
+      "country": "Russia",
+      "city": "Moscow",
+      "username": "manager",
+      "avatar": "https://work2.ru/upload/iblock/704/wicwpqq6kozl4woijhcfrpvlmgvwvqy7.jpg"
     }
   ]
 }

@@ -6,7 +6,8 @@ import { BuildOptions } from './types/config';
 export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
     const { isDev } = options;
 
-    const babelLoader = buildBabelLoader(options);
+    const codeBabelLoader = buildBabelLoader({ ...options, isTsx: false });
+    const tsxCodeBabelLoader = buildBabelLoader({ ...options, isTsx: true });
 
     const svgLoader = {
         test: /\.svg$/,
@@ -15,12 +16,12 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
 
     const cssLoader = buildCssLoader(isDev);
 
-    // Если используем ts, то js будет работать из коробки. Иначе требуетсся лоадер: babel-loader
-    const typescriptLoader = {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/
-    };
+    // Если используем ts, то js будет работать из коробки. Иначе требуется лоадер: babel-loader
+    // const typescriptLoader = {
+    //     test: /\.tsx?$/,
+    //     use: 'ts-loader',
+    //     exclude: /node_modules/
+    // };
 
     const fileLoader = {
         test: /\.(png|jpe?g|gif|woff2|woff)$/i,
@@ -31,5 +32,11 @@ export function buildLoaders(options: BuildOptions): webpack.RuleSetRule[] {
         ]
     };
 
-    return [svgLoader, fileLoader, babelLoader, typescriptLoader, cssLoader];
+    return [
+        svgLoader,
+        fileLoader,
+        codeBabelLoader,
+        tsxCodeBabelLoader,
+        cssLoader
+    ];
 }

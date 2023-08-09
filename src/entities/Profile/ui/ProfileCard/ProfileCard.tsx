@@ -7,7 +7,8 @@ import { Loader } from 'shared/ui/Loader/Loader';
 import { Text, TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import { Country, CountrySelect } from 'entities/Country';
 import { HStack, VStack } from 'shared/ui/Stack';
-import { Profile, ValidateProfileError } from '../../model/types/profile';
+import { ValidateProfileError } from 'features/editableProfileCard/model/consts/consts';
+import { Profile } from '../../model/types/profile';
 import cls from './ProfileCard.module.scss';
 
 interface ProfileCardProps {
@@ -103,6 +104,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Ваше имя')}
                     onChange={onChangeFirstname}
                     readonly={readonly}
+                    data-testid="ProfileCard.Firstname"
                     className={classNames(
                         cls.input,
                         {
@@ -121,6 +123,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Ваша фамилия')}
                     onChange={onChangeLastname}
                     readonly={readonly}
+                    data-testid="ProfileCard.Lastname"
                     className={classNames(
                         cls.input,
                         {
@@ -139,6 +142,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Ваш возраст')}
                     onChange={onChangeAge}
                     readonly={readonly}
+                    data-testid="ProfileCard.Age"
                     className={classNames(
                         cls.input,
                         {
@@ -157,6 +161,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Город')}
                     onChange={onChangeCity}
                     readonly={readonly}
+                    data-testid="ProfileCard.City"
                     className={classNames(
                         cls.input,
                         {
@@ -175,6 +180,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     placeholder={t('Имя пользователя')}
                     onChange={onChangeUsername}
                     readonly={readonly}
+                    data-testid="ProfileCard.Username"
                     className={classNames(
                         cls.input,
                         {
@@ -198,6 +204,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
                     className={cls.input}
                     onChange={onChangeAvatar}
                     readonly={readonly}
+                    data-testid="ProfileCard.AvatarLink"
                 />
             </HStack>
             <HStack max className={cls.infoItem}>

@@ -6,11 +6,14 @@ import {
 } from 'shared/config/routeConfig/routeConfig';
 import { PageLoader } from 'widgets/PageLoader/PageLoader';
 import { RequireAuth } from './RequireAuth';
+import { RequireRoles } from './RequireRoles';
 
 const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRouteProps) => {
         const element = (
-            <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
+            <RequireRoles roles={route.roles}>
+                <Suspense fallback={<PageLoader />}>{route.element}</Suspense>
+            </RequireRoles>
         );
         return (
             <Route

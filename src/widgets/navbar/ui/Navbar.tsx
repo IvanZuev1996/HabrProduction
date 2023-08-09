@@ -1,4 +1,9 @@
-import { getUserAuthData, userActions } from 'entities/User';
+import {
+    getUserAuthData,
+    isUserAdmin,
+    isUserManager,
+    userActions
+} from 'entities/User';
 import { LoginModal } from 'features/AuthByUserName';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
@@ -23,8 +28,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
     const authData = useSelector(getUserAuthData);
     const { isOpen } = useSelector(getSidebarState);
+    const isAdmin = useSelector(isUserAdmin);
+    const isManager = useSelector(isUserManager);
     const dispatch = useAppDispatch();
     const [isAuthModal, setIsAuthModal] = useState(false);
+
+    const isAdminPanelAvailable = isAdmin || isManager;
 
     const onToggleSidebar = useCallback(() => {
         dispatch(sidebarActions.toggleState(!isOpen));
@@ -80,6 +89,14 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                                 content: t('Профиль'),
                                 href: RoutePath.profile + authData.id
                             },
+                            ...(isAdminPanelAvailable
+                                ? [
+                                    {
+                                        content: t('Админ панель'),
+                                        href: RoutePath.admin_panel
+                                    }
+                                ]
+                                : []),
                             {
                                 content: t('Выйти'),
                                 onClick: onLogout

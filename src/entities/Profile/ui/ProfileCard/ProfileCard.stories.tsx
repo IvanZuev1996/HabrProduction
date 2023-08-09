@@ -45,7 +45,17 @@ WithError.args = {
 
 export const Readonly = Template.bind({});
 Readonly.args = {
-    readonly: true
+    readonly: true,
+    data: {
+        firstname: 'Иван',
+        lastname: 'Зуев',
+        age: 18,
+        currency: Currency.RUB,
+        country: Country.Russia,
+        city: 'Moscow',
+        username: 'admin',
+        avatar: AvatarImg
+    }
 };
 
 export const Dark = Template.bind({});
@@ -80,7 +90,17 @@ WithErrorDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const ReadonlyDark = Template.bind({});
 ReadonlyDark.args = {
-    readonly: true
+    readonly: true,
+    data: {
+        firstname: 'Иван',
+        lastname: 'Зуев',
+        age: 18,
+        currency: Currency.RUB,
+        country: Country.Russia,
+        city: 'Moscow',
+        username: 'admin',
+        avatar: AvatarImg
+    }
 };
 
 ReadonlyDark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -1,7 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Article, ArticleView } from '../../model/types/article';
+import { Article } from '../../model/types/article';
+import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleList } from './ArticleList';
 
 export default {
@@ -107,13 +108,13 @@ SmallDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const SmallLoading = Template.bind({});
 SmallLoading.args = {
     isLoading: true,
-    articles: [article, article, article]
+    articles: []
 };
 
 export const SmallLoadingDark = Template.bind({});
 SmallLoadingDark.args = {
     isLoading: true,
-    articles: [article, article, article]
+    articles: []
 };
 
 SmallLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -136,14 +137,14 @@ export const BigLoading = Template.bind({});
 BigLoading.args = {
     isLoading: true,
     view: ArticleView.BIG,
-    articles: [article, article, article]
+    articles: []
 };
 
 export const BigLoadingDark = Template.bind({});
 BigLoadingDark.args = {
     isLoading: true,
     view: ArticleView.BIG,
-    articles: [article, article, article]
+    articles: []
 };
 
 BigLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];

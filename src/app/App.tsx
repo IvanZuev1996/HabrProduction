@@ -7,6 +7,7 @@ import { Sidebar } from 'widgets/Sidebar';
 import { getUserInited, userActions } from 'entities/User';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
+import { Counter } from 'entities/Counter';
 
 function App() {
     const { theme } = useTheme();

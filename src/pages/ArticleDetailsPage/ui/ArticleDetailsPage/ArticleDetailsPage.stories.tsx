@@ -4,23 +4,11 @@ import { Article } from 'entities/Article';
 import {
     ArticleBlockType,
     ArticleType
-} from 'entities/Article/model/types/article';
+} from 'entities/Article/model/consts/articleConsts';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import withMock from 'storybook-addon-mock';
 import ArticleDetailsPage from './ArticleDetailsPage';
-
-export default {
-    title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
-    component: ArticleDetailsPage,
-    argTypes: {
-        backgroundColor: { control: 'color' }
-    }
-} as ComponentMeta<typeof ArticleDetailsPage>;
-
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
-    <ArticleDetailsPage {...args} />
-);
 
 const article: Article = {
     id: '1',
@@ -126,6 +114,34 @@ const comments = {
         }
     }
 };
+
+export default {
+    title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
+    component: ArticleDetailsPage,
+    argTypes: {
+        backgroundColor: { control: 'color' }
+    },
+    decorators: [withMock],
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/articles?_limit=3`,
+                method: 'GET',
+                status: 200,
+                response: [
+                    { ...article, id: '1' },
+                    { ...article, id: '2' },
+                    { ...article, id: '3' }
+                ]
+            }
+        ]
+    }
+} as ComponentMeta<typeof ArticleDetailsPage>;
+
+// eslint-disable-next-line react/jsx-props-no-spreading
+const Template: ComponentStory<typeof ArticleDetailsPage> = (args) => (
+    <ArticleDetailsPage {...args} />
+);
 
 export const Normal = Template.bind({});
 Normal.args = {};

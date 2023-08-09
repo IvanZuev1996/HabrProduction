@@ -4,6 +4,8 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import CopyPlugin from 'copy-webpack-plugin';
+import CircularDependencyPlugin from 'circular-dependency-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import { BuildOptions } from './types/config';
 
 export function buildPlugins({
@@ -29,6 +31,15 @@ export function buildPlugins({
         }),
         new CopyPlugin({
             patterns: [{ from: paths.locales, to: paths.buildLocales }]
+        }),
+        new ForkTsCheckerWebpackPlugin({
+            typescript: {
+                diagnosticOptions: {
+                    semantic: true,
+                    syntactic: true
+                },
+                mode: 'write-references'
+            }
         })
     ];
 
@@ -36,7 +47,11 @@ export function buildPlugins({
     if (isDev) {
         plugins.push(
             new webpack.HotModuleReplacementPlugin(),
-            new ReactRefreshWebpackPlugin()
+            new ReactRefreshWebpackPlugin(),
+            new CircularDependencyPlugin({
+                exclude: /node_modules/,
+                failOnError: true
+            })
         );
     }
 
