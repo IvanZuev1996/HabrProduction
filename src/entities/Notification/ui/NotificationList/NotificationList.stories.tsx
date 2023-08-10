@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
 import withMock from 'storybook-addon-mock';
-import { Notification } from 'entities/Notification';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from 'app/providers/ThemeProvider';
-import { NotificationPopup } from './NotificationPopup';
+import { Notification } from '../../model/types/notification';
+import { NotificationList } from './NotificationList';
 
 const notifications: Notification[] = [
     {
@@ -42,20 +42,12 @@ const notifications: Notification[] = [
 ];
 
 export default {
-    title: 'features/NotificationPopup',
-    component: NotificationPopup,
+    title: 'entities/Notification/NotificationList',
+    component: NotificationList,
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-    decorators: [
-        (Story) => (
-            <div style={{ padding: '20px 500px 100px 500px' }}>
-                <Story />
-            </div>
-        ),
-        StoreDecorator({}),
-        withMock
-    ],
+    decorators: [StoreDecorator({}), withMock],
     parameters: {
         mockData: [
             {
@@ -66,25 +58,16 @@ export default {
             }
         ]
     }
-} as ComponentMeta<typeof NotificationPopup>;
+} as ComponentMeta<typeof NotificationList>;
 
-// eslint-disable-next-line react/jsx-props-no-spreading
-const Template: ComponentStory<typeof NotificationPopup> = (args) => (
-    <NotificationPopup {...args} />
+const Template: ComponentStory<typeof NotificationList> = (args) => (
+    <NotificationList {...args} />
 );
 
-export const PCNormal = Template.bind({});
-PCNormal.args = {};
+export const Normal = Template.bind({});
+Normal.args = {};
 
-export const PCDark = Template.bind({});
-PCDark.args = {};
+export const Dark = Template.bind({});
+Dark.args = {};
 
-PCDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const MobileNormal = Template.bind({});
-MobileNormal.args = { isMobileStorybook: true };
-
-export const MobileDark = Template.bind({});
-MobileDark.args = { isMobileStorybook: true };
-
-MobileDark.decorators = [ThemeDecorator(Theme.DARK)];
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

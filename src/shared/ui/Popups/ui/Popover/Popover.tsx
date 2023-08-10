@@ -30,14 +30,10 @@ export const Popover = (props: PopoverProps) => {
                 {trigger}
             </HPopover.Button>
 
-            <HPopover.Panel className={classNames(cls.panel, {}, menuClasses)}>
-                <div className={cls.panelHeader}>
-                    <Text
-                        title={t('Уведомления')}
-                        size={TextSize.S}
-                        className={cls.panelHeaderTitle}
-                    />
-                </div>
+            <HPopover.Panel
+                className={classNames(cls.panel, {}, menuClasses)}
+                unmount={false}
+            >
                 {children}
             </HPopover.Panel>
         </HPopover>

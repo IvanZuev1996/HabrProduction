@@ -7,7 +7,8 @@ body {
     font: var(--font-m);
 }
 
-.app {
+.app,
+.app_drower {
     color: var(--primary-color);
     background: var(--bg-color);
     min-height: 100vh;

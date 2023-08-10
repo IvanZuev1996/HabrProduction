@@ -6,7 +6,7 @@ import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
 import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 
 export default {
-    title: 'features/editableProfileCard/EditableProfileCardHeader',
+    title: 'features/EditableProfileCard/EditableProfileCardHeader',
     component: EditableProfileCardHeader,
     argTypes: {
         backgroundColor: { control: 'color' }

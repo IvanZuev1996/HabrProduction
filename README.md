@@ -133,3 +133,5 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Реализован кастомный [babel-плагин](/config/babel/babelRemovePropsPlugin.ts) для удаления data-testid атрибутов из сборки
 -   Добавлен shared-компонент [Popover](src/shared/ui/Popups/ui/Popover/Popover.tsx)
 -   Реализована фича [notificationPopup](src/features/notificationPopup/ui/NotificationPopup/NotificationPopup.tsx) для получения уведомлений
+-   Добавлен shared-компонент [Drawer](src/shared/ui/Drawer/Drawer.tsx)
+-   Реализован хук [useDevice](src/shared/lib/hooks/useDevice/useDevice.ts) для переключения между видами компонентов в зависимости от устройства пользователя.

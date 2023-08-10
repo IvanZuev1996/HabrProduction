@@ -4,7 +4,7 @@ import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDeco
 import { ListBox } from './ListBox';
 
 export default {
-    title: 'shared/ListBox',
+    title: 'shared/popups/ListBox',
     component: ListBox,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -33,8 +33,8 @@ const items = [
         content: 'Item2'
     },
     {
-        value: 'Item2',
-        content: 'Item2'
+        value: 'Item3',
+        content: 'Item3'
     }
 ];
 
