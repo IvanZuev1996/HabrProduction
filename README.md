@@ -135,3 +135,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Реализована фича [notificationPopup](src/features/notificationPopup/ui/NotificationPopup/NotificationPopup.tsx) для получения уведомлений
 -   Добавлен shared-компонент [Drawer](src/shared/ui/Drawer/Drawer.tsx)
 -   Реализован хук [useDevice](src/shared/lib/hooks/useDevice/useDevice.ts) для переключения между видами компонентов в зависимости от устройства пользователя.
+-   Реализован хук [useModal](src/shared/lib/hooks/useModal/useModal.ts)

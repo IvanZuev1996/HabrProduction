@@ -1,12 +1,6 @@
-import {
-    MutableRefObject,
-    ReactNode,
-    memo,
-    useCallback,
-    useRef,
-    useState
-} from 'react';
+import { ReactNode, memo } from 'react';
 import { Mods, classNames } from 'shared/lib/helpers/classNames';
+import { useModal } from 'shared/lib/hooks/useModal/useModal';
 import cls from './Drawer.module.scss';
 import { Portal } from '../Portal/Portal';
 import { Overlay } from '../Overlay/Overlay';
@@ -16,34 +10,32 @@ interface DrawerProps {
     children: ReactNode;
     isOpen?: boolean;
     onClose?: () => void;
+    lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 200;
 
 export const Drawer = memo((props: DrawerProps) => {
-    const { className, children, isOpen, onClose } = props;
-    const [isDrawerClosing, setIsDrawerClosing] = useState<boolean>(false);
-    const timeRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
+    const { className, children, isOpen, onClose, lazy } = props;
+    const { close, isClosing, isMounted } = useModal({
+        animationDelay: ANIMATION_DELAY,
+        isOpen,
+        onClose
+    });
 
     const mods: Mods = {
         [cls.opened]: isOpen,
-        [cls.isClosing]: isDrawerClosing
+        [cls.isClosing]: isClosing
     };
 
-    const closeHandler = useCallback(() => {
-        if (onClose) {
-            setIsDrawerClosing(true);
-            timeRef.current = setTimeout(() => {
-                onClose();
-                setIsDrawerClosing(false);
-            }, ANIMATION_DELAY);
-        }
-    }, [onClose]);
+    if (!isMounted && lazy) {
+        return null;
+    }
 
     return (
         <Portal>
             <div className={classNames(cls.Drawer, mods, [className])}>
-                <Overlay onClose={closeHandler} isOpen={!isDrawerClosing} />
+                <Overlay onClose={close} isOpen={!isClosing} />
                 <div className={cls.content}>{children}</div>
             </div>
         </Portal>
