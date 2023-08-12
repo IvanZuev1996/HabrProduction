@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
-import { classNames, Mods } from 'shared/lib/helpers/classNames';
+import { classNames, Mods } from '@/shared/lib/helpers/classNames';
 import cls from './Button.module.scss';
 
 export type BorderType = '2' | '4' | '8' | '16';

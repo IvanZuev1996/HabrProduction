@@ -11,7 +11,7 @@
         "baseUrl": ".",
         "strict": true,
         "paths": {
-            "*": ["./src/*"]
+            "@/*": ["./src/*"]
         },
         // esModuleInterop для использования import вместо common js
         "esModuleInterop": true,

@@ -1,7 +1,7 @@
 import { Fragment, ReactNode } from 'react';
 import { Listbox as HListBox } from '@headlessui/react';
-import { classNames, Mods } from 'shared/lib/helpers/classNames';
-import { DropdownDirection } from 'shared/types/ui';
+import { classNames, Mods } from '@/shared/lib/helpers/classNames';
+import { DropdownDirection } from '@/shared/types/ui';
 import cls from './ListBox.module.scss';
 import popupCls from '../../styles/popup.module.scss';
 import CompleteIcon from '../../../../assets/icons/complete-icon.svg';

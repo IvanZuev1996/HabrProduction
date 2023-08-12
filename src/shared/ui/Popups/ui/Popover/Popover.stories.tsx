@@ -1,6 +1,6 @@
 /* eslint-disable i18next/no-literal-string */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '../../../../config/storybook/ThemeDecorator/ThemeDecorator';
 import { Button } from '../../../Button/Button';
 import { Popover } from './Popover';

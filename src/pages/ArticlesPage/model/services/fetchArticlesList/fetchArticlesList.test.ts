@@ -1,10 +1,10 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Article } from '@/entities/Article';
 import {
     ArticleBlockType,
     ArticleType
-} from 'entities/Article/model/consts/articleConsts';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+} from '@/entities/Article/model/consts/articleConsts';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { fetchArticlesList } from './fetchArticlesList';
 
 const state: DeepPartial<StateSchema> = {

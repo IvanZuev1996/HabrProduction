@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {

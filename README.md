@@ -138,3 +138,6 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Реализован хук [useModal](src/shared/lib/hooks/useModal/useModal.ts)
 -   Создан [AnimationProvider](src/shared/lib/components/AnimationProvider/AnimationProvider.tsx) для асинхронной подгрузки библиотек.
 -   Обновлен компонент [Drawer](src/shared/ui/Drawer/Drawer.tsx). Добавлены анимации с помощью react-spring и use-gesture.
+-   Добавлен alias в [buildResolvers](/config/build/buildResolves.ts)
+-   Добавлена библиотека [ts-morph](https://www.npmjs.com/package/ts-morph) для управления ts-файлами
+-   Реализован скрипт [updateImports](/scripts/updateImports.ts) для быстрого рефакторинка путей

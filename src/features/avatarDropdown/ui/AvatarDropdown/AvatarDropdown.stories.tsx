@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { UserRole } from 'entities/User';
-import UserIcon from 'shared/assets/tests/storybook_avatar.jpg';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { UserRole } from '@/entities/User';
+import UserIcon from '@/shared/assets/tests/storybook_avatar.jpg';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { AvatarDropdown } from './AvatarDropdown';
 
 export default {

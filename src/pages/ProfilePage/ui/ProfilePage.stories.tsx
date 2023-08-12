@@ -1,12 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import AxiosDecorator from 'shared/config/storybook/AxiosDecorator/AxiosDecorator';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
+import { Theme } from '@/app/providers/ThemeProvider';
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AxiosDecorator from '@/shared/config/storybook/AxiosDecorator/AxiosDecorator';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import ProfilePage from './ProfilePage';
 
 export default {

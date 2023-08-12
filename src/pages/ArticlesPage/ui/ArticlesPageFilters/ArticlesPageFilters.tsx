@@ -1,21 +1,21 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useSelector } from 'react-redux';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import {
     ArticleView,
     ArticleSortSelector,
     ArticleSortField,
     ArticleTypeTabs
-} from 'entities/Article';
-import { useSelector } from 'react-redux';
-import { ArticleViewSelector } from 'features/ArticleViewSelector';
-import { Card } from 'shared/ui/Card/Card';
-import { Input } from 'shared/ui/Input/Input';
-import { SortOrder } from 'shared/types';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleType } from 'entities/Article/model/consts/articleConsts';
-import { HStack } from 'shared/ui/Stack';
+} from '@/entities/Article';
+import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import { Card } from '@/shared/ui/Card/Card';
+import { Input } from '@/shared/ui/Input/Input';
+import { SortOrder } from '@/shared/types';
+import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { ArticleType } from '@/entities/Article/model/consts/articleConsts';
+import { HStack } from '@/shared/ui/Stack';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';
 import {

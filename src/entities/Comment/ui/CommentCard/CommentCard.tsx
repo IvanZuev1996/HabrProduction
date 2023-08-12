@@ -1,12 +1,12 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { classNames, Mods } from 'shared/lib/helpers/classNames';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { VStack } from 'shared/ui/Stack';
+import { classNames, Mods } from '@/shared/lib/helpers/classNames';
+import { Avatar } from '@/shared/ui/Avatar/Avatar';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Skeleton } from '@/shared/ui/Skeleton/Skeleton';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { VStack } from '@/shared/ui/Stack';
 import { Comment } from '../../model/types/comment';
 import cls from './CommentCard.module.scss';
 

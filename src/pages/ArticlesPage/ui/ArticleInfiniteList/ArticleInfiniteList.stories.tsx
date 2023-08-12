@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
-import ArticleImg from 'shared/assets/storybook/ArticlePhoto.jpg';
-import { ArticleType } from 'entities/Article';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
+import ArticleImg from '@/shared/assets/storybook/ArticlePhoto.jpg';
+import { ArticleType } from '@/entities/Article';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {

@@ -21,6 +21,10 @@ export default ({ config }: { config: Configuration }) => {
         'node_modules'
     ];
 
+    config!.resolve!.alias = {
+        '@': paths.src
+    };
+
     // @ts-ignore
     config!.module!.rules = config.module?.rules?.map((rule: RuleSetRule) => {
         if (/svg/.test(rule.test as string)) {

@@ -1,6 +1,6 @@
 import { memo, useCallback, useEffect } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
 import cls from './Overlay.module.scss';
 
 interface OverlayProps {

@@ -1,11 +1,11 @@
-import { StateSchema } from 'app/providers/StoreProvider';
-import { Article } from 'entities/Article';
-import { Comment } from 'entities/Comment';
-import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
+import { StateSchema } from '@/app/providers/StoreProvider';
+import { Article } from '@/entities/Article';
+import { Comment } from '@/entities/Comment';
+import { TestAsyncThunk } from '@/shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import {
     ArticleBlockType,
     ArticleType
-} from 'entities/Article/model/consts/articleConsts';
+} from '@/entities/Article/model/consts/articleConsts';
 import { addCommentForArticle } from './addCommentForArticle';
 
 const comment: Comment = {

@@ -1,19 +1,19 @@
-import { getUserAuthData } from 'entities/User';
-import { LoginModal } from 'features/AuthByUserName';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Button, ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import MenuIcon from 'shared/assets/icons/menu-icon.svg';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { getSidebarState, sidebarActions } from 'entities/Sidebar';
-import { Text, TextSize, TextWeight } from 'shared/ui/Text/Text';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { HStack } from 'shared/ui/Stack';
-import { NotificationPopup } from 'features/notificationPopup';
-import { AvatarDropdown } from 'features/avatarDropdown';
+import { LoginModal } from '@/features/AuthByUserName';
+import { getUserAuthData } from '@/entities/User';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button/Button';
+import MenuIcon from '@/shared/assets/icons/menu-icon.svg';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getSidebarState, sidebarActions } from '@/entities/Sidebar';
+import { Text, TextSize, TextWeight } from '@/shared/ui/Text/Text';
+import { AppLink } from '@/shared/ui/AppLink/AppLink';
+import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { HStack } from '@/shared/ui/Stack';
+import { NotificationPopup } from '@/features/notificationPopup';
+import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {

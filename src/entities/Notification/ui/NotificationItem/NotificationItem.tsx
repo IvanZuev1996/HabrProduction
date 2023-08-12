@@ -1,8 +1,8 @@
 import { memo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
-import { HStack } from 'shared/ui/Stack';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { HStack } from '@/shared/ui/Stack';
 import cls from './NotificationItem.module.scss';
 import { Notification } from '../../model/types/notification';
 
