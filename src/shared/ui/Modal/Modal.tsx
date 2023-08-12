@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { ReactNode, useCallback, useEffect } from 'react';
 import { classNames, Mods } from 'shared/lib/helpers/classNames';
 import { useModal } from 'shared/lib/hooks/useModal/useModal';
+import { useAnimationLibs } from 'shared/lib/components/AnimationProvider';
 import { Portal } from '../Portal/Portal';
 import cls from './Modal.module.scss';
 import { Overlay } from '../Overlay/Overlay';
@@ -35,7 +36,12 @@ export const Modal = (props: ModalProps) => {
     return (
         <Portal>
             <div className={classNames(cls.Modal, mods, [className])}>
-                <Overlay onClose={close} isOpen={!isClosing} />
+                <Overlay
+                    onClose={close}
+                    isOpen={isOpen}
+                    isBeforeClose={isClosing}
+                    duration={100}
+                />
                 <div className={cls.content}>{children}</div>
             </div>
         </Portal>

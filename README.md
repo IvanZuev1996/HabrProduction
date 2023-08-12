@@ -136,3 +136,5 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлен shared-компонент [Drawer](src/shared/ui/Drawer/Drawer.tsx)
 -   Реализован хук [useDevice](src/shared/lib/hooks/useDevice/useDevice.ts) для переключения между видами компонентов в зависимости от устройства пользователя.
 -   Реализован хук [useModal](src/shared/lib/hooks/useModal/useModal.ts)
+-   Создан [AnimationProvider](src/shared/lib/components/AnimationProvider/AnimationProvider.tsx) для асинхронной подгрузки библиотек.
+-   Обновлен компонент [Drawer](src/shared/ui/Drawer/Drawer.tsx). Добавлены анимации с помощью react-spring и use-gesture.

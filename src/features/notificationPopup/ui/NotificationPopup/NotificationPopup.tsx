@@ -9,6 +9,7 @@ import { Drawer } from 'shared/ui/Drawer/Drawer';
 import { useDevice } from 'shared/lib/hooks/useDevice/useDevice';
 import { Text, TextSize } from 'shared/ui/Text/Text';
 import { useTranslation } from 'react-i18next';
+import { AnimationProvider } from 'shared/lib/components/AnimationProvider';
 import cls from './NotificationPopup.module.scss';
 
 interface NotificationPopupProps {
@@ -44,16 +45,18 @@ export const NotificationPopup = memo((props: NotificationPopupProps) => {
         return (
             <div>
                 {trigger}
-                <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
-                    <div className={cls.panelHeader}>
-                        <Text
-                            title={t('Уведомления')}
-                            size={TextSize.S}
-                            className={cls.notificationsHeader}
-                        />
-                    </div>
-                    <NotificationList />
-                </Drawer>
+                <AnimationProvider>
+                    <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
+                        <div className={cls.panelHeader}>
+                            <Text
+                                title={t('Уведомления')}
+                                size={TextSize.S}
+                                className={cls.notificationsHeader}
+                            />
+                        </div>
+                        <NotificationList />
+                    </Drawer>
+                </AnimationProvider>
             </div>
         );
     }
