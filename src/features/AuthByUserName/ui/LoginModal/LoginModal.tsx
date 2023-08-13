@@ -13,16 +13,14 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => (
-    <AnimationProvider>
-        <Modal
-            className={classNames(cls.LoginModal, {}, [className])}
-            isOpen={isOpen}
-            onClose={onClose}
-            lazy
-        >
-            <Suspense fallback={<Loader />}>
-                <LoginFormAsync onSuccess={onClose} />
-            </Suspense>
-        </Modal>
-    </AnimationProvider>
+    <Modal
+        className={classNames(cls.LoginModal, {}, [className])}
+        isOpen={isOpen}
+        onClose={onClose}
+        lazy
+    >
+        <Suspense fallback={<Loader />}>
+            <LoginFormAsync onSuccess={onClose} />
+        </Suspense>
+    </Modal>
 );

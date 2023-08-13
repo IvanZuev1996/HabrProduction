@@ -1,6 +1,9 @@
 import { memo, useCallback, useEffect } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
+import {
+    AnimationProvider,
+    useAnimationLibs
+} from '../../lib/components/AnimationProvider';
 import cls from './Overlay.module.scss';
 
 interface OverlayProps {
@@ -52,7 +55,7 @@ export const OverlayContent = memo((props: OverlayProps) => {
     );
 });
 
-export const Overlay = (props: OverlayProps) => {
+export const OverlayAsync = (props: OverlayProps) => {
     const { isLoaded } = useAnimationLibs();
 
     if (!isLoaded) {
@@ -61,3 +64,9 @@ export const Overlay = (props: OverlayProps) => {
 
     return <OverlayContent {...props} />;
 };
+
+export const Overlay = (props: OverlayProps) => (
+    <AnimationProvider>
+        <OverlayAsync {...props} />
+    </AnimationProvider>
+);

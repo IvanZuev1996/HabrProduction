@@ -131,6 +131,9 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Настроен [babel-loader](/config/build/loaders/buildBabelLoader.ts) для обработки typesctipt/javascript файлов (ts, js, tsx, jsx)
 -   Добавлен [fork-ts-checker](https://www.npmjs.com/package/fork-ts-checker-webpack-plugin) для выноса процесса проверки типов в отдельный процесс
 -   Реализован кастомный [babel-плагин](/config/babel/babelRemovePropsPlugin.ts) для удаления data-testid атрибутов из сборки
+
+#### Popover. Drawer. Разные user agents. Алиасы. Автоматизированный рефакторинг. Парсинг AST. BrowserList. Vite. Оценка статьи
+
 -   Добавлен shared-компонент [Popover](src/shared/ui/Popups/ui/Popover/Popover.tsx)
 -   Реализована фича [notificationPopup](src/features/notificationPopup/ui/NotificationPopup/NotificationPopup.tsx) для получения уведомлений
 -   Добавлен shared-компонент [Drawer](src/shared/ui/Drawer/Drawer.tsx)
@@ -141,3 +144,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлен alias в [buildResolvers](/config/build/buildResolves.ts)
 -   Добавлена библиотека [ts-morph](https://www.npmjs.com/package/ts-morph) для управления ts-файлами
 -   Реализован скрипт [updateImports](/scripts/updateImports.ts) для быстрого рефакторинка путей
+-   Добавлен файл .browerslistrc для контроля поддерживаемых браузеров

@@ -45,18 +45,16 @@ export const NotificationPopup = memo((props: NotificationPopupProps) => {
         return (
             <div>
                 {trigger}
-                <AnimationProvider>
-                    <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
-                        <div className={cls.panelHeader}>
-                            <Text
-                                title={t('Уведомления')}
-                                size={TextSize.S}
-                                className={cls.notificationsHeader}
-                            />
-                        </div>
-                        <NotificationList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={isDrawerOpen} onClose={onDrawerClose}>
+                    <div className={cls.panelHeader}>
+                        <Text
+                            title={t('Уведомления')}
+                            size={TextSize.S}
+                            className={cls.notificationsHeader}
+                        />
+                    </div>
+                    <NotificationList />
+                </Drawer>
             </div>
         );
     }
