@@ -145,3 +145,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлена библиотека [ts-morph](https://www.npmjs.com/package/ts-morph) для управления ts-файлами
 -   Реализован скрипт [updateImports](/scripts/updateImports.ts) для быстрого рефакторинка путей
 -   Добавлен файл .browerslistrc для контроля поддерживаемых браузеров
+-   Добавлен [vite](https://vitejs.dev) и его [конфиг](/vite.config.ts)
