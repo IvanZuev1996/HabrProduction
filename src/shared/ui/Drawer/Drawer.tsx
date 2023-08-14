@@ -28,15 +28,18 @@ export const DrawerContent = memo((props: DrawerProps) => {
         api.start({ y: 0, immediate: false });
     }, [api]);
 
-    const closeDrawer = (velocity = 0) => {
-        api.start({
-            y: height,
-            immediate: false,
-            config: { ...Spring.config.stiff, velocity },
-            onResolve: onClose
-        });
-        setIsDrawerClosed(true);
-    };
+    const closeDrawer = useCallback(
+        (velocity = 0) => {
+            api.start({
+                y: height,
+                immediate: false,
+                config: { ...Spring.config.stiff, velocity },
+                onResolve: onClose
+            });
+            setIsDrawerClosed(true);
+        },
+        [Spring.config.stiff, api, onClose]
+    );
 
     useEffect(() => {
         if (isOpen) {
@@ -46,7 +49,7 @@ export const DrawerContent = memo((props: DrawerProps) => {
         return () => {
             setIsDrawerClosed(false);
         };
-    }, [api, isOpen, openDrawer]);
+    }, [api, closeDrawer, isOpen, openDrawer]);
 
     const bind = Gesture.useDrag(
         ({

@@ -8,28 +8,17 @@ export enum IconType {
 }
 
 export type FillType = 'primary' | 'additional';
-export type IconWidth = '10' | '20' | '30' | '40' | '50' | '60';
 
 const fillClasses: Record<FillType, string> = {
     additional: cls.additionalColor,
     primary: cls.primaryColor
 };
 
-const widthClasses: Record<IconWidth, string> = {
-    10: cls.width_10,
-    20: cls.width_20,
-    30: cls.width_30,
-    40: cls.width_40,
-    50: cls.width_50,
-    60: cls.width_60
-};
-
-interface IconProps {
+interface IconProps extends React.SVGProps<SVGSVGElement> {
     className?: string;
     Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
     type?: IconType;
     fill?: FillType;
-    width?: IconWidth;
 }
 
 export const Icon = memo((props: IconProps) => {
@@ -37,16 +26,13 @@ export const Icon = memo((props: IconProps) => {
         className,
         Svg,
         type = IconType.NORMAL,
-        width = '30',
-        fill = 'primary'
+        fill = 'primary',
+        ...otherProps
     } = props;
 
-    const classes = [
-        className,
-        cls[type],
-        widthClasses[width],
-        fillClasses[fill]
-    ];
+    const classes = [className, cls[type], fillClasses[fill]];
 
-    return <Svg className={classNames(cls.Icon, {}, classes)} />;
+    return (
+        <Svg className={classNames(cls.Icon, {}, classes)} {...otherProps} />
+    );
 });

@@ -42,6 +42,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     border?: BorderType;
     max?: boolean;
     justify?: JustifyType;
+    fullWidth?: boolean;
     children?: ReactNode;
 }
 
@@ -56,13 +57,15 @@ export const Button = memo((props: ButtonProps) => {
         disabled,
         max,
         border,
+        fullWidth,
         ...otherProps
     } = props;
 
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
-        [cls.max]: max
+        [cls.max]: max,
+        [cls.fullWidth]: fullWidth
     };
 
     const classes = [

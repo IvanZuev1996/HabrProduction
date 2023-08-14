@@ -146,3 +146,5 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Реализован скрипт [updateImports](/scripts/updateImports.ts) для быстрого рефакторинка путей
 -   Добавлен файл .browerslistrc для контроля поддерживаемых браузеров
 -   Добавлен [vite](https://vitejs.dev) и его [конфиг](/vite.config.ts)
+-   Добавлен shared-компонент [startRating](src/shared/ui/StarRating/StarRating.tsx)
+-   Реализован компонент [RatingCard](src/entities/Rating/ui/RatingCard/RatingCard.tsx)
