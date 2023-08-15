@@ -1553,5 +1553,107 @@
       "username": "manager",
       "avatar": "https://work2.ru/upload/iblock/704/wicwpqq6kozl4woijhcfrpvlmgvwvqy7.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья! Но мне не хватило практических примеров.",
+      "userId": 1,
+      "articleId": 1
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Отличная статья!",
+      "userId": 2,
+      "articleId": 1
+    },
+    {
+      "articleId": "2",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "Очень круто, спасибо за статью!",
+      "id": "DzW_ZpM"
+    },
+    {
+      "articleId": "3",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "",
+      "id": "hUl44Ov"
+    },
+    {
+      "articleId": "2",
+      "rate": 1,
+      "userId": "2",
+      "feedback": "Ну такое, статья ни о чем",
+      "id": "x5qsKrg"
+    },
+    {
+      "articleId": "10",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "Статья норм",
+      "id": "ZXY-70U"
+    },
+    {
+      "articleId": "10",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "",
+      "id": "cfGd_BB"
+    },
+    {
+      "articleId": "12",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "Отзыв",
+      "id": "XpOWmnJ"
+    },
+    {
+      "articleId": "14",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "ПЩГрукцщпруц",
+      "id": "kjvrWz6"
+    },
+    {
+      "articleId": "15",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "ауцацуа",
+      "id": "-WJn8TO"
+    },
+    {
+      "articleId": "18",
+      "rate": 1,
+      "userId": "1",
+      "feedback": "",
+      "id": "zZYUfns"
+    },
+    {
+      "articleId": "19",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "",
+      "id": "pzkDG-L"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хороший пользователь!",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 5,
+      "feedback": "Отличный пользователь!",
+      "userId": "2",
+      "profileId": "1"
+    }
   ]
 }

@@ -148,3 +148,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлен [vite](https://vitejs.dev) и его [конфиг](/vite.config.ts)
 -   Добавлен shared-компонент [startRating](src/shared/ui/StarRating/StarRating.tsx)
 -   Реализован компонент [RatingCard](src/entities/Rating/ui/RatingCard/RatingCard.tsx)
+-   Реализована фича [articleRating](src/features/articleRating/ui/ArticleRating/ArticleRating.tsx)

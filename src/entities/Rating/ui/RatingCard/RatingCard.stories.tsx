@@ -1,8 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { RatingCard } from './RatingCard';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
-    title: 'shared/RatingCard',
+    title: 'entities/Rating/RatingCard',
     component: RatingCard,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -16,3 +18,8 @@ const Template: ComponentStory<typeof RatingCard> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
+
+export const Dark = Template.bind({});
+Dark.args = {};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

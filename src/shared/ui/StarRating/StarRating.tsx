@@ -1,4 +1,4 @@
-import { memo, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Mods, classNames } from '@/shared/lib/helpers/classNames';
 import starIcon from '@/shared/assets/icons/star.svg';
 import cls from './StarRating.module.scss';
@@ -15,10 +15,19 @@ const stars: number[] = [1, 2, 3, 4, 5];
 
 export const StarRating = memo((props: StarRatingProps) => {
     const { className, onSelect, selectedStars = 0, size = 30 } = props;
-    const [currentStarsCount, setCurrentStarsCount] = useState<number>(0); // сколько звезд нужно подсветить
+    const [currentStarsCount, setCurrentStarsCount] =
+        useState<number>(selectedStars); // сколько звезд нужно подсветить
+
     const [isSelected, setIsSelected] = useState<boolean>(
         Boolean(selectedStars)
     );
+
+    useEffect(() => {
+        if (!selectedStars) {
+            setIsSelected(false);
+            setCurrentStarsCount(0);
+        }
+    }, [selectedStars]);
 
     const onHover = (starsCount: number) => () => {
         if (!isSelected) {

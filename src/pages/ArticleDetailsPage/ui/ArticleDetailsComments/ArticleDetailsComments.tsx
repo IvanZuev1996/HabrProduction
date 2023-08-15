@@ -13,6 +13,7 @@ import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlic
 import { getArticleCommentsIsLoading } from '../../model/selectors/comment/comment';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleDetailsData } from '@/entities/Article';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -24,6 +25,7 @@ export const ArticleDetailsComments = memo(
         const { className, id } = props;
         const { t } = useTranslation();
         const dispatch = useAppDispatch();
+        const article = useSelector(getArticleDetailsData);
 
         const comments = useSelector(getArticleComments.selectAll);
         const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
@@ -38,6 +40,10 @@ export const ArticleDetailsComments = memo(
         useInitialEffect(() => {
             dispatch(fetchCommentsByArticleId(id));
         });
+
+        if (!article) {
+            return null;
+        }
 
         return (
             <VStack gap="8" className={classNames('', {}, [className])}>

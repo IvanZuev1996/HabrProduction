@@ -19,20 +19,28 @@ interface RatingCardProps {
     hasFeedback?: boolean;
     onCancel?: (startsCount: number) => void;
     onAccept?: (startsCount: number, feedback?: string) => void;
+    rate?: number;
 }
 
 export const RatingCard = memo((props: RatingCardProps) => {
-    const { className, feedbackTitle, hasFeedback, title, onAccept, onCancel } =
-        props;
+    const {
+        className,
+        feedbackTitle,
+        hasFeedback,
+        title,
+        onAccept,
+        onCancel,
+        rate = 0
+    } = props;
     const { t } = useTranslation();
     const isMobile = useDevice();
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-    const [startsCount, setStartCount] = useState<number>(0);
+    const [starsCount, setStarsCount] = useState<number>(rate);
     const [feedback, setFeedback] = useState<string>('');
 
     const onSelectStars = useCallback(
         (selectedStartCount: number) => {
-            setStartCount(selectedStartCount);
+            setStarsCount(selectedStartCount);
             if (hasFeedback) {
                 setIsModalOpen(true);
             } else {
@@ -44,13 +52,14 @@ export const RatingCard = memo((props: RatingCardProps) => {
 
     const acceptHandler = useCallback(() => {
         setIsModalOpen(false);
-        onAccept?.(startsCount, feedback);
-    }, [feedback, onAccept, startsCount]);
+        onAccept?.(starsCount, feedback);
+    }, [feedback, onAccept, starsCount]);
 
     const cancelHandler = useCallback(() => {
         setIsModalOpen(false);
-        onCancel?.(startsCount);
-    }, [onCancel, startsCount]);
+        setStarsCount(0);
+        onCancel?.(starsCount);
+    }, [onCancel, starsCount]);
 
     const modalContent = (
         <>
@@ -66,8 +75,12 @@ export const RatingCard = memo((props: RatingCardProps) => {
     return (
         <Card className={classNames(cls.RatingCard, {}, [className])}>
             <VStack align="center" justify="center" gap="8">
-                <Text title={title} />
-                <StarRating size={30} onSelect={onSelectStars} />
+                <Text title={starsCount ? t('Спасибо за оценку!') : title} />
+                <StarRating
+                    size={40}
+                    onSelect={onSelectStars}
+                    selectedStars={starsCount}
+                />
             </VStack>
             {isMobile && isMobile !== null ? (
                 <Drawer isOpen={isModalOpen} lazy onClose={cancelHandler}>
