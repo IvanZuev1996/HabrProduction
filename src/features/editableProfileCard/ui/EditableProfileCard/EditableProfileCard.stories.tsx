@@ -4,6 +4,8 @@ import { Currency } from '@/entities/Currency';
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import { Country } from '@/entities/Country';
 import { EditableProfileCard } from './EditableProfileCard';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'features/EditableProfileCard/EditableProfileCard',
@@ -35,3 +37,8 @@ const Template: ComponentStory<typeof EditableProfileCard> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
+
+export const Dark = Template.bind({});
+Dark.args = {};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

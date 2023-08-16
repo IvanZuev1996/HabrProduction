@@ -22,6 +22,7 @@ export default ({ config }: { config: Configuration }) => {
     ];
 
     config!.resolve!.alias = {
+        ...config!.resolve!.alias,
         '@': paths.src
     };
 

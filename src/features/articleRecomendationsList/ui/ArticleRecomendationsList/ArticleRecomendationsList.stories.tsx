@@ -4,6 +4,8 @@ import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Article } from '@/entities/Article';
 import { ArticleRecomendationsList } from './ArticleRecomendationsList';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'features/ArticleRecomendationsList/ArticleRecomendationsList',
@@ -97,6 +99,26 @@ export const Normal = Template.bind({});
 Normal.args = {};
 
 Normal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/articles?_limit=3`,
+            method: 'GET',
+            status: 200,
+            response: [
+                { ...article, id: '1' },
+                { ...article, id: '2' },
+                { ...article, id: '3' }
+            ]
+        }
+    ]
+};
+
+export const Dark = Template.bind({});
+Dark.args = {};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+Dark.parameters = {
     mockData: [
         {
             url: `${__API__}/articles?_limit=3`,

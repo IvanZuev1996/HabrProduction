@@ -2,6 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsComments',
@@ -44,6 +46,11 @@ export default {
                         }
                     }
                 }
+            },
+            articleDetails: {
+                data: {
+                    id: '1'
+                }
             }
         })
     ]
@@ -58,3 +65,10 @@ export const Normal = Template.bind({});
 Normal.args = {
     id: '1'
 };
+
+export const Dark = Template.bind({});
+Dark.args = {
+    id: '1'
+};
+
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

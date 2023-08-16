@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import withMock from 'storybook-addon-mock';
 import { Theme } from '@/app/providers/ThemeProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -8,13 +9,66 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import ProfilePage from './ProfilePage';
+import { Rating } from '@/entities/Rating';
+import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+
+const ratings: Rating[] = [
+    {
+        feedback: 'feedback',
+        id: '1',
+        rate: 5
+    },
+    {
+        feedback: 'feedback',
+        id: '2',
+        rate: 5
+    },
+    {
+        feedback: 'feedback',
+        id: '3',
+        rate: 5
+    }
+];
 
 export default {
     title: 'pages/ProfilePage',
     component: ProfilePage,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    parameters: {
+        mockData: [
+            {
+                url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+                method: 'POST',
+                status: 200,
+                response: null,
+                body: ratings[0]
+            },
+            {
+                url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+                method: 'GET',
+                status: 200,
+                response: null
+            }
+        ]
+    },
+    decorators: [
+        withMock,
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1'
+                }
+            },
+            profile: {
+                data: {
+                    id: '1'
+                }
+            }
+        }),
+        AxiosDecorator()
+    ]
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
@@ -34,10 +88,12 @@ Light.decorators = [
                 city: 'Moscow',
                 username: 'admin',
                 avatar: AvatarImg
+            },
+            data: {
+                id: '1'
             }
         }
-    }),
-    AxiosDecorator()
+    })
 ];
 
 export const Dark = Template.bind({});
@@ -56,8 +112,10 @@ Dark.decorators = [
                 city: 'Moscow',
                 username: 'admin',
                 avatar: AvatarImg
+            },
+            data: {
+                id: '1'
             }
         }
-    }),
-    AxiosDecorator()
+    })
 ];

@@ -48,11 +48,17 @@ export default {
     parameters: {
         mockData: [
             {
-                url: `${__API__}/article-ratings`,
+                url: `${__API__}/article-ratings?userId=1&articleId=1`,
                 method: 'POST',
                 status: 200,
                 response: null,
                 body: ratings[0]
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1&articleId=1`,
+                method: 'GET',
+                status: 200,
+                response: null
             }
         ]
     }
@@ -63,10 +69,40 @@ const Template: ComponentStory<typeof ArticleRating> = (args) => (
     <ArticleRating {...args} />
 );
 
-export const Normal = Template.bind({});
-Normal.args = {};
+export const SelectedStarsNormal = Template.bind({});
+SelectedStarsNormal.args = { articleId: '1' };
 
-export const Dark = Template.bind({});
-Dark.args = {};
+SelectedStarsNormal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: ratings
+        }
+    ]
+};
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
+export const SelectedStarsDark = Template.bind({});
+SelectedStarsDark.args = { articleId: '1' };
+
+SelectedStarsDark.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: ratings
+        }
+    ]
+};
+
+SelectedStarsDark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const NotSelectedStarsNormal = Template.bind({});
+NotSelectedStarsNormal.args = { articleId: '1' };
+
+export const NotSelectedStarsDark = Template.bind({});
+NotSelectedStarsDark.args = { articleId: '1' };
+
+NotSelectedStarsDark.decorators = [ThemeDecorator(Theme.DARK)];

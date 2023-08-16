@@ -2,9 +2,10 @@ import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { TextAlign, Text } from '@/shared/ui/Text/Text';
-import { ArticleList } from '@/entities/Article';
-import { VStack } from '@/shared/ui/Stack';
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { HStack, VStack } from '@/shared/ui/Stack';
 import { useArticleRecomendationsList } from '../../api/articleRecomendationsApi';
+import { ArticleListItemSkeleton } from '@/entities/Article/ui/ArticleListItem/ArticleListItemSkeleton';
 
 interface ArticleRecomendationsListProps {
     className?: string;
@@ -20,8 +21,18 @@ export const ArticleRecomendationsList = memo(
             error
         } = useArticleRecomendationsList(3);
 
-        if (isLoading || error || !articles) {
+        if (error || !articles) {
             return null;
+        }
+
+        if (isLoading) {
+            return (
+                <HStack gap="16">
+                    <ArticleListItemSkeleton view={ArticleView.SMALL} />
+                    <ArticleListItemSkeleton view={ArticleView.SMALL} />
+                    <ArticleListItemSkeleton view={ArticleView.SMALL} />
+                </HStack>
+            );
         }
 
         return (

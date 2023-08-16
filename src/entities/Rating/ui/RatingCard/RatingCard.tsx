@@ -73,7 +73,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
     );
 
     return (
-        <Card className={classNames(cls.RatingCard, {}, [className])}>
+        <Card className={classNames(cls.RatingCard, {}, [className])} max>
             <VStack align="center" justify="center" gap="8">
                 <Text title={starsCount ? t('Спасибо за оценку!') : title} />
                 <StarRating

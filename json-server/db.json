@@ -1654,6 +1654,34 @@
       "feedback": "Отличный пользователь!",
       "userId": "2",
       "profileId": "1"
+    },
+    {
+      "userId": "1",
+      "profileId": "2",
+      "rate": 5,
+      "feedback": "Очень крутой чувак!",
+      "id": "qUpKbBq"
+    },
+    {
+      "userId": "2",
+      "profileId": "3",
+      "rate": 5,
+      "feedback": "",
+      "id": "QREC6dR"
+    },
+    {
+      "userId": "3",
+      "profileId": "1",
+      "rate": 1,
+      "feedback": "",
+      "id": "qRgO-JH"
+    },
+    {
+      "userId": "1",
+      "profileId": "3",
+      "rate": 4,
+      "feedback": "",
+      "id": "KY4rWaF"
     }
   ]
 }

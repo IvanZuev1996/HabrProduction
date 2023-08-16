@@ -19,6 +19,9 @@ export const Normal = Template.bind({});
 Normal.args = { isOpen: true, children: <div>Some text</div> };
 
 export const Dark = Template.bind({});
-Dark.args = { isOpen: true, children: <div>Some text</div> };
+Dark.args = {
+    isOpen: true,
+    children: <div style={{ color: 'white' }}>Some text</div>
+};
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];

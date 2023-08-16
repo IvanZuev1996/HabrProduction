@@ -6,6 +6,7 @@ import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDe
 import UserIcon from '@/shared/assets/tests/storybook_avatar.jpg';
 import { Notification } from '@/entities/Notification';
 import { Navbar } from './Navbar';
+import { UserRole } from '@/entities/User';
 
 const notifications: Notification[] = [
     {
@@ -48,7 +49,19 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-    decorators: [withMock],
+    decorators: [
+        withMock,
+        StoreDecorator({
+            user: {
+                authData: {
+                    id: '1',
+                    avatar: UserIcon,
+                    roles: [UserRole.ADMIN, UserRole.MANAGER],
+                    username: 'admin'
+                }
+            }
+        })
+    ],
     parameters: {
         mockData: [
             {

@@ -71,3 +71,33 @@ export const Dark = Template.bind({});
 Dark.args = {};
 
 Dark.decorators = [ThemeDecorator(Theme.DARK)];
+
+export const LoadingNormal = Template.bind({});
+LoadingNormal.args = {};
+
+LoadingNormal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/notifications`,
+            method: 'GET',
+            status: 200,
+            response: notifications,
+            delay: 2000
+        }
+    ]
+};
+
+export const LoadingDark = Template.bind({});
+LoadingDark.args = {};
+
+LoadingDark.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/notifications`,
+            method: 'GET',
+            status: 200,
+            response: notifications,
+            delay: 2000
+        }
+    ]
+};

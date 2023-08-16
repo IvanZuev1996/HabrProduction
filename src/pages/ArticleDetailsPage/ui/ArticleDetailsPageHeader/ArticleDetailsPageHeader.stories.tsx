@@ -1,6 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ArticleDetailsPageHeader } from './ArticleDetailsPageHeader';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from '@/app/providers/ThemeProvider';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPageHeader',
@@ -53,4 +55,46 @@ NoCanEdit.decorators = [
             }
         }
     })
+];
+
+export const CanEditDark = Template.bind({});
+CanEditDark.args = {};
+
+CanEditDark.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1'
+            }
+        },
+        articleDetails: {
+            data: {
+                user: {
+                    id: '1'
+                }
+            }
+        }
+    }),
+    ThemeDecorator(Theme.DARK)
+];
+
+export const NoCanEditDark = Template.bind({});
+NoCanEditDark.args = {};
+
+NoCanEditDark.decorators = [
+    StoreDecorator({
+        user: {
+            authData: {
+                id: '1'
+            }
+        },
+        articleDetails: {
+            data: {
+                user: {
+                    id: '2'
+                }
+            }
+        }
+    }),
+    ThemeDecorator(Theme.DARK)
 ];

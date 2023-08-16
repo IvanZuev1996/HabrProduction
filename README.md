@@ -149,3 +149,6 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Добавлен shared-компонент [startRating](src/shared/ui/StarRating/StarRating.tsx)
 -   Реализован компонент [RatingCard](src/entities/Rating/ui/RatingCard/RatingCard.tsx)
 -   Реализована фича [articleRating](src/features/articleRating/ui/ArticleRating/ArticleRating.tsx)
+-   Реализована фича [profileRating](src/features/profileRating/ui/ProfileRating/ProfileRating.tsx)
+
+#### Арх-ые правила eslint. Автофикс. Test public api. Рефакторинг. Документация. Сборка. Улучшаем работу со store
