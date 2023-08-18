@@ -7,14 +7,14 @@ import {
     ArticleView,
     ArticleSortSelector,
     ArticleSortField,
-    ArticleTypeTabs
+    ArticleTypeTabs,
+    ArticleType
 } from '@/entities/Article';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { Card } from '@/shared/ui/Card/Card';
 import { Input } from '@/shared/ui/Input/Input';
 import { SortOrder } from '@/shared/types';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { ArticleType } from '@/entities/Article/model/consts/articleConsts';
 import { HStack } from '@/shared/ui/Stack';
 import { articlesPageActions } from '../../model/slices/articlesPageSlice';
 import cls from './ArticlesPageFilters.module.scss';

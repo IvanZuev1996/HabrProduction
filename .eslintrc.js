@@ -77,7 +77,8 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
-        'babun4ek-fsd-plugin/path-checker': ['error', {alias: '@'}]
+        'babun4ek-fsd-plugin/path-checker': ['error', { alias: '@' }],
+        'babun4ek-fsd-plugin/public-api-imports': ['error', { alias: '@' }]
     },
     globals: {
         __IS_DEV__: true,

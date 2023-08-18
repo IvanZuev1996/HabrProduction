@@ -1488,6 +1488,12 @@
       "userId": "1",
       "text": "fpjewfew",
       "id": "-JWSHWF"
+    },
+    {
+      "articleId": "10",
+      "userId": "1",
+      "text": "fewfwe",
+      "id": "TrYAKcE"
     }
   ],
   "users": [
@@ -1638,6 +1644,13 @@
       "userId": "1",
       "feedback": "",
       "id": "pzkDG-L"
+    },
+    {
+      "articleId": "5",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "",
+      "id": "EvfBjCE"
     }
   ],
   "profile-ratings": [

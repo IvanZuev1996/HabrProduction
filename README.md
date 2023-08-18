@@ -152,3 +152,5 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Реализована фича [profileRating](src/features/profileRating/ui/ProfileRating/ProfileRating.tsx)
 
 #### Арх-ые правила eslint. Автофикс. Test public api. Рефакторинг. Документация. Сборка. Улучшаем работу со store
+
+-   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Добавлено правило [public-api-imports](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/main/docs/rules/public-api-imports.md)

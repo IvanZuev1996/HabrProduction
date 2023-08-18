@@ -5,8 +5,7 @@ import {
     Reducer,
     ReducersMapObject
 } from '@reduxjs/toolkit';
-import { NavigateOptions, To } from 'react-router-dom';
-import { counterReducer } from '@/entities/Counter/model/slice/counterSlice';
+import { counterReducer } from '@/entities/Counter';
 import { sidebarReducer } from '@/entities/Sidebar';
 import { userReducer } from '@/entities/User';
 import { uiReducer } from '@/features/UI';
