@@ -78,7 +78,17 @@ module.exports = {
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
         'babun4ek-fsd-plugin/path-checker': ['error', { alias: '@' }],
-        'babun4ek-fsd-plugin/public-api-imports': ['error', { alias: '@' }]
+        'babun4ek-fsd-plugin/public-api-imports': [
+            'error',
+            {
+                alias: '@',
+                testFilesPatterns: [
+                    '**/*.test.*',
+                    '**/*.stories.*',
+                    '**/StoreDecorator.tsx'
+                ]
+            }
+        ]
     },
     globals: {
         __IS_DEV__: true,
