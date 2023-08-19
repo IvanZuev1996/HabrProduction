@@ -155,3 +155,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Добавлено правило [public-api-imports](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/main/docs/rules/public-api-imports.md)
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Обновлено правило [public-api-imports](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/main/docs/rules/public-api-imports.md). Добавлен [micromatch](https://github.com/micromatch/micromatch) для сопоставления путей и паттернов.
+-   Рефакторинг [routeConfig](src/app/providers/router/config/routeConfig.tsx)

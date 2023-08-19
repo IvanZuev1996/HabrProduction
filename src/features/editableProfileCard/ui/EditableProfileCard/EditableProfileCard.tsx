@@ -6,7 +6,7 @@ import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitial
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
 import { TextTheme, Text } from '@/shared/ui/Text/Text';
-import { ProfileCard } from '@/entities/Profile';
+import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
 import {
     DynamicModuleLoader,
     ReducerList
@@ -20,7 +20,6 @@ import { getProfileValidateErrors } from '../../model/selectors/getProfileValida
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { ValidateProfileError } from '../../model/consts/consts';
 import { classNames } from '@/shared/lib/helpers/classNames';
 
 interface EditableProfileCardProps {
@@ -43,7 +42,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    const validateErrorTranslations = {
+    const validateErrorTranslations: Record<ValidateProfileError, string> = {
         [ValidateProfileError.INCORRECT_AGE]: t('Введите корректное значение'),
         [ValidateProfileError.INCORRECT_CITY]: t('Поле является обязательным'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t(

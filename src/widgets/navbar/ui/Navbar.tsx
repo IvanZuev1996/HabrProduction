@@ -10,11 +10,11 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { getSidebarState, sidebarActions } from '@/entities/Sidebar';
 import { Text, TextSize, TextWeight } from '@/shared/ui/Text/Text';
 import { AppLink } from '@/shared/ui/AppLink/AppLink';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
 import { HStack } from '@/shared/ui/Stack';
 import { NotificationPopup } from '@/features/notificationPopup';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import cls from './Navbar.module.scss';
+import { RoutePath } from '@/shared/const/router';
 
 interface NavbarProps {
     className?: string;

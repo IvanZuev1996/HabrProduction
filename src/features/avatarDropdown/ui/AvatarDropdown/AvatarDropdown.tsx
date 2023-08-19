@@ -11,7 +11,7 @@ import {
     userActions
 } from '@/entities/User';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { RoutePath } from '@/shared/config/routeConfig/routeConfig';
+import { RoutePath } from '@/shared/const/router';
 
 interface AvatarDropDownProps {
     className?: string;
