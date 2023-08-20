@@ -5,7 +5,7 @@ import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch
 import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { Currency } from '@/entities/Currency';
 import { Country } from '@/entities/Country';
-import { TextTheme, Text } from '@/shared/ui/Text/Text';
+import { TextTheme, Text } from '@/shared/ui/Text';
 import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
 import {
     DynamicModuleLoader,

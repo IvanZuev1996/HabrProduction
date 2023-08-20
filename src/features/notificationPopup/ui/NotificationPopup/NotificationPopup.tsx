@@ -1,14 +1,14 @@
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { Icon } from '@/shared/ui/Icon/Icon';
+import { Icon } from '@/shared/ui/Icon';
 import { Popover } from '@/shared/ui/Popups';
 import { NotificationList } from '@/entities/Notification';
 import NotuficationIcon from '@/shared/assets/icons/notification.svg';
-import { Button, ButtonTheme } from '@/shared/ui/Button/Button';
-import { Drawer } from '@/shared/ui/Drawer/Drawer';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Drawer } from '@/shared/ui/Drawer';
 import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
-import { Text, TextSize } from '@/shared/ui/Text/Text';
+import { Text, TextSize } from '@/shared/ui/Text';
 import { AnimationProvider } from '@/shared/lib/components/AnimationProvider';
 import cls from './NotificationPopup.module.scss';
 

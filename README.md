@@ -158,3 +158,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Рефакторинг [routeConfig](src/app/providers/router/config/routeConfig.tsx)
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Добалено правило [layer-imports-checker](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/HEAD/docs/rules/layer-imports-checker.md)
 -   Рефакторинг [ThemeContext](src/shared/lib/context/ThemeContext.ts)
+-   Реализован скрипт [createPublicApiForSharedUI](./scripts/refactoring/createPublicApiForSharedUI.ts) для автоматического создания public api для shared-ui компонентов
