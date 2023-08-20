@@ -3,7 +3,7 @@ import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDe
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsComments',

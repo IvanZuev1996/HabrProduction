@@ -4,7 +4,7 @@ import ProfileRating from './ProfileRating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Rating } from '@/entities/Rating';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
+import { Theme } from '@/shared/const/theme';
 
 const ratings: Rating[] = [
     {
@@ -35,7 +35,7 @@ export default {
         StoreDecorator({
             user: {
                 authData: {
-                    id: '1'
+                    id: '2'
                 }
             },
             profile: {

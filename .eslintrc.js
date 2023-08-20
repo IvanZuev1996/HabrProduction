@@ -88,6 +88,13 @@ module.exports = {
                     '**/StoreDecorator.tsx'
                 ]
             }
+        ],
+        'babun4ek-fsd-plugin/layer-imports-checker': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportsPatters: ['**/StoreProvider', '**/testing']
+            }
         ]
     },
     globals: {

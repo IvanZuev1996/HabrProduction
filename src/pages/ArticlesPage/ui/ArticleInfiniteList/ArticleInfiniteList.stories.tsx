@@ -4,8 +4,8 @@ import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import ArticleImg from '@/shared/assets/storybook/ArticlePhoto.jpg';
 import { ArticleType } from '@/entities/Article';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ArticleInfiniteList } from './ArticleInfiniteList';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'pages/ArticlesPage/ArticleInfiniteList',

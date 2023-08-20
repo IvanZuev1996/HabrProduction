@@ -1,9 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Article } from '../../model/types/article';
 import { ArticleView } from '../../model/consts/articleConsts';
 import { ArticleList } from './ArticleList';
+import { Theme } from '@/shared/const/theme';
 
 export default {
     title: 'entities/Article/ArticleList',
@@ -95,12 +95,20 @@ const article = {
 
 export const Small = Template.bind({});
 Small.args = {
-    articles: [article, article, article]
+    articles: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' }
+    ]
 };
 
 export const SmallDark = Template.bind({});
 SmallDark.args = {
-    articles: [article, article, article]
+    articles: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' }
+    ]
 };
 
 SmallDark.decorators = [ThemeDecorator(Theme.DARK)];
@@ -122,13 +130,21 @@ SmallLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];
 export const Big = Template.bind({});
 Big.args = {
     view: ArticleView.BIG,
-    articles: [article, article, article]
+    articles: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' }
+    ]
 };
 
 export const BigDark = Template.bind({});
 BigDark.args = {
     view: ArticleView.BIG,
-    articles: [article, article, article]
+    articles: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' }
+    ]
 };
 
 BigDark.decorators = [ThemeDecorator(Theme.DARK)];

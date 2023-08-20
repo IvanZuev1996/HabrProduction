@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import AxiosDecorator from '@/shared/config/storybook/AxiosDecorator/AxiosDecorator';
@@ -11,6 +10,7 @@ import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import ProfilePage from './ProfilePage';
 import { Rating } from '@/entities/Rating';
 import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
+import { Theme } from '@/shared/const/theme';
 
 const ratings: Rating[] = [
     {

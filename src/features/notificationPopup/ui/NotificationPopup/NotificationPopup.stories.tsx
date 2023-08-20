@@ -3,8 +3,8 @@ import withMock from 'storybook-addon-mock';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { Notification } from '@/entities/Notification';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/app/providers/ThemeProvider';
 import { NotificationPopup } from './NotificationPopup';
+import { Theme } from '@/shared/const/theme';
 
 const notifications: Notification[] = [
     {
