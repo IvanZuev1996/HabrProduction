@@ -19,7 +19,6 @@ import { ArticlesPageFilters } from '../ArticlesPageFilters/ArticlesPageFilters'
 
 import cls from './ArticlesPage.module.scss';
 
-
 interface ArticlesPageProps {
     className?: string;
 }

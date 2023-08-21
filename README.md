@@ -161,3 +161,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Реализован скрипт [createPublicApiForSharedUI](./scripts/refactoring/createPublicApiForSharedUI.ts) для автоматического создания public api для shared-ui компонентов
 -   Установлен [eslint-plugin-unused](https://www.npmjs.com/package/eslint-plugin-unused-imports?activeTab=readme) для автоматического удаления не используемых импортов
 -   Настроен [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) для автоматической сортировки импортов по группам
+-   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Реализованоо автоматическое форматирование для правила [public-api-imports](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/main/docs/rules/public-api-imports.md) и [path-checker](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/HEAD/docs/rules/path-checker.md)
