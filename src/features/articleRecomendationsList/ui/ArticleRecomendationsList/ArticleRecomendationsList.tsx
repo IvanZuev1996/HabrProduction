@@ -1,13 +1,15 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { classNames } from '@/shared/lib/helpers/classNames';
-import { TextAlign, Text } from '@/shared/ui/Text';
+import { useTranslation } from 'react-i18next';
+
 import {
     ArticleList,
     ArticleView,
     ArticleListItemSkeleton
 } from '@/entities/Article';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import { HStack, VStack } from '@/shared/ui/Stack';
+import { TextAlign, Text } from '@/shared/ui/Text';
+
 import { useArticleRecomendationsList } from '../../api/articleRecomendationsApi';
 
 interface ArticleRecomendationsListProps {

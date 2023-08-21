@@ -1,11 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
-import { EditableProfileCardHeader } from './EditableProfileCardHeader';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+
+import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 
 export default {
     title: 'features/EditableProfileCard/EditableProfileCardHeader',

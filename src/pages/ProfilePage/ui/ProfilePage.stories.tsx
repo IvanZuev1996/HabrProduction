@@ -1,16 +1,18 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
+
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
+import { Rating } from '@/entities/Rating';
+import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
 import AxiosDecorator from '@/shared/config/storybook/AxiosDecorator/AxiosDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
-import ProfilePage from './ProfilePage';
-import { Rating } from '@/entities/Rating';
-import { SuspenseDecorator } from '@/shared/config/storybook/SuspenseDecorator/SuspenseDecorator';
 import { Theme } from '@/shared/const/theme';
+
+import ProfilePage from './ProfilePage';
+
 
 const ratings: Rating[] = [
     {

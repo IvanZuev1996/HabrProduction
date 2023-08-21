@@ -1,6 +1,7 @@
-import { useEffect } from 'react';
-import MockAdapter from 'axios-mock-adapter';
 import { Story } from '@storybook/react';
+import MockAdapter from 'axios-mock-adapter';
+import { useEffect } from 'react';
+
 import { $api } from '../../../api/api';
 
 interface IProps {

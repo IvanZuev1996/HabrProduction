@@ -24,6 +24,8 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'unused-imports',
+        'import',
         'babun4ek-fsd-plugin'
     ],
     ignorePatterns: ['**/*.scss'],
@@ -47,6 +49,7 @@ module.exports = {
         'react/function-component-definition': 'off',
         'no-shadow': 'off',
         'import/extensions': 'off',
+        'unused-imports/no-unused-imports': 'error',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'i18next/no-literal-string': [
@@ -77,6 +80,38 @@ module.exports = {
         'no-param-reassign': 'off',
         'no-undef': 'off',
         'react/no-array-index-key': 'off',
+        'import/order': [
+            'error',
+            {
+                groups: [
+                    'external',
+                    'builtin',
+                    'internal',
+                    'parent',
+                    'sibling',
+                    'object',
+                    'type',
+                    'index'
+                ],
+                pathGroups: [
+                    {
+                        pattern: '@/**',
+                        group: 'builtin'
+                    },
+                    {
+                        pattern: '@**',
+                        group: 'external',
+                        position: 'after'
+                    }
+                ],
+                pathGroupsExcludedImportTypes: ['builtin'],
+                'newlines-between': 'always',
+                alphabetize: {
+                    order: 'asc',
+                    caseInsensitive: true
+                }
+            }
+        ],
         'babun4ek-fsd-plugin/path-checker': ['error', { alias: '@' }],
         'babun4ek-fsd-plugin/public-api-imports': [
             'error',

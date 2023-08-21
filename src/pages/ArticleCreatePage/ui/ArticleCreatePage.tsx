@@ -1,7 +1,8 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { Page } from '@/widgets/Page';
+import { useTranslation } from 'react-i18next';
+
 import { classNames } from '@/shared/lib/helpers/classNames';
+import { Page } from '@/widgets/Page';
 
 interface ArticleCreatePageProps {
     className?: string;

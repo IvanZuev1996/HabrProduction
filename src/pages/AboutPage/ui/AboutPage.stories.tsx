@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import AboutPage from './AboutPage';
 import { Theme } from '@/shared/const/theme';
+
+import AboutPage from './AboutPage';
 
 export default {
     title: 'pages/AboutPage',

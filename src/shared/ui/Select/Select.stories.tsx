@@ -1,7 +1,9 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Select } from './Select';
 import { Theme } from '@/shared/const/theme';
+
+import { Select } from './Select';
 
 export default {
     title: 'shared/Select',

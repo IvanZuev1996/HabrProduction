@@ -1,8 +1,10 @@
 /* eslint-disable i18next/no-literal-string */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Drawer } from './Drawer';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+
+import { Drawer } from './Drawer';
 
 export default {
     title: 'shared/Drawer',

@@ -1,4 +1,5 @@
 import { StateSchema } from '@/app/providers/StoreProvider';
+
 import { getUIScroll, getUIScrollByPath } from './ui';
 
 describe('ui.test', () => {

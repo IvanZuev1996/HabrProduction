@@ -1,10 +1,12 @@
-import { ReactNode, useCallback, useEffect } from 'react';
+import { ReactNode } from 'react';
+
 import { classNames, Mods } from '@/shared/lib/helpers/classNames';
 import { useModal } from '@/shared/lib/hooks/useModal/useModal';
-import { useAnimationLibs } from '@/shared/lib/components/AnimationProvider';
-import { Portal } from '../Portal/Portal';
-import cls from './Modal.module.scss';
+
 import { Overlay } from '../Overlay/Overlay';
+import { Portal } from '../Portal/Portal';
+
+import cls from './Modal.module.scss';
 
 interface ModalProps {
     className?: string;

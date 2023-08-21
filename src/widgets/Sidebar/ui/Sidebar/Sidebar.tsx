@@ -1,14 +1,18 @@
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { memo, useMemo } from 'react';
+
+import { getSidebarState } from '@/entities/Sidebar';
+import { ThemeSwitcher } from '@/features/ThemeSwitcher';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { LangSwitcher } from '@/shared/ui/LangSwitcher';
-import { getSidebarState } from '@/entities/Sidebar';
 import { VStack } from '@/shared/ui/Stack';
-import cls from './Sidebar.module.scss';
-import { SidebarItem } from '../SidebarItem/SidebarItem';
+
 import { getSidebarItems } from '../../model/selectors/getSidebarItems';
-import { ThemeSwitcher } from '@/features/ThemeSwitcher';
+import { SidebarItem } from '../SidebarItem/SidebarItem';
+
+import cls from './Sidebar.module.scss';
+
 
 interface SidebarProps {
     className?: string;

@@ -6,6 +6,7 @@ import {
     ReducersMapObject
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
+
 import { ArticleDetailsSchema } from '@/entities/Article';
 import { CounterSchema } from '@/entities/Counter';
 import { SidebarSchema } from '@/entities/Sidebar';

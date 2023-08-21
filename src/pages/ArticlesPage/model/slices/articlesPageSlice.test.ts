@@ -4,8 +4,10 @@ import {
     Article,
     ArticleView
 } from '@/entities/Article';
+
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlePageSchema } from '../types/articlesPageSchema';
+
 import { articlesPageActions, articlesPageReducer } from './articlesPageSlice';
 
 const articles: Article[] = [

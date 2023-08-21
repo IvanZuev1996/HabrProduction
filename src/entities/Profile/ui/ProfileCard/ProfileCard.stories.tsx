@@ -1,10 +1,13 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
-import { ProfileCard } from './ProfileCard';
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+
+import { ProfileCard } from './ProfileCard';
+
 
 export default {
     title: 'entities/ProfileCard',

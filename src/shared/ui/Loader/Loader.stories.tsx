@@ -1,8 +1,10 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Loader } from './Loader';
 import { Theme } from '@/shared/const/theme';
+
+import { Loader } from './Loader';
 
 export default {
     title: 'shared/Loader',

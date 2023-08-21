@@ -159,3 +159,5 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Добалено правило [layer-imports-checker](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/HEAD/docs/rules/layer-imports-checker.md)
 -   Рефакторинг [ThemeContext](src/shared/lib/context/ThemeContext.ts)
 -   Реализован скрипт [createPublicApiForSharedUI](./scripts/refactoring/createPublicApiForSharedUI.ts) для автоматического создания public api для shared-ui компонентов
+-   Установлен [eslint-plugin-unused](https://www.npmjs.com/package/eslint-plugin-unused-imports?activeTab=readme) для автоматического удаления не используемых импортов
+-   Настроен [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) для автоматической сортировки импортов по группам

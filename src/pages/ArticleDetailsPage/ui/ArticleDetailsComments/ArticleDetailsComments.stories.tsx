@@ -1,9 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
-import { ArticleDetailsComments } from './ArticleDetailsComments';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
+
+import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsComments',

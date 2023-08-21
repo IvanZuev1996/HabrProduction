@@ -1,5 +1,7 @@
 import { memo } from 'react';
+
 import { classNames } from '@/shared/lib/helpers/classNames';
+
 import cls from './Icon.module.scss';
 
 export enum IconType {

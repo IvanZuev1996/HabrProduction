@@ -1,9 +1,12 @@
 /* eslint-disable i18next/no-literal-string */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Text } from '../Text/Text';
-import { Card } from './Card';
 import { Theme } from '@/shared/const/theme';
+
+import { Text } from '../Text/Text';
+
+import { Card } from './Card';
 
 export default {
     title: 'shared/Card',

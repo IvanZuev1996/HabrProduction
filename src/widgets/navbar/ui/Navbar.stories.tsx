@@ -1,12 +1,15 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
+
+import { Notification } from '@/entities/Notification';
+import { UserRole } from '@/entities/User';
+import UserIcon from '@/shared/assets/tests/storybook_avatar.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import UserIcon from '@/shared/assets/tests/storybook_avatar.jpg';
-import { Notification } from '@/entities/Notification';
-import { Navbar } from './Navbar';
-import { UserRole } from '@/entities/User';
 import { Theme } from '@/shared/const/theme';
+
+import { Navbar } from './Navbar';
+
 
 const notifications: Notification[] = [
     {
