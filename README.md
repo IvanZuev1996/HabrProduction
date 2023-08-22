@@ -1,8 +1,49 @@
-### Используемые технологии:
+> ## **Запуск проекта**
 
-React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storybook, html reports for ui & unit tests, webpack, i18n, eslint, prettier, Loki
+```
+npm install - устанавка необходимых зависимостей
+npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
+```
 
-### Файловая структура: [_Feature-Sliced Design_](https://feature-sliced.design/ru/)
+---
+
+> ## **Скрипты**
+
+| Скрипт                     | Описание                                                |
+| -------------------------- | ------------------------------------------------------- |
+| `npm run start`            | Запуск frontend проекта на webpack dev server           |
+| `npm run start:vite`       | Запуск frontend проекта на vite                         |
+| `npm run start:dev`        | Запуск frontend проекта на webpack dev server + backend |
+| `npm run start:dev:vite`   | Запуск frontend проекта на vite + backend               |
+| `npm run start:dev:server` | Запуск backend сервера                                  |
+| `npm run build:prod`       | Сборка в prod режиме                                    |
+| `npm run build:dev`        | Сборка в dev режиме (не минимизирован)                  |
+| `npm run lint:ts`          | Проверка ts файлов линтером                             |
+| `npm run lint:ts:fix`      | Исправление ts файлов линтером                          |
+| `npm run lint:scss`        | Проверка scss файлов style линтером                     |
+| `npm run lint:scss:fix`    | Исправление scss файлов style линтером                  |
+| `npm run test:unit`        | Запуск unit тестов с jest                               |
+| `npm run test:ui`          | Запуск скриншотных тестов с loki                        |
+| `npm run test:ui:ok`       | Подтверждение новых скриншотов                          |
+| `npm run test:ui:ci`       | Запуск скриншотных тестов в CI                          |
+| `npm run test:ui:report`   | Генерация полного отчета для скриншотных тестов         |
+| `npm run test:ui:json`     | Генерация json отчета для скриншотных тестов            |
+| `npm run test:ui:html`     | Генерация HTML отчета для скриншотных тестов            |
+| `npm run storybook`        | запуск Storybook                                        |
+| `npm run storybook:build`  | Сборка storybook билда                                  |
+| `npm run generate:slice`   | Скрипт для генерации FSD слайсов                        |
+
+---
+
+> ## **Архитектура проекта**
+
+Проект написан в соответствии с методологией Feature sliced design.
+
+Ссылка на документацию - [feature sliced design](https://feature-sliced.design/docs/get-started/tutorial)
+
+---
+
+> ## Файловая структура проекта:
 
 1. **Shared** — переиспользуемый код, не имеющий отношения к специфике приложения/бизнеса.
 2. **Entities** (сущности) — бизнес-сущности (например, User, Product или Order).
@@ -12,7 +53,222 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 6. **Processes** — сложные сценарии, покрывающие несколько страниц (например, аутентификация).
 7. **App** — настройки, стили и провайдеры для всего приложения.
 
-### Этапы разработки:
+---
+
+> ## **Работа с переводами**
+
+В проекте используется библиотека i18next для работы с переводами.
+Файлы с переводами хранятся в public/locales.
+
+_Для комфортной работы рекомендуем установить плагин для webstorm/vscode._
+
+Документация i18next - [https://react.i18next.com/](https://react.i18next.com/)
+
+Пример использования переводов внутри конпонентов:
+
+```typescript jsx
+    import { useTranslation } from 'react-i18next';
+
+    export const YourComponent = (props: TextProps) => {
+        const { t } = useTranslation();
+
+        ....
+
+        return (
+            <p>
+                {t('Your text')}
+            </p>
+        )
+    }
+```
+
+---
+
+> ## **Тесты. [Подробнее...](/docs/tests.md)**
+
+В проекте используются 4 вида тестов:
+
+| Скрипт              | Описание                                    |
+| ------------------- | ------------------------------------------- |
+| `npm run test:unit` | Обычные unit тесты на jest                  |
+| `npm run test:unit` | Тесты на компоненты с React testing library |
+| `npm run test:ui`   | Скриншотное тестирование с loki             |
+| `npm run test:e2e`  | e2e тестирование с Cypress                  |
+
+Смотрите полную документацию по тестам - [документация тестирование](/docs/tests.md)
+
+---
+
+> ## **Линтинг**
+
+В проекте используется eslint для проверки typescript кода и stylelint для проверки файлов со стилями (css, scss).
+
+Также для строгого контроля главных архитектурных принципов
+используется собственный eslint plugin [eslint-plugin-babun4ek-fsd-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin).
+
+Данный плагин содержит в себе 3 правила:
+
+1. **path-checker** - запрещает использовать абсолютные импорты в рамках одного модуля. Имеет auto fix
+2. **layer-imports** - проверяет корректность использования слоев с точки зрения FSD
+   (например widgets нельзя использовать в features и entities)
+3. **public-api-imports** - разрешает импорт из других модулей только из public api. Имеет auto fix
+
+Подробная документация по использованию и настройке данного eslint-плагина - [babun4ek-fsd-plugin/doc](https://github.com/IvanZuev1996/eslint-fsd-plugin#readme)
+
+Запуск линтеров:
+
+-   `npm run lint:ts` - Проверка ts файлов линтером
+-   `npm run lint:ts:fix` - Исправление ts файлов линтером
+-   `npm run lint:scss` - Проверка scss файлов style линтером
+-   `npm run lint:scss:fix` - Исправление scss файлов style линтером
+
+---
+
+> ## **Storybook. [Подробнее...](/docs/storybook.md)**
+
+В проекте для каждого компонента описываются стори-кейсы. Если компонет использует внутри себя запросы на сервер, то они мокаютсяс помощью [storybook-addon-mock](https://storybook-addon-mock.netlify.app/?path=/docs/docs-installation--docs)
+
+Файл со сторикейсами создается рядом с компонентом с расширением **.stories.tsx**
+
+Запустить сторибук можно командой:
+
+-   `npm run storybook`
+
+---
+
+**Подробная документация про Storybook** - [storybook/doc](/docs/storybook.md)
+
+Пример сторикейса для shared-компонента Button:
+
+```typescript jsx
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Button, ButtonSize, ButtonTheme } from './Button';
+import { Theme } from '@/shared/const/theme';
+
+export default {
+    title: 'shared/Button',
+    component: Button,
+    argTypes: {
+        backgroundColor: { control: 'color' }
+    }
+} as ComponentMeta<typeof Button>;
+
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+export const Primary = Template.bind({});
+Primary.args = {
+    children: 'Text'
+};
+
+export const Clear = Template.bind({});
+Clear.args = {
+    children: 'Text',
+    theme: ButtonTheme.CLEAR
+};
+```
+
+---
+
+> ## **Конфигурация проекта. [Подробнее...](/docs/build.md)**
+
+Для разработки проект содержит 2 конфига:
+
+1. Webpack - [./config/build](./config/build/buildWebpackConfig.ts)
+2. vite - [vite.config.ts](/vite.config.ts)
+
+Оба сборщика адаптированы под основные фичи приложения.
+
+Вся конфигурация приложения хранится в папке _/config_
+
+-   /config/babel - настройка babel, кастомные плагины
+-   /config/build - конфигурация webpack
+-   /config/jest - конфигурация тестовой среды
+-   /config/storybook - конфигурация сторибука
+
+**Подробнее про конфигурацию приложения** - [/docs/build.md](/docs/build.md)
+
+> > ## **Кастомные скрипты**
+
+В папке `scripts` находятся различные скрипты для рефакторинга/упрощения написания кода/генерации отчетов и тд.
+
+Список скриптов для рефакторинга:
+
+| Скрипт                       | Описание                                                                    |
+| ---------------------------- | --------------------------------------------------------------------------- |
+| `updateImports`              | Добавление алиасов для абслютных импортов                                   |
+| `createPublicApiForSharedUI` | Добавляет public api всем shared-компонентам и исправляет существующие пути |
+
+Список скриптов для создания отчетов:
+
+| Скрипт                        | Описание                                  |
+| ----------------------------- | ----------------------------------------- |
+| `generate-visual-json-report` | Создает html-отчет для скриншотных тестов |
+
+Список скриптов для создания структуры папок:
+
+| Скрипт        | Описание                                     |
+| ------------- | -------------------------------------------- |
+| `createSlice` | Создает структуру папок для каждого из слоев |
+
+---
+
+> ## **CI pipeline и pre commit хуки**
+
+Конфигурация github actions находится в /.github/workflows.
+В ci прогоняются все виды тестов, сборка проекта и сторибука, линтинг.
+
+**Список действий в github actions:**
+
+-   `install modules` - установка модулей
+-   `build production project` - сборка продакшен версии проекта
+-   `linting typescript` - линтинг typescript файлов
+-   `linting css` - линтинг css (scss) файлов
+-   `unit testing` - проверка всех unit-тестов
+-   `build storybook` - сборка сторибука
+-   `screenshot testing` - скриншотное тестирование
+
+---
+
+> ## **Работа с данными**
+
+Взаимодействие с данными осуществляется с помощью redux toolkit.
+По возможности переиспользуемые сущности необходимо нормализовать с помощью EntityAdapter.
+
+Запросы на сервер отправляются с помощью [RTK query](/src/shared/api/rtkApi.ts)
+
+Для асинхронного подключения редюсеров (чтобы не тянуть их в общий бандл) используется
+[DynamicModuleLoader](/src/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader.tsx)
+
+---
+
+> ## **Сущности (entities)**
+
+-   _Article_. [Подробнее...](/src/entities/Article/README.md)
+-   _Comment_. [Подробнее...](/src/entities/Comment/README.md)
+-   _Country_. [Подробнее...](/src/entities/Country/README.md)
+-   _Currency_. [Подробнее...](/src/entities/Currency/README.md)
+-   _Notification_. [Подробнее...](/src/entities/Notification/README.md)
+-   _Profile_. [Подробнее...](/src/entities/Profile/README.md)
+-   _Rating_. [Подробнее...](/src/entities/Rating/README.md)
+-   _User_. [Подробнее...](/src/entities/User/README.md)
+
+> ## **Фичи (features)**
+
+-   _addCommentForm_. [Подробнее...](/src/features/AddCommentForm/README.md)
+-   _articleRating_. [Подробнее...](/src/features/articleRating/README.md)
+-   _articleRecommendationsList_. [Подробнее...](/src/features/articleRecomendationsList/README.md)
+-   _AuthByUsername_. [Подробнее...](/src/features/AuthByUsername/README.md)
+-   _avatarDropdown_. [Подробнее...](/src/features/avatarDropdown/README.md)
+-   _editableProfileCard_. [Подробнее...](/src/features/editableProfileCard/README.md)
+-   _notificationPopup_. [Подробнее...](/src/features/notificationPopup/README.md)
+-   _profileRating_. [Подробнее...](/src/features/profileRating/README.md)
+-   _ThemeSwitcher_. [Подробнее...](/src/features/ThemeSwitcher/README.md)
+-   _UI_. [Подробнее...](/src/features/UI/README.md)
+
+> ## **Этапы разработки**
 
 #### Webpack
 
@@ -162,3 +418,4 @@ React, Typescript, jest, react-testing-library, redux-toolkit, RTK Quary, Storyb
 -   Установлен [eslint-plugin-unused](https://www.npmjs.com/package/eslint-plugin-unused-imports?activeTab=readme) для автоматического удаления не используемых импортов
 -   Настроен [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) для автоматической сортировки импортов по группам
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Реализованоо автоматическое форматирование для правила [public-api-imports](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/main/docs/rules/public-api-imports.md) и [path-checker](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/HEAD/docs/rules/path-checker.md)
+-   Добавлена документация проекта. Добавлена документация на каждый слайс.
