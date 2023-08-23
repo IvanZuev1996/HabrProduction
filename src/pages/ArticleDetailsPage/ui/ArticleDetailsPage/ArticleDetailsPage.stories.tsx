@@ -2,6 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 
 import { ArticleBlockType, ArticleType, Article } from '@/entities/Article';
+import { Rating } from '@/entities/Rating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
@@ -113,6 +114,24 @@ const comments = {
     }
 };
 
+const ratings: Rating[] = [
+    {
+        feedback: 'feedback',
+        id: '1',
+        rate: 5
+    },
+    {
+        feedback: 'feedback',
+        id: '2',
+        rate: 5
+    },
+    {
+        feedback: 'feedback',
+        id: '3',
+        rate: 5
+    }
+];
+
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
@@ -131,6 +150,18 @@ export default {
                     { ...article, id: '2' },
                     { ...article, id: '3' }
                 ]
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1&articleId=1`,
+                method: 'GET',
+                status: 200,
+                response: ratings
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1`,
+                method: 'GET',
+                status: 200,
+                response: ratings
             }
         ]
     }
@@ -147,12 +178,17 @@ Normal.args = {};
 Normal.decorators = [
     StoreDecorator({
         articleDetails: {
-            data: article
+            data: { ...article, id: '1' }
         },
         articleDetailsPage: {
             comments: {
                 entities: comments,
                 ids: ['1', '2', '3']
+            }
+        },
+        user: {
+            authData: {
+                id: '1'
             }
         }
     })
@@ -170,6 +206,11 @@ Dark.decorators = [
             comments: {
                 entities: comments,
                 ids: ['1', '2', '3']
+            }
+        },
+        user: {
+            authData: {
+                id: '1'
             }
         }
     }),
@@ -196,6 +237,11 @@ Loading.decorators = [
                 ids: [],
                 isLoading: true
             }
+        },
+        user: {
+            authData: {
+                id: '1'
+            }
         }
     })
 ];
@@ -219,6 +265,11 @@ LoadingDark.decorators = [
                 entities: {},
                 ids: [],
                 isLoading: true
+            }
+        },
+        user: {
+            authData: {
+                id: '1'
             }
         }
     }),

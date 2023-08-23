@@ -7,7 +7,8 @@ export default {
     component: Overlay,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    decorators: []
 } as ComponentMeta<typeof Overlay>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading

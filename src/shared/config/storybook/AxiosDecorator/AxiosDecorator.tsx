@@ -41,5 +41,3 @@ export const AxiosDecorator = () => (StoryComponent: Story) => {
         </MockedComponent>
     );
 };
-
-export default AxiosDecorator;

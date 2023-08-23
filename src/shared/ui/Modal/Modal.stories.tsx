@@ -11,7 +11,8 @@ export default {
     component: Modal,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    decorators: []
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;

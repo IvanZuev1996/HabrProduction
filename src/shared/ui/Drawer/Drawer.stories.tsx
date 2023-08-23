@@ -11,7 +11,8 @@ export default {
     component: Drawer,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    decorators: []
 } as ComponentMeta<typeof Drawer>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading

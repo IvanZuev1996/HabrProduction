@@ -6,13 +6,12 @@ import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
 import { Rating } from '@/entities/Rating';
 import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
-import AxiosDecorator from '@/shared/config/storybook/AxiosDecorator/AxiosDecorator';
+import { AxiosDecorator } from '@/shared/config/storybook/AxiosDecorator/AxiosDecorator';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
 import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import { Theme } from '@/shared/const/theme';
 
 import ProfilePage from './ProfilePage';
-
 
 const ratings: Rating[] = [
     {
@@ -52,25 +51,16 @@ export default {
                 method: 'GET',
                 status: 200,
                 response: null
+            },
+            {
+                url: `${__API__}/profile-ratings?userId=1`,
+                method: 'GET',
+                status: 200,
+                response: null
             }
         ]
     },
-    decorators: [
-        withMock,
-        StoreDecorator({
-            user: {
-                authData: {
-                    id: '1'
-                }
-            },
-            profile: {
-                data: {
-                    id: '1'
-                }
-            }
-        }),
-        AxiosDecorator()
-    ]
+    decorators: [withMock, AxiosDecorator()]
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
@@ -92,6 +82,11 @@ Light.decorators = [
                 avatar: AvatarImg
             },
             data: {
+                id: '1'
+            }
+        },
+        user: {
+            authData: {
                 id: '1'
             }
         }
@@ -116,6 +111,11 @@ Dark.decorators = [
                 avatar: AvatarImg
             },
             data: {
+                id: '1'
+            }
+        },
+        user: {
+            authData: {
                 id: '1'
             }
         }
