@@ -1,9 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
-
 import { ThemeSwitcher } from './ThemeSwitcher';
 
 export default {
@@ -20,8 +17,3 @@ const Template: ComponentStory<typeof ThemeSwitcher> = (args) => (
 
 export const Light = Template.bind({});
 Light.args = {};
-
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];

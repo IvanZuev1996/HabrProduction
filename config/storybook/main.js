@@ -4,7 +4,8 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
-        'storybook-addon-mock'
+        'storybook-addon-mock',
+        'storybook-addon-themes'
     ],
     framework: '@storybook/react',
     core: {

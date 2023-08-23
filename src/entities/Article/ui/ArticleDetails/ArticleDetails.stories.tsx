@@ -1,8 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 import {
     ArticleBlockType,
@@ -11,7 +9,6 @@ import {
 import { Article } from '../../model/types/article';
 
 import { ArticleDetails } from './ArticleDetails';
-
 
 export default {
     title: 'entities/Article/ArticleDetails',
@@ -112,18 +109,6 @@ Normal.decorators = [
     })
 ];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            data: article
-        }
-    }),
-    ThemeDecorator(Theme.DARK)
-];
-
 export const Loading = Template.bind({});
 Loading.args = {};
 
@@ -135,18 +120,6 @@ Loading.decorators = [
     })
 ];
 
-export const LoadingDark = Template.bind({});
-LoadingDark.args = {};
-
-LoadingDark.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            isLoading: true
-        }
-    }),
-    ThemeDecorator(Theme.DARK)
-];
-
 export const Error = Template.bind({});
 Error.args = {};
 
@@ -156,16 +129,4 @@ Error.decorators = [
             error: 'error'
         }
     })
-];
-
-export const ErrorDark = Template.bind({});
-ErrorDark.args = {};
-
-ErrorDark.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            error: 'error'
-        }
-    }),
-    ThemeDecorator(Theme.DARK)
 ];

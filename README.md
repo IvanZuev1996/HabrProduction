@@ -419,3 +419,4 @@ Clear.args = {
 -   Настроен [eslint-plugin-import](https://www.npmjs.com/package/eslint-plugin-import) для автоматической сортировки импортов по группам
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Реализованоо автоматическое форматирование для правила [public-api-imports](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/main/docs/rules/public-api-imports.md) и [path-checker](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/HEAD/docs/rules/path-checker.md)
 -   Добавлена документация проекта. Добавлена документация на каждый слайс.
+-   Добавлен [Storybook Addon Themes](https://storybook.js.org/addons/storybook-addon-themes) для переключения тем в storybook

@@ -4,8 +4,6 @@ import withMock from 'storybook-addon-mock';
 import { ArticleBlockType, ArticleType, Article } from '@/entities/Article';
 import { Rating } from '@/entities/Rating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 import ArticleDetailsPage from './ArticleDetailsPage';
 
@@ -194,29 +192,6 @@ Normal.decorators = [
     })
 ];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            data: article
-        },
-        articleDetailsPage: {
-            comments: {
-                entities: comments,
-                ids: ['1', '2', '3']
-            }
-        },
-        user: {
-            authData: {
-                id: '1'
-            }
-        }
-    }),
-    ThemeDecorator(Theme.DARK)
-];
-
 export const Loading = Template.bind({});
 Loading.args = {};
 
@@ -244,34 +219,4 @@ Loading.decorators = [
             }
         }
     })
-];
-
-export const LoadingDark = Template.bind({});
-LoadingDark.args = {};
-
-LoadingDark.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            data: article,
-            isLoading: true
-        },
-        articleDetailsPage: {
-            comments: {
-                isLoading: true,
-                entities: comments,
-                ids: ['1', '2', '3']
-            },
-            recommendations: {
-                entities: {},
-                ids: [],
-                isLoading: true
-            }
-        },
-        user: {
-            authData: {
-                id: '1'
-            }
-        }
-    }),
-    ThemeDecorator(Theme.DARK)
 ];

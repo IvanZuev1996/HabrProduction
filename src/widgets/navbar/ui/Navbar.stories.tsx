@@ -5,11 +5,8 @@ import { Notification } from '@/entities/Notification';
 import { UserRole } from '@/entities/User';
 import UserIcon from '@/shared/assets/tests/storybook_avatar.jpg';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 import { Navbar } from './Navbar';
-
 
 const notifications: Notification[] = [
     {
@@ -85,25 +82,10 @@ Ligth.args = {};
 
 Ligth.decorators = [StoreDecorator({})];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
-
 export const AuthNavbar = Template.bind({});
 AuthNavbar.args = {};
 
 AuthNavbar.decorators = [
-    StoreDecorator({
-        user: { authData: { avatar: UserIcon } }
-    })
-];
-
-export const AuthNavbarDark = Template.bind({});
-AuthNavbarDark.args = {};
-
-AuthNavbarDark.decorators = [
-    ThemeDecorator(Theme.DARK),
     StoreDecorator({
         user: { authData: { avatar: UserIcon } }
     })

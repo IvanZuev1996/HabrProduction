@@ -1,8 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
-
 import { Comment } from '../../model/types/comment';
 
 import { CommentCard } from './CommentCard';
@@ -35,23 +32,8 @@ Normal.args = {
     comment
 };
 
-export const Dark = Template.bind({});
-Dark.args = {
-    comment
-};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
 export const Loading = Template.bind({});
 Loading.args = {
     comment,
     isLoading: true
 };
-
-export const LoadingDark = Template.bind({});
-LoadingDark.args = {
-    comment,
-    isLoading: true
-};
-
-LoadingDark.decorators = [ThemeDecorator(Theme.DARK)];

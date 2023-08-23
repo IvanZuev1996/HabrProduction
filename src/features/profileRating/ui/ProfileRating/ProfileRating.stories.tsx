@@ -3,8 +3,6 @@ import withMock from 'storybook-addon-mock';
 
 import { Rating } from '@/entities/Rating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 import ProfileRating from './ProfileRating';
 
@@ -88,26 +86,5 @@ SelectedStartNormal.parameters = {
     ]
 };
 
-export const SelectedStartDark = Template.bind({});
-SelectedStartDark.args = { profileId: '1' };
-
-SelectedStartDark.parameters = {
-    mockData: [
-        {
-            url: `${__API__}/profile-ratings?userId=1&profileId=1`,
-            method: 'GET',
-            status: 200,
-            response: ratings
-        }
-    ]
-};
-
-SelectedStartDark.decorators = [ThemeDecorator(Theme.DARK)];
-
 export const NotSelectedStartNormal = Template.bind({});
 NotSelectedStartNormal.args = { profileId: '1' };
-
-export const NotSelectedStartDark = Template.bind({});
-NotSelectedStartDark.args = { profileId: '1' };
-
-NotSelectedStartDark.decorators = [ThemeDecorator(Theme.DARK)];

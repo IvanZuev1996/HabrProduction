@@ -1,8 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
-
 import { Notification } from '../../model/types/notification';
 
 import { NotificationItem } from './NotificationItem';
@@ -31,17 +28,7 @@ const item: Notification = {
 export const NormalWithHref = Template.bind({});
 NormalWithHref.args = { item };
 
-export const DarkWithHref = Template.bind({});
-DarkWithHref.args = { item };
-
-DarkWithHref.decorators = [ThemeDecorator(Theme.DARK)];
-
 export const NormalWithoutHref = Template.bind({});
 NormalWithoutHref.args = {
     item: { ...item, href: undefined }
 };
-
-export const DarkWithoutHref = Template.bind({});
-DarkWithoutHref.args = { item: { ...item, href: undefined } };
-
-DarkWithoutHref.decorators = [ThemeDecorator(Theme.DARK)];

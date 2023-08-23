@@ -1,8 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
-
 import { Country } from '../../../Country';
 
 import { CountrySelect } from './CountrySelect';
@@ -36,26 +33,3 @@ WithLabel.args = {
     label: 'Укажите страну',
     value: Country.Armenia
 };
-
-export const Dark = Template.bind({});
-Dark.args = {
-    value: Country.Armenia
-};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const ReadOnlyDark = Template.bind({});
-ReadOnlyDark.args = {
-    readonly: true,
-    value: Country.Armenia
-};
-
-ReadOnlyDark.decorators = [ThemeDecorator(Theme.DARK)];
-
-export const WithLabelDark = Template.bind({});
-WithLabelDark.args = {
-    label: 'Укажите страну',
-    value: Country.Armenia
-};
-
-WithLabelDark.decorators = [ThemeDecorator(Theme.DARK)];

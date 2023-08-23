@@ -2,8 +2,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Article } from '@/entities/Article';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 import ArticlesPage from './ArticlesPage';
 
@@ -331,37 +329,10 @@ Normal.decorators = [
     })
 ];
 
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [
-    ThemeDecorator(Theme.DARK),
-    StoreDecorator({
-        articlesPage: {
-            entities: articles,
-            ids: ['1', '2', '3', '4']
-        }
-    })
-];
-
 export const Loading = Template.bind({});
 Loading.args = {};
 
 Loading.decorators = [
-    StoreDecorator({
-        articlesPage: {
-            entities: {},
-            ids: [],
-            isLoading: true
-        }
-    })
-];
-
-export const DarkIsLoading = Template.bind({});
-DarkIsLoading.args = {};
-
-DarkIsLoading.decorators = [
-    ThemeDecorator(Theme.DARK),
     StoreDecorator({
         articlesPage: {
             entities: {},

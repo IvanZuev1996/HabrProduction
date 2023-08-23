@@ -3,8 +3,6 @@ import withMock from 'storybook-addon-mock';
 
 import { Notification } from '@/entities/Notification';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from '@/shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from '@/shared/const/theme';
 
 import { NotificationPopup } from './NotificationPopup';
 
@@ -78,15 +76,5 @@ const Template: ComponentStory<typeof NotificationPopup> = (args) => (
 export const PCNormal = Template.bind({});
 PCNormal.args = {};
 
-export const PCDark = Template.bind({});
-PCDark.args = {};
-
-PCDark.decorators = [ThemeDecorator(Theme.DARK)];
-
 export const MobileNormal = Template.bind({});
 MobileNormal.args = { isMobileStorybook: true };
-
-export const MobileDark = Template.bind({});
-MobileDark.args = { isMobileStorybook: true };
-
-MobileDark.decorators = [ThemeDecorator(Theme.DARK)];
