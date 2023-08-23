@@ -1,10 +1,9 @@
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { SortOrder } from '@/shared/types';
-import { ListBox } from '@/shared/ui/Popups';
-import { SelectOption } from '@/shared/ui/Select';
+import { Select, SelectOption } from '@/shared/ui/Select';
 import { HStack } from '@/shared/ui/Stack';
 
 import { ArticleSortField } from '../../model/consts/articleConsts';
@@ -21,7 +20,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     const { className, sort, order, onChangeOrder, onChangeSort } = props;
     const { t } = useTranslation();
 
-    const orderOptions = useMemo<SelectOption[]>(
+    const orderOptions = useMemo<SelectOption<SortOrder>[]>(
         () => [
             {
                 value: 'asc',
@@ -35,7 +34,7 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         [t]
     );
 
-    const sortFieldOptions = useMemo<SelectOption[]>(
+    const sortFieldOptions = useMemo<SelectOption<ArticleSortField>[]>(
         () => [
             {
                 value: ArticleSortField.CREATED,
@@ -53,32 +52,18 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         [t]
     );
 
-    const changeSortHandler = useCallback(
-        (newSort: string) => {
-            onChangeSort(newSort as ArticleSortField);
-        },
-        [onChangeSort]
-    );
-
-    const changeOrderHandler = useCallback(
-        (newOrder: string) => {
-            onChangeOrder(newOrder as SortOrder);
-        },
-        [onChangeOrder]
-    );
-
     return (
-        <HStack className={classNames('', {}, [className])}>
-            <ListBox
-                onChange={changeSortHandler}
+        <HStack className={classNames('', {}, [className])} gap="8">
+            <Select
+                onChange={onChangeSort}
                 value={sort}
-                items={sortFieldOptions}
+                options={sortFieldOptions}
                 label={t('Сортировать по')}
             />
-            <ListBox
-                onChange={changeOrderHandler}
+            <Select
+                onChange={onChangeOrder}
                 value={order}
-                items={orderOptions}
+                options={orderOptions}
                 label={t('по')}
             />
         </HStack>
