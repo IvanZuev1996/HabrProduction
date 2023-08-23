@@ -8,7 +8,7 @@ import { LoginModal } from '@/features/AuthByUserName';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationPopup } from '@/features/notificationPopup';
 import MenuIcon from '@/shared/assets/icons/menu-icon.svg';
-import { RoutePath } from '@/shared/const/router';
+import { routes } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -17,7 +17,6 @@ import { HStack } from '@/shared/ui/Stack';
 import { Text, TextSize, TextWeight } from '@/shared/ui/Text';
 
 import cls from './Navbar.module.scss';
-
 
 interface NavbarProps {
     className?: string;
@@ -64,7 +63,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <div className={cls.articleCreateBlock}>
                     <AppLink
-                        to={RoutePath.article_create}
+                        to={routes.article_create()}
                         className={cls.createArticle}
                     >
                         <Button theme={ButtonTheme.CLEAR} size={ButtonSize.S}>

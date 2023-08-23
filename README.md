@@ -421,3 +421,4 @@ Clear.args = {
 -   Добавлена документация проекта. Добавлена документация на каждый слайс.
 -   Добавлен [Storybook Addon Themes](https://storybook.js.org/addons/storybook-addon-themes) для переключения тем в storybook
 -   Обновлен компонент [ArticleSortSelector](src/entities/Article/ui/ArticleSortSelector/ArticleSortSelector.tsx) (generic-component)
+-   Рефакторинг [routeConfig](src/app/providers/router/config/routeConfig.tsx)
