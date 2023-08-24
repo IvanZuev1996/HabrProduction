@@ -12,6 +12,9 @@ export enum AppRoutes {
     NOT_FOUND = 'not_found'
 }
 
+// TODO:
+// Заменить объект routes на отдельные функции, так как нельзя явно указать тип аргументов для каждой из функций
+
 export const routes: Record<AppRoutes, (id?: string) => string> = {
     main: () => '/',
     about: () => '/about',
