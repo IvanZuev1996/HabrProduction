@@ -424,3 +424,6 @@ Clear.args = {
 -   Добавлен [Storybook Addon Themes](https://storybook.js.org/addons/storybook-addon-themes) для переключения тем в storybook
 -   Обновлен компонент [ArticleSortSelector](src/features/ArticleSortSelector/ui/ArticleSortSelector/ArticleSortSelector.tsx) (generic-component)
 -   Рефакторинг [routeConfig](src/app/providers/router/config/routeConfig.tsx)
+-   Изменен devtoll в webpack-конфиге на `eval-cheap-module-source-map` для увеличения скорости сборки и ребилда
+-   Добавлено свойство `cacheDirectory` в [конфиг babel-лоадера](/config/build/loaders/buildBabelLoader.ts) для увеличения скорости сборки и ребилда
+-   Добавлен скрипт [clear-cache](/scripts/clear-cache.js) для очистки папки с кешем после установки новых зависимостей
