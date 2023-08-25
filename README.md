@@ -260,6 +260,8 @@ Clear.args = {
 -   _addCommentForm_. [Подробнее...](/src/features/AddCommentForm/README.md)
 -   _articleRating_. [Подробнее...](/src/features/articleRating/README.md)
 -   _articleRecommendationsList_. [Подробнее...](/src/features/articleRecomendationsList/README.md)
+-   _articleSortSelector_. [Подробнее...](/src/features/ArticleSortSelector/README.md)
+-   _articleTypeTabs_. [Подробнее...](/src/features/ArticleTypeTabs/README.md)
 -   _AuthByUsername_. [Подробнее...](/src/features/AuthByUsername/README.md)
 -   _avatarDropdown_. [Подробнее...](/src/features/avatarDropdown/README.md)
 -   _editableProfileCard_. [Подробнее...](/src/features/editableProfileCard/README.md)
@@ -283,7 +285,7 @@ Clear.args = {
 
 -   Настроен конфиг для router
 -   Добавлен webpack [SVGr](https://www.npmjs.com/package/@svgr/webpack) для svg, [file-loader](https://v4.webpack.js.org/loaders/file-loader/) для jpeg,gif,png и т.п.
--   Добавлен [Sidebar](src/widgets/Sidebar/ui/Sidebar/Sidebar.tsx), [Navbar](src/widgets/navbar/ui/Navbar.tsx), [ThemeSwitcher](src/shared/ui/ThemeSwitcher/ui/ThemeSwitcher.tsx)
+-   Добавлен [Sidebar](src/widgets/Sidebar/ui/Sidebar/Sidebar.tsx), [Navbar](src/widgets/navbar/ui/Navbar.tsx), [ThemeSwitcher](src/features/ThemeSwitcher/ui/ThemeSwitcher.tsx)
 -   Добавлен [i18n](https://react.i18next.com/). [Define plugin](https://webpack.js.org/plugins/define-plugin/) для глобальных переменных. Добавлен [LangSwitcher](src/shared/ui/LangSwitcher/LangSwitcher.tsx)
 -   Добавлен [react-refresh-webpack-plugin](https://www.npmjs.com/package/@pmmmwh/react-refresh-webpack-plugin) для отображения изменений в React компонентах без перезагрузки страницы и [hot-module-replacement-plugin](https://webpack.js.org/plugins/hot-module-replacement-plugin/) для стилей и т.п.
 -   Настроен [ESLint](https://eslint.org/). Создан [.eslintrc.js](.eslintrc.js)
@@ -420,5 +422,5 @@ Clear.args = {
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin?activeTab=readme). Реализованоо автоматическое форматирование для правила [public-api-imports](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/main/docs/rules/public-api-imports.md) и [path-checker](https://github.com/IvanZuev1996/eslint-fsd-plugin/blob/HEAD/docs/rules/path-checker.md)
 -   Добавлена документация проекта. Добавлена документация на каждый слайс.
 -   Добавлен [Storybook Addon Themes](https://storybook.js.org/addons/storybook-addon-themes) для переключения тем в storybook
--   Обновлен компонент [ArticleSortSelector](src/entities/Article/ui/ArticleSortSelector/ArticleSortSelector.tsx) (generic-component)
+-   Обновлен компонент [ArticleSortSelector](src/features/ArticleSortSelector/ui/ArticleSortSelector/ArticleSortSelector.tsx) (generic-component)
 -   Рефакторинг [routeConfig](src/app/providers/router/config/routeConfig.tsx)
