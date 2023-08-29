@@ -422,3 +422,5 @@ Clear.args = {
 -   Добавлен [Storybook Addon Themes](https://storybook.js.org/addons/storybook-addon-themes) для переключения тем в storybook
 -   Обновлен компонент [ArticleSortSelector](src/entities/Article/ui/ArticleSortSelector/ArticleSortSelector.tsx) (generic-component)
 -   Рефакторинг [routeConfig](src/app/providers/router/config/routeConfig.tsx)
+-   Добавлен хелпер [buildSelector](src/shared/lib/store/buildSelector.ts) для изолирования хука useSelector;
+-   Добавлен хелпер [buildSlice](src/shared/lib/store/buildSlice.ts) для того, чтобы забиндить dispatch к экшенам и не использовать его в каждом компоненте
