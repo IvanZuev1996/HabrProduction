@@ -4,11 +4,13 @@ import { useTranslation } from 'react-i18next';
 import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
 import { routes } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames';
+import { AppImage } from '@/shared/ui/AppImage';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Avatar } from '@/shared/ui/Avatar';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
 import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
 import { Text } from '@/shared/ui/Text';
 
 import {
@@ -57,10 +59,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
                     </div>
                     <Text title={article.title} className={cls.title} />
                     {types}
-                    <img
+                    <AppImage
                         src={article.img}
                         className={cls.img}
                         alt={article.title}
+                        fallback={<Skeleton width="100%" height={250} />}
                     />
                     {textBlock && (
                         <ArticleTextBlockComponent
@@ -92,10 +95,11 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         >
             <Card>
                 <div className={cls.imageWrapper}>
-                    <img
+                    <AppImage
                         src={article.img}
                         alt={article.title}
                         className={cls.img}
+                        fallback={<Skeleton width={250} height={200} />}
                     />
                     <Text text={article.createdAt} className={cls.data} />
                     <Button

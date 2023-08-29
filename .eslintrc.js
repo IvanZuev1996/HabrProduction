@@ -69,7 +69,8 @@ module.exports = {
                     'justify',
                     'role',
                     'as',
-                    'fill'
+                    'fill',
+                    'alt'
                 ]
             }
         ],

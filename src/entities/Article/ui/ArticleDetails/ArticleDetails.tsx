@@ -10,7 +10,7 @@ import {
 } from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from '@/shared/ui/Avatar';
+import { AppImage } from '@/shared/ui/AppImage';
 import { Icon } from '@/shared/ui/Icon';
 import { Skeleton } from '@/shared/ui/Skeleton';
 import { HStack, VStack } from '@/shared/ui/Stack';
@@ -102,9 +102,14 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <>
                 <HStack justify="center" max>
-                    <Avatar
-                        size={200}
+                    <AppImage
+                        width={200}
+                        height={200}
+                        border="50%"
                         src={article?.img}
+                        fallback={
+                            <Skeleton border="50%" width={200} height={200} />
+                        }
                         className={cls.avatar}
                     />
                 </HStack>

@@ -429,3 +429,4 @@ Clear.args = {
 -   Добавлен скрипт [clear-cache](/scripts/clear-cache.js) для очистки папки с кешем после установки новых зависимостей
 -   Добавлен хелпер [buildSelector](src/shared/lib/store/buildSelector.ts) для изолирования хука useSelector;
 -   Добавлен хелпер [buildSlice](src/shared/lib/store/buildSlice.ts) для того, чтобы забиндить dispatch к экшенам и не использовать его в каждом компоненте
+-   Добавлен компонент [AppImage](src/shared/ui/AppImage/AppImage.tsx) для lazy-подгрузки изображений
