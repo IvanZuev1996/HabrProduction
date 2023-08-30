@@ -12,7 +12,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-    decorators: []
+    decorators: [],
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;

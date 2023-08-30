@@ -13,7 +13,7 @@ const container = document.getElementById('root');
 
 if (!container) {
     throw new Error(
-        'Не удалось впонтировать реакт приложение!: Не найден root'
+        'Не удалось вмонтировать реакт приложение!: Не найден root'
     );
 }
 

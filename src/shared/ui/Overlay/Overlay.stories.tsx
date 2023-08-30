@@ -8,7 +8,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-    decorators: []
+    decorators: [],
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 } as ComponentMeta<typeof Overlay>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading

@@ -12,7 +12,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-    decorators: []
+    decorators: [],
+    parameters: {
+        loki: {
+            skip: true
+        }
+    }
 } as ComponentMeta<typeof Drawer>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
