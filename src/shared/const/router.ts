@@ -12,18 +12,26 @@ export enum AppRoutes {
     NOT_FOUND = 'not_found'
 }
 
-// TODO:
-// Заменить объект routes на отдельные функции, так как нельзя явно указать тип аргументов для каждой из функций
+// export const routes: Record<AppRoutes, (id?: string) => string> = {
+//     main: () => '/',
+//     about: () => '/about',
+//     profile: (id) => `/profile/${id}`,
+//     articles: () => '/articles',
+//     article_details: (id) => `/articles/${id}`,
+//     article_create: () => '/articles/new',
+//     article_edit: (id) => `/articles/${id}/edit`,
+//     admin_panel: () => '/admin',
+//     forbidden: () => '/forbidden',
+//     not_found: () => '*'
+// };
 
-export const routes: Record<AppRoutes, (id?: string) => string> = {
-    main: () => '/',
-    about: () => '/about',
-    profile: (id) => `/profile/${id}`,
-    articles: () => '/articles',
-    article_details: (id) => `/articles/${id}`,
-    article_create: () => '/articles/new',
-    article_edit: (id) => `/articles/${id}/edit`,
-    admin_panel: () => '/admin',
-    forbidden: () => '/forbidden',
-    not_found: () => '*'
-};
+export const getRouteMain = () => '/';
+export const getRouteAbout = () => '/about';
+export const getRouteProfile = (id: string) => `/profile/${id}`;
+export const getRouteArticles = () => '/articles';
+export const getRouteArticleDetails = (id: string) => `/articles/${id}`;
+export const getRouteArticleCreate = () => '/articles/new';
+export const getRouteArticleEdit = (id: string) => `/articles/${id}/edit`;
+export const getRouteAdminPanel = () => '/admin';
+export const getRouteForbidden = () => '/forbidden';
+export const getRouteNotFound = () => '*';

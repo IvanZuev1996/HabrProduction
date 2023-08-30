@@ -8,7 +8,7 @@ import {
     isUserManager,
     userActions
 } from '@/entities/User';
-import { routes } from '@/shared/const/router';
+import { getRouteAdminPanel, getRouteProfile } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Avatar } from '@/shared/ui/Avatar';
@@ -45,13 +45,13 @@ export const AvatarDropdown = memo((props: AvatarDropDownProps) => {
             items={[
                 {
                     content: t('Профиль'),
-                    href: routes.profile(authData.id)
+                    href: getRouteProfile(authData.id)
                 },
                 ...(isAdminPanelAvailable
                     ? [
                         {
                             content: t('Админ панель'),
-                            href: routes.admin_panel()
+                            href: getRouteAdminPanel()
                         }
                     ]
                     : []),

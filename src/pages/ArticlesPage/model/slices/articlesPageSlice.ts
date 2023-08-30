@@ -12,7 +12,7 @@ import {
     ArticleType
 } from '@/entities/Article';
 import { ARTICLES_VIEW_LOCALSTORAGE_KEY } from '@/shared/const/localStorage';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 
 import { fetchArticlesList } from '../services/fetchArticlesList/fetchArticlesList';
 import { ArticlePageSchema } from '../types/articlesPageSchema';

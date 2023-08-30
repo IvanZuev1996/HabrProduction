@@ -8,7 +8,7 @@ import { LoginModal } from '@/features/AuthByUserName';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { NotificationPopup } from '@/features/notificationPopup';
 import MenuIcon from '@/shared/assets/icons/menu-icon.svg';
-import { routes } from '@/shared/const/router';
+import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AppLink } from '@/shared/ui/AppLink';
@@ -63,7 +63,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 />
                 <div className={cls.articleCreateBlock}>
                     <AppLink
-                        to={routes.article_create()}
+                        to={getRouteArticleCreate()}
                         className={cls.createArticle}
                     >
                         <Button theme={ButtonTheme.CLEAR} size={ButtonSize.S}>

@@ -9,7 +9,7 @@ import { ArticleViewSelector } from '@/features/ArticleViewSelector';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
-import { SortOrder } from '@/shared/types';
+import { SortOrder } from '@/shared/types/sort';
 import { Card } from '@/shared/ui/Card';
 import { Input } from '@/shared/ui/Input';
 import { HStack } from '@/shared/ui/Stack';

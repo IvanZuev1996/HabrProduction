@@ -430,3 +430,6 @@ Clear.args = {
 -   Добавлен хелпер [buildSelector](src/shared/lib/store/buildSelector.ts) для изолирования хука useSelector;
 -   Добавлен хелпер [buildSlice](src/shared/lib/store/buildSlice.ts) для того, чтобы забиндить dispatch к экшенам и не использовать его в каждом компоненте
 -   Добавлен компонент [AppImage](src/shared/ui/AppImage/AppImage.tsx) для lazy-подгрузки изображений
+-   Написаны [тесты](src/app/providers/router/ui/AppRouter.test.tsx) на роутер
+-   Обновлен react-testing-library до версии 14.0.0
+-   Добавлен [изоморфный fetch](https://github.com/matthew-andrews/isomorphic-fetch) в [конфиг rtk](src/shared/api/rtkApi.ts) для работы с api в тестовой среде (node js)
