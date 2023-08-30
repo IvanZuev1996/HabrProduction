@@ -433,3 +433,5 @@ Clear.args = {
 -   Написаны [тесты](src/app/providers/router/ui/AppRouter.test.tsx) на роутер
 -   Обновлен react-testing-library до версии 14.0.0
 -   Добавлен [изоморфный fetch](https://github.com/matthew-andrews/isomorphic-fetch) в [конфиг rtk](src/shared/api/rtkApi.ts) для работы с api в тестовой среде (node js)
+-   Добавлены прикоммит хуки husky для прогона линтеров перед комитом
+-   Добавлен [lint-staged](https://www.npmjs.com/package/lint-staged) для линтинга только измененных файлов
