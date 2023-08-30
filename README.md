@@ -435,3 +435,4 @@ Clear.args = {
 -   Добавлен [изоморфный fetch](https://github.com/matthew-andrews/isomorphic-fetch) в [конфиг rtk](src/shared/api/rtkApi.ts) для работы с api в тестовой среде (node js)
 -   Добавлены прикоммит хуки husky для прогона линтеров перед комитом
 -   Добавлен [lint-staged](https://www.npmjs.com/package/lint-staged) для линтинга только измененных файлов
+-   Обновлен файл main.yml для генерации html-репортов на github
