@@ -3,7 +3,7 @@
         "outDir": "./dist/",
         "noImplicitAny": true,
         "module": "ESNext",
-        "target": "es5",
+        "target": "ESNext",
         "jsx": "react-jsx",
         "allowJs": true,
         "moduleResolution": "node",
@@ -11,7 +11,7 @@
         "baseUrl": ".",
         "strict": true,
         "paths": {
-            "*": ["./src/*"]
+            "@/*": ["./src/*"]
         },
         // esModuleInterop для использования import вместо common js
         "esModuleInterop": true,

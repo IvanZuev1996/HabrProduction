@@ -1,8 +1,11 @@
-import { memo, ReactNode, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import CopyIcon from 'shared/assets/icons/copy-icon.svg';
-import { Icon, IconType } from '../Icon/Icon';
+import { memo, useCallback } from 'react';
+
+import CopyIcon from '@/shared/assets/icons/copy-icon.svg';
+import { classNames } from '@/shared/lib/helpers/classNames';
+
 import { Button, ButtonTheme } from '../Button/Button';
+import { Icon, IconType } from '../Icon/Icon';
+
 import cls from './Code.module.scss';
 
 interface CodeProps {

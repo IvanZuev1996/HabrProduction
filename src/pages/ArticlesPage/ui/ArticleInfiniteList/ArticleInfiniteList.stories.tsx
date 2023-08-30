@@ -1,10 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
-import ArticleImg from 'shared/assets/storybook/ArticlePhoto.jpg';
-import { ArticleType } from 'entities/Article';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Theme } from 'app/providers/ThemeProvider';
+
+import { ArticleType } from '@/entities/Article';
+import ArticleImg from '@/shared/assets/storybook/ArticlePhoto.jpg';
+import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { ArticleInfiniteList } from './ArticleInfiniteList';
 
 export default {
@@ -73,8 +73,3 @@ const Template: ComponentStory<typeof ArticleInfiniteList> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [ThemeDecorator(Theme.DARK)];

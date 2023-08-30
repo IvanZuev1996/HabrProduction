@@ -1,8 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
-import { Article } from '../../model/types/article';
+
 import { ArticleView } from '../../model/consts/articleConsts';
+import { Article } from '../../model/types/article';
+
 import { ArticleList } from './ArticleList';
 
 export default {
@@ -95,15 +95,12 @@ const article = {
 
 export const Small = Template.bind({});
 Small.args = {
-    articles: [article, article, article]
+    articles: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' }
+    ]
 };
-
-export const SmallDark = Template.bind({});
-SmallDark.args = {
-    articles: [article, article, article]
-};
-
-SmallDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const SmallLoading = Template.bind({});
 SmallLoading.args = {
@@ -111,27 +108,15 @@ SmallLoading.args = {
     articles: []
 };
 
-export const SmallLoadingDark = Template.bind({});
-SmallLoadingDark.args = {
-    isLoading: true,
-    articles: []
-};
-
-SmallLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];
-
 export const Big = Template.bind({});
 Big.args = {
     view: ArticleView.BIG,
-    articles: [article, article, article]
+    articles: [
+        { ...article, id: '1' },
+        { ...article, id: '2' },
+        { ...article, id: '3' }
+    ]
 };
-
-export const BigDark = Template.bind({});
-BigDark.args = {
-    view: ArticleView.BIG,
-    articles: [article, article, article]
-};
-
-BigDark.decorators = [ThemeDecorator(Theme.DARK)];
 
 export const BigLoading = Template.bind({});
 BigLoading.args = {
@@ -139,12 +124,3 @@ BigLoading.args = {
     view: ArticleView.BIG,
     articles: []
 };
-
-export const BigLoadingDark = Template.bind({});
-BigLoadingDark.args = {
-    isLoading: true,
-    view: ArticleView.BIG,
-    articles: []
-};
-
-BigLoadingDark.decorators = [ThemeDecorator(Theme.DARK)];

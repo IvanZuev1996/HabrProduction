@@ -1,18 +1,22 @@
-import { useTranslation } from 'react-i18next';
 import { memo, Suspense, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { TextAlign, Text } from 'shared/ui/Text/Text';
-import { AddCommentForm } from 'features/AddCommentForm';
-import { Loader } from 'shared/ui/Loader/Loader';
-import { CommentList } from 'entities/Comment';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { VStack } from 'shared/ui/Stack';
-import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+
+import { getArticleDetailsData } from '@/entities/Article';
+import { CommentList } from '@/entities/Comment';
+import { AddCommentForm } from '@/features/AddCommentForm';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { Loader } from '@/shared/ui/Loader';
+import { VStack } from '@/shared/ui/Stack';
+import { TextAlign, Text } from '@/shared/ui/Text';
+
 import { getArticleCommentsIsLoading } from '../../model/selectors/comment/comment';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { getArticleComments } from '../../model/slice/articleDetailsCommentsSlice';
+
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -24,6 +28,7 @@ export const ArticleDetailsComments = memo(
         const { className, id } = props;
         const { t } = useTranslation();
         const dispatch = useAppDispatch();
+        const article = useSelector(getArticleDetailsData);
 
         const comments = useSelector(getArticleComments.selectAll);
         const commentsIsLoading = useSelector(getArticleCommentsIsLoading);
@@ -38,6 +43,10 @@ export const ArticleDetailsComments = memo(
         useInitialEffect(() => {
             dispatch(fetchCommentsByArticleId(id));
         });
+
+        if (!article) {
+            return null;
+        }
 
         return (
             <VStack gap="8" className={classNames('', {}, [className])}>

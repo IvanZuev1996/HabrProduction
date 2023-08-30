@@ -1,20 +1,21 @@
 import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+
+import CalendarIcon from '@/shared/assets/icons/calendar-icon.svg';
+import EyeIcon from '@/shared/assets/icons/eye-icon.svg';
 import {
     DynamicModuleLoader,
     ReducerList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { Text, TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
-import EyeIcon from 'shared/assets/icons/eye-icon.svg';
-import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
-import { Icon } from 'shared/ui/Icon/Icon';
-import { HStack, VStack } from 'shared/ui/Stack';
-import { ArticleBlock } from '../../model/types/article';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AppImage } from '@/shared/ui/AppImage';
+import { Icon } from '@/shared/ui/Icon';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
+
 import { ArticleBlockType } from '../../model/consts/articleConsts';
 import {
     getArticleDetailsData,
@@ -23,10 +24,12 @@ import {
 } from '../../model/selectors/articleDetails';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
-import cls from './ArticleDetails.module.scss';
+import { ArticleBlock } from '../../model/types/article';
 import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent/ArticleCodeBlockComponent';
-import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 import { ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
+
+import cls from './ArticleDetails.module.scss';
 
 interface ArticleDetailsProps {
     className?: string;
@@ -99,9 +102,14 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
         content = (
             <>
                 <HStack justify="center" max>
-                    <Avatar
-                        size={200}
+                    <AppImage
+                        width={200}
+                        height={200}
+                        border="50%"
                         src={article?.img}
+                        fallback={
+                            <Skeleton border="50%" width={200} height={200} />
+                        }
                         className={cls.avatar}
                     />
                 </HStack>

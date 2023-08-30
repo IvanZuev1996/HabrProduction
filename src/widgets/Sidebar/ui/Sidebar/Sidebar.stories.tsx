@@ -1,8 +1,8 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { Sidebar } from './Sidebar';
 
 export default {
@@ -22,27 +22,10 @@ NoAuthLigth.args = {};
 
 NoAuthLigth.decorators = [StoreDecorator({})];
 
-export const NoAuthDark = Template.bind({});
-NoAuthDark.args = {};
-
-NoAuthDark.decorators = [ThemeDecorator(Theme.DARK), StoreDecorator({})];
-
 export const AuthLigth = Template.bind({});
 AuthLigth.args = {};
 
 AuthLigth.decorators = [
-    StoreDecorator({
-        user: {
-            authData: { id: '', username: '' }
-        }
-    })
-];
-
-export const AuthDark = Template.bind({});
-AuthDark.args = {};
-
-AuthDark.decorators = [
-    ThemeDecorator(Theme.DARK),
     StoreDecorator({
         user: {
             authData: { id: '', username: '' }

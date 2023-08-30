@@ -1,5 +1,7 @@
-import { StateSchema } from 'app/providers/StoreProvider';
+import { StateSchema } from '@/app/providers/StoreProvider';
+
 import { User } from '../../types/user';
+
 import { getUserAuthData } from './getUserAuthData';
 
 const authData: User = {

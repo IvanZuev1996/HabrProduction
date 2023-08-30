@@ -1,12 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import { HTMLAttributeAnchorTarget, memo } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import cls from './ArticleList.module.scss';
-import { Article } from '../../model/types/article';
+import { useTranslation } from 'react-i18next';
+
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextSize, TextTheme } from '@/shared/ui/Text';
+
 import { ArticleView } from '../../model/consts/articleConsts';
+import { Article } from '../../model/types/article';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+
+import cls from './ArticleList.module.scss';
 
 interface ArticleListProps {
     className?: string;
@@ -60,9 +64,17 @@ export const ArticleList = memo((props: ArticleListProps) => {
 
     if (!isLoading && !articles.length) {
         return (
-            <div className={classNames(cls.noData, {}, [className, cls[view]])}>
-                <Text title={t('Статьи не найдены')} size={TextSize.M} />
-            </div>
+            <HStack
+                className={classNames(cls.noData, {}, [className, cls[view]])}
+                align="center"
+                justify="center"
+            >
+                <Text
+                    title={t('Статьи не найдены')}
+                    size={TextSize.M}
+                    theme={TextTheme.ERROR}
+                />
+            </HStack>
         );
     }
 

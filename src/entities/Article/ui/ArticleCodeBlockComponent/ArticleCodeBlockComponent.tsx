@@ -1,8 +1,10 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Code } from 'shared/ui/Code/Code';
-import { HStack } from 'shared/ui/Stack';
+
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Code } from '@/shared/ui/Code';
+import { HStack } from '@/shared/ui/Stack';
+
 import { ArticleCodeBlock } from '../../model/types/article';
 
 interface ArticleCodeBlockComponentProps {

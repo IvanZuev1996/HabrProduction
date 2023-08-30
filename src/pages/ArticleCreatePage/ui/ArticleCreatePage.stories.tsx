@@ -1,5 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
+
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import ArticleCreatePage from './ArticleCreatePage';
 
 export default {
@@ -7,7 +9,8 @@ export default {
     component: ArticleCreatePage,
     argTypes: {
         backgroundColor: { control: 'color' }
-    }
+    },
+    decorators: [StoreDecorator({})]
 } as ComponentMeta<typeof ArticleCreatePage>;
 
 // eslint-disable-next-line react/jsx-props-no-spreading
@@ -17,5 +20,3 @@ const Template: ComponentStory<typeof ArticleCreatePage> = (args) => (
 
 export const Normal = Template.bind({});
 Normal.args = {};
-
-Normal.decorators = [StoreDecorator({})];

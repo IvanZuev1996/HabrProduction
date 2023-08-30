@@ -1,13 +1,16 @@
-import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { classNames, Mods } from 'shared/lib/helpers/classNames';
-import { Avatar } from 'shared/ui/Avatar/Avatar';
-import { Text, TextSize } from 'shared/ui/Text/Text';
-import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
-import { AppLink } from 'shared/ui/AppLink/AppLink';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
-import { VStack } from 'shared/ui/Stack';
+import { useTranslation } from 'react-i18next';
+
+import { getRouteProfile } from '@/shared/const/router';
+import { classNames, Mods } from '@/shared/lib/helpers/classNames';
+import { AppLink } from '@/shared/ui/AppLink';
+import { Avatar } from '@/shared/ui/Avatar';
+import { Skeleton } from '@/shared/ui/Skeleton';
+import { VStack } from '@/shared/ui/Stack';
+import { Text, TextSize } from '@/shared/ui/Text';
+
 import { Comment } from '../../model/types/comment';
+
 import cls from './CommentCard.module.scss';
 
 interface CommentCardProps {
@@ -58,7 +61,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
         >
             <AppLink
                 className={cls.header}
-                to={`${RoutePath.profile}${comment.user.id}`}
+                to={getRouteProfile(comment.user.id)}
             >
                 {comment.user.avatar ? (
                     <Avatar size={40} src={comment.user.avatar} />

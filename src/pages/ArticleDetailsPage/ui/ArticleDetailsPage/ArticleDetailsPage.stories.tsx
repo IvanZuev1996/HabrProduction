@@ -1,13 +1,10 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { Article } from 'entities/Article';
-import {
-    ArticleBlockType,
-    ArticleType
-} from 'entities/Article/model/consts/articleConsts';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
 import withMock from 'storybook-addon-mock';
+
+import { ArticleBlockType, ArticleType, Article } from '@/entities/Article';
+import { Rating } from '@/entities/Rating';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import ArticleDetailsPage from './ArticleDetailsPage';
 
 const article: Article = {
@@ -115,6 +112,24 @@ const comments = {
     }
 };
 
+const ratings: Rating[] = [
+    {
+        feedback: 'feedback',
+        id: '1',
+        rate: 5
+    },
+    {
+        feedback: 'feedback',
+        id: '2',
+        rate: 5
+    },
+    {
+        feedback: 'feedback',
+        id: '3',
+        rate: 5
+    }
+];
+
 export default {
     title: 'pages/ArticleDetailsPage/ArticleDetailsPage',
     component: ArticleDetailsPage,
@@ -133,6 +148,18 @@ export default {
                     { ...article, id: '2' },
                     { ...article, id: '3' }
                 ]
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1&articleId=1`,
+                method: 'GET',
+                status: 200,
+                response: ratings
+            },
+            {
+                url: `${__API__}/article-ratings?userId=1`,
+                method: 'GET',
+                status: 200,
+                response: ratings
             }
         ]
     }
@@ -149,33 +176,20 @@ Normal.args = {};
 Normal.decorators = [
     StoreDecorator({
         articleDetails: {
-            data: article
+            data: { ...article, id: '1' }
         },
         articleDetailsPage: {
             comments: {
                 entities: comments,
                 ids: ['1', '2', '3']
+            }
+        },
+        user: {
+            authData: {
+                id: '1'
             }
         }
     })
-];
-
-export const Dark = Template.bind({});
-Dark.args = {};
-
-Dark.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            data: article
-        },
-        articleDetailsPage: {
-            comments: {
-                entities: comments,
-                ids: ['1', '2', '3']
-            }
-        }
-    }),
-    ThemeDecorator(Theme.DARK)
 ];
 
 export const Loading = Template.bind({});
@@ -198,31 +212,11 @@ Loading.decorators = [
                 ids: [],
                 isLoading: true
             }
-        }
-    })
-];
-
-export const LoadingDark = Template.bind({});
-LoadingDark.args = {};
-
-LoadingDark.decorators = [
-    StoreDecorator({
-        articleDetails: {
-            data: article,
-            isLoading: true
         },
-        articleDetailsPage: {
-            comments: {
-                isLoading: true,
-                entities: comments,
-                ids: ['1', '2', '3']
-            },
-            recommendations: {
-                entities: {},
-                ids: [],
-                isLoading: true
+        user: {
+            authData: {
+                id: '1'
             }
         }
-    }),
-    ThemeDecorator(Theme.DARK)
+    })
 ];

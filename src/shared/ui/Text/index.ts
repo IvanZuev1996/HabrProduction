@@ -1,0 +1,1 @@
+export { Text, TextTheme, TextAlign, TextSize, TextWeight } from './Text';

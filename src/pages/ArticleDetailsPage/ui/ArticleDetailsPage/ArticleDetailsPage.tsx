@@ -1,18 +1,22 @@
-import { ArticleDetails } from 'entities/Article';
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
+
+import { ArticleDetails } from '@/entities/Article';
+import { ArticleRating } from '@/features/articleRating';
+import { ArticleRecomendationsList } from '@/features/articleRecomendationsList';
 import {
     DynamicModuleLoader,
     ReducerList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Page } from 'widgets/Page/Page';
-import { VStack } from 'shared/ui/Stack';
-import { ArticleRecomendationsList } from 'features/articleRecomendationsList';
-import { useParams } from 'react-router-dom';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { VStack } from '@/shared/ui/Stack';
+import { Page } from '@/widgets/Page';
+
 import { articleDetailsPageReducer } from '../../model/slice';
-import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 import { ArticleDetailsComments } from '../ArticleDetailsComments/ArticleDetailsComments';
+import { ArticleDetailsPageHeader } from '../ArticleDetailsPageHeader/ArticleDetailsPageHeader';
+
 import cls from './ArticleDetailsPage.module.scss';
 
 interface ArticleDetailsPageProps {
@@ -33,6 +37,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
                 <VStack gap="16" max align="normal">
                     <ArticleDetailsPageHeader />
                     <ArticleDetails id={id} />
+                    <ArticleRating articleId={id!} />
                     <ArticleRecomendationsList
                         className={cls.recommendations}
                     />

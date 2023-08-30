@@ -1,0 +1,25 @@
+.btn {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    transition: background-color 0.2s;
+    background-color: none;
+}
+
+.btn:hover {
+    background-color: var(--input-bg-color);
+}
+
+.panel {
+    background: var(--card-bg);
+    position: absolute;
+    width: max-content;
+    z-index: 10000;
+    border-radius: 8px;
+    padding: 12px 24px;
+    margin-top: 10px;
+    box-shadow: 0 5px 10px 2px rgb(34 60 80 / 20%);
+}

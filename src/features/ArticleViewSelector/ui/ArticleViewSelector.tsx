@@ -1,9 +1,10 @@
-import { ArticleView } from 'entities/Article';
-import { classNames } from 'shared/lib/helpers/classNames';
-import bigViewIcon from 'shared/assets/icons/big-view-icon.svg';
-import smallViewIcon from 'shared/assets/icons/small-view-icon.svg';
-import { Button, ButtonTheme } from 'shared/ui/Button/Button';
-import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleView } from '@/entities/Article';
+import bigViewIcon from '@/shared/assets/icons/big-view-icon.svg';
+import smallViewIcon from '@/shared/assets/icons/small-view-icon.svg';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
+
 import cls from './ArticleViewSelector.module.scss';
 
 interface ArticleViewSelectorProps {

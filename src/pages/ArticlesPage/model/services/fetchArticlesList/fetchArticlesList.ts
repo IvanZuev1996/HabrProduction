@@ -1,7 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { ThunkConfig } from 'app/providers/StoreProvider';
-import { Article, ArticleType } from 'entities/Article';
-import { addQueryParams } from 'shared/lib/hooks/url/addQueryParams/addQueryParams';
+
+import { ThunkConfig } from '@/app/providers/StoreProvider';
+import { Article, ArticleType } from '@/entities/Article';
+import { addQueryParams } from '@/shared/lib/hooks/url/addQueryParams/addQueryParams';
+
 import {
     getArticlesPageLimit,
     getArticlesPageOrder,

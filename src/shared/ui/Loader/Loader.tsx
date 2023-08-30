@@ -1,4 +1,5 @@
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
+
 import cls from './Loader.module.scss';
 
 interface LoaderProps {

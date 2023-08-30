@@ -1,5 +1,5 @@
-import path from 'path';
 import webpack from 'webpack';
+
 import { buildDevServer } from './buildDevServer';
 import { buildLoaders } from './buildLoaders';
 import { buildPlugins } from './buildPlugins';
@@ -25,7 +25,7 @@ export function buildWebpackConfig(
             rules: buildLoaders(options)
         },
         resolve: buildResolves(options),
-        devtool: isDev ? 'inline-source-map' : undefined,
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined
     };
 }

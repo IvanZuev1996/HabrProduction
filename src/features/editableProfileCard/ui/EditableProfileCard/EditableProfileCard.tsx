@@ -1,27 +1,29 @@
-import { classNames } from 'shared/lib/helpers/classNames';
-import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { TextTheme, Text } from 'shared/ui/Text/Text';
-import { ProfileCard } from 'entities/Profile';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { ProfileCard, ValidateProfileError } from '@/entities/Profile';
 import {
     DynamicModuleLoader,
     ReducerList
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { VStack } from 'shared/ui/Stack';
-import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
+} from '@/shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from '@/shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { VStack } from '@/shared/ui/Stack';
+import { TextTheme, Text } from '@/shared/ui/Text';
+
 import { getProfileError } from '../../model/selectors/getProfileError/getProfileError';
+import { getProfileForm } from '../../model/selectors/getProfileForm/getProfileForm';
 import { getProfileIsLoading } from '../../model/selectors/getProfileIsLoading/getProfileIsLoading';
 import { getProfileReadonly } from '../../model/selectors/getProfileReadOnly/getProfileReadonly';
 import { getProfileValidateErrors } from '../../model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
 import { profileActions, profileReducer } from '../../model/slice/profileSlice';
 import { EditableProfileCardHeader } from '../EditableProfileCardHeader/EditableProfileCardHeader';
-import { ValidateProfileError } from '../../model/consts/consts';
+
 
 interface EditableProfileCardProps {
     className?: string;
@@ -43,7 +45,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
 
-    const validateErrorTranslations = {
+    const validateErrorTranslations: Record<ValidateProfileError, string> = {
         [ValidateProfileError.INCORRECT_AGE]: t('Введите корректное значение'),
         [ValidateProfileError.INCORRECT_CITY]: t('Поле является обязательным'),
         [ValidateProfileError.INCORRECT_COUNTRY]: t(

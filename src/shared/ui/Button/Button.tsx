@@ -1,5 +1,7 @@
 import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
-import { classNames, Mods } from 'shared/lib/helpers/classNames';
+
+import { classNames, Mods } from '@/shared/lib/helpers/classNames';
+
 import cls from './Button.module.scss';
 
 export type BorderType = '2' | '4' | '8' | '16';
@@ -42,6 +44,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     border?: BorderType;
     max?: boolean;
     justify?: JustifyType;
+    fullWidth?: boolean;
     children?: ReactNode;
 }
 
@@ -56,13 +59,15 @@ export const Button = memo((props: ButtonProps) => {
         disabled,
         max,
         border,
+        fullWidth,
         ...otherProps
     } = props;
 
     const mods: Mods = {
         [cls.square]: square,
         [cls.disabled]: disabled,
-        [cls.max]: max
+        [cls.max]: max,
+        [cls.fullWidth]: fullWidth
     };
 
     const classes = [

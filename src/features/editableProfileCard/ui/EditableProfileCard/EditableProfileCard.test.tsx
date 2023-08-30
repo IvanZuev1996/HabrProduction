@@ -1,15 +1,18 @@
 import 'whatwg-fetch';
 import { screen } from '@testing-library/react';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { Profile } from 'entities/Profile';
+import userEvent from '@testing-library/user-event';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import { Profile } from '@/entities/Profile';
+import { $api } from '@/shared/api/api';
 import {
     componentRender,
     componentRenderOptions
-} from 'shared/lib/tests/componentRender/componentRender';
-import userEvent from '@testing-library/user-event';
-import { $api } from 'shared/api/api';
+} from '@/shared/lib/tests/componentRender/componentRender';
+
 import { profileReducer } from '../../model/slice/profileSlice';
+
 import { EditableProfileCard } from './EditableProfileCard';
 
 const profile: Profile = {

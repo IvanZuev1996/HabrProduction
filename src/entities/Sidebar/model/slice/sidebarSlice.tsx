@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { SidebarSchema } from '../types/sidebar';
 
 const initialState: SidebarSchema = {

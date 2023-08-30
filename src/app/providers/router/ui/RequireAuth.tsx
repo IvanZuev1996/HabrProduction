@@ -1,7 +1,8 @@
-import { getUserAuthData } from 'entities/User';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
-import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
+import { getUserAuthData } from '@/entities/User';
+import { getRouteMain } from '@/shared/const/router';
 
 export function RequireAuth({ children }: { children: JSX.Element }) {
     const auth = useSelector(getUserAuthData);
@@ -9,7 +10,7 @@ export function RequireAuth({ children }: { children: JSX.Element }) {
 
     if (!auth) {
         return (
-            <Navigate to={RoutePath.main} state={{ from: location }} replace />
+            <Navigate to={getRouteMain()} state={{ from: location }} replace />
         );
     }
 

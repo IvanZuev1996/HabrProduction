@@ -1,12 +1,14 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Country } from 'entities/Country';
-import { Currency } from 'entities/Currency';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
+
+import { Country } from '@/entities/Country';
+import { Currency } from '@/entities/Currency';
+import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { EditableProfileCardHeader } from './EditableProfileCardHeader';
 
 export default {
-    title: 'features/editableProfileCard/EditableProfileCardHeader',
+    title: 'features/EditableProfileCard/EditableProfileCardHeader',
     component: EditableProfileCardHeader,
     argTypes: {
         backgroundColor: { control: 'color' }

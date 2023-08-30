@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
-import path from 'path';
 import { Configuration, DefinePlugin, RuleSetRule } from 'webpack';
+
+import path from 'path';
+
 import { buildCssLoader } from '../build/loaders/buildCssLoader';
 import { BuildPaths } from '../build/types/config';
 
@@ -20,6 +22,11 @@ export default ({ config }: { config: Configuration }) => {
         path.resolve(__dirname, '../../src'),
         'node_modules'
     ];
+
+    config!.resolve!.alias = {
+        ...config!.resolve!.alias,
+        '@': paths.src
+    };
 
     // @ts-ignore
     config!.module!.rules = config.module?.rules?.map((rule: RuleSetRule) => {

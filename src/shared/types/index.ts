@@ -1,1 +1,3 @@
-export type SortOrder = 'asc' | 'desc';
+import { memo } from 'react';
+
+export const typedMemo: <T>(c: T) => T = memo;

@@ -1,6 +1,8 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { StoreDecorator } from 'shared/config/storybook/StoreDecorator/StoreDecorator';
-import AvatarImg from 'shared/assets/tests/storybook_avatar.jpg';
+
+import AvatarImg from '@/shared/assets/tests/storybook_avatar.jpg';
+import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
+
 import { ArticleDetailsComments } from './ArticleDetailsComments';
 
 export default {
@@ -43,6 +45,11 @@ export default {
                             }
                         }
                     }
+                }
+            },
+            articleDetails: {
+                data: {
+                    id: '1'
                 }
             }
         })
