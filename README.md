@@ -436,3 +436,5 @@ Clear.args = {
 -   Добавлены прикоммит хуки husky для прогона линтеров перед комитом
 -   Добавлен [lint-staged](https://www.npmjs.com/package/lint-staged) для линтинга только измененных файлов
 -   Обновлен файл main.yml для генерации html-репортов на github
+-   Добавлен репорт unit-тесттов в файл main.yml
+-   Добавлен [index.html файл](/reports/index.html) для перехода на страницу с отчетами скриншотных и unit тестов
