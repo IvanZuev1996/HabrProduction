@@ -429,6 +429,9 @@ Clear.args = {
 -   Добавлен скрипт [clear-cache](/scripts/clear-cache.js) для очистки папки с кешем после установки новых зависимостей
 -   Добавлен хелпер [buildSelector](src/shared/lib/store/buildSelector.ts) для изолирования хука useSelector;
 -   Добавлен хелпер [buildSlice](src/shared/lib/store/buildSlice.ts) для того, чтобы забиндить dispatch к экшенам и не использовать его в каждом компоненте
+
+#### e2e cypress тесты. Prettier. Lint staged. Отчеты в CI. Автофикс для путей. Облачный сервер. Nginx. https.
+
 -   Добавлен компонент [AppImage](src/shared/ui/AppImage/AppImage.tsx) для lazy-подгрузки изображений
 -   Написаны [тесты](src/app/providers/router/ui/AppRouter.test.tsx) на роутер
 -   Обновлен react-testing-library до версии 14.0.0
