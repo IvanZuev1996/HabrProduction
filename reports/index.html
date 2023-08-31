@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Reports</title>
+    </head>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            flex-direction: column;
+            gap: 20px;
+            padding: 200px;
+        }
+        div {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        p {
+            color: gray;
+            font-size: large;
+            opacity: 0;
+            transition: opacity 0.2s ease-in;
+        }
+        a {
+            text-decoration: none;
+            font-size: xx-large;
+            color: black;
+            background-color: whitesmoke;
+            padding: 10px 20px;
+            border-radius: 20px;
+            opacity: 0.7;
+            transition: scale 0.2s ease-in-out;
+        }
+        a:hover {
+            scale: 1.1;
+            opacity: 1;
+            outline: 2px solid gray;
+        }
+
+        a:hover + p {
+            display: block;
+            opacity: 1;
+        }
+    </style>
+    <body>
+        <div>
+            <a href="./unit/report.html">UNIT REPORT</a>
+            <p>See more about unit testing...</p>
+        </div>
+        <div>
+            <a href=".loki/report.html">SCREENSHOT REPORT</a>
+            <p>See more about screenshot testing...</p>
+        </div>
+    </body>
+</html>
