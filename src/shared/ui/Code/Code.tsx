@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 import CopyIcon from '@/shared/assets/icons/copy-icon.svg';
 import { classNames } from '@/shared/lib/helpers/classNames';
 
-import { Button, ButtonTheme } from '../Button/Button';
+import { Button, ButtonTheme } from '../Button';
 import { Icon, IconType } from '../Icon/Icon';
 
 import cls from './Code.module.scss';

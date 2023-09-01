@@ -441,3 +441,4 @@ Clear.args = {
 -   Обновлен файл main.yml для генерации html-репортов на github
 -   Добавлен репорт unit-тесттов в файл main.yml
 -   Добавлен [index.html файл](/reports/index.html) для перехода на страницу с отчетами скриншотных и unit тестов
+-   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin/v/0.0.15?activeTab=readme). Рефакторинг
