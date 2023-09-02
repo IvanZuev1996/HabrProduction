@@ -1,6 +1,5 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Country } from '@/entities/Country';
 import { Currency } from '@/entities/Currency';
@@ -48,17 +47,17 @@ export default {
                 url: `${__API__}/profile-ratings?userId=1&profileId=1`,
                 method: 'GET',
                 status: 200,
-                response: null
+                response: []
             },
             {
                 url: `${__API__}/profile-ratings?userId=1`,
                 method: 'GET',
                 status: 200,
-                response: null
+                response: []
             }
         ]
     },
-    decorators: [withMock, AxiosDecorator()]
+    decorators: [AxiosDecorator()]
 } as ComponentMeta<typeof ProfilePage>;
 
 const Template: ComponentStory<typeof ProfilePage> = (args) => <ProfilePage />;
@@ -70,6 +69,7 @@ Light.decorators = [
     StoreDecorator({
         profile: {
             form: {
+                id: '1',
                 firstname: 'Иван',
                 lastname: 'Зуев',
                 age: 18,

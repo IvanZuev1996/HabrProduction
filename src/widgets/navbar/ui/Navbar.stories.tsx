@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Notification } from '@/entities/Notification';
 import { UserRole } from '@/entities/User';
@@ -50,7 +49,6 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [
-        withMock,
         StoreDecorator({
             user: {
                 authData: {

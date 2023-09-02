@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { ArticleBlockType, ArticleType, Article } from '@/entities/Article';
 import { Rating } from '@/entities/Rating';
@@ -136,7 +135,6 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' }
     },
-    decorators: [withMock],
     parameters: {
         mockData: [
             {

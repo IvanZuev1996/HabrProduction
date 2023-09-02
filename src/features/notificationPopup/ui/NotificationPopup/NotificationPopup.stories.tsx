@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Notification } from '@/entities/Notification';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -54,7 +53,6 @@ export default {
             </div>
         ),
         StoreDecorator({}),
-        withMock
     ],
     parameters: {
         mockData: [
