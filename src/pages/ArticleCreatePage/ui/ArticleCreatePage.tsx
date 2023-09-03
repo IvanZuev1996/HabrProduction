@@ -13,7 +13,10 @@ const ArticleCreatePage = memo((props: ArticleCreatePageProps) => {
     const { t } = useTranslation();
 
     return (
-        <Page className={classNames('', {}, [className])}>
+        <Page
+            className={classNames('', {}, [className])}
+            data-testid="ArticleCreatePage"
+        >
             {t('Страница создания новой статьи')}
         </Page>
     );

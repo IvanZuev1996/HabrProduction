@@ -31,7 +31,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 | `npm run test:ui:html`     | Генерация HTML отчета для скриншотных тестов            |
 | `npm run storybook`        | запуск Storybook                                        |
 | `npm run storybook:build`  | Сборка storybook билда                                  |
-| `npm run generate:slice`   | Скрипт для генерации FSD слайсов                        |
+| `npm run create:slice`     | Скрипт для генерации FSD слайсов                        |
 
 ---
 
@@ -443,3 +443,5 @@ Clear.args = {
 -   Добавлен [index.html файл](/reports/index.html) для перехода на страницу с отчетами скриншотных и unit тестов
 -   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin/v/0.0.15?activeTab=readme). Рефакторинг
 -   Обновлен redux-toolkit, react-redux до актуальных версий. Обновлен storybook, исправлен loki
+-   Добавлен [cypress](https://www.cypress.io) для e2e тестирования
+-   Написаны [e2e-тесты](/cypress/e2e/common/routing.cy.ts) на роутинг
