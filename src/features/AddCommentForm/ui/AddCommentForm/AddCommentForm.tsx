@@ -54,17 +54,20 @@ const AddCommentForm = memo((props: AddCommentFormProps) => {
                 gap="8"
                 justify="between"
                 className={classNames(cls.AddCommentForm, {}, [className])}
+                data-testid="AddCommentForm"
             >
                 <Input
                     placeholder={t('Введите текст комментария')}
                     value={text || ''}
                     onChange={onCommentTextChange}
                     className={cls.input}
+                    data-testid="AddCommentForm.Input"
                 />
                 <Button
                     theme={ButtonTheme.BACKGROUND_SECONDARY}
                     className={cls.sendBtn}
                     onClick={onSendHandler}
+                    data-testid="AddCommentForm.Button"
                 >
                     {t('Отправить')}
                 </Button>

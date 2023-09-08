@@ -445,3 +445,6 @@ Clear.args = {
 -   Обновлен redux-toolkit, react-redux до актуальных версий. Обновлен storybook, исправлен loki
 -   Добавлен [cypress](https://www.cypress.io) для e2e тестирования
 -   Написаны [e2e-тесты](/cypress/e2e/common/routing.cy.ts) на роутинг
+-   Написаны [e2e-тесты](/cypress/e2e/article/article-list.cy.ts) на страницу статей
+-   Написаны [e2e-тесты](/cypress/e2e/article/article-details.cy.ts) на страницу статьи
+-   Написаны [e2e-тесты](/cypress/e2e/profile/profile-edit.cy.ts) на страницу профиля

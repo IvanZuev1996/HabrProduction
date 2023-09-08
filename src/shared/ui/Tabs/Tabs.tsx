@@ -42,6 +42,7 @@ export const Tabs = memo((props: TabsProps) => {
                     className={cls.tab}
                     key={tab.value}
                     onClick={clickHandle(tab)}
+                    data-testid={`Tabs.${tab.value}`}
                 >
                     {tab.content}
                 </Card>
