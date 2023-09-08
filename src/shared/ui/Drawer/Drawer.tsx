@@ -17,12 +17,20 @@ interface DrawerProps {
     isOpen?: boolean;
     onClose?: () => void;
     lazy?: boolean;
+    background?: boolean;
+    height?: number;
 }
 
-const height: number = window.innerHeight - 100;
-
 export const DrawerContent = memo((props: DrawerProps) => {
-    const { className, children, isOpen, onClose, lazy } = props;
+    const {
+        className,
+        children,
+        isOpen,
+        onClose,
+        lazy,
+        height = window.innerHeight - 100,
+        background = true
+    } = props;
     const { Gesture, Spring } = useAnimationLibs();
     const [isDrawerClosed, setIsDrawerClosed] = useState<boolean>(false);
     const [{ y }, api] = Spring.useSpring(() => ({ y: height }));
@@ -41,18 +49,33 @@ export const DrawerContent = memo((props: DrawerProps) => {
             });
             setIsDrawerClosed(true);
         },
-        [Spring.config.stiff, api, onClose]
+        [Spring.config.stiff, api, height, onClose]
     );
 
     useEffect(() => {
         if (isOpen) {
             openDrawer();
+        } else {
+            api.start({
+                y: height,
+                immediate: false,
+                config: { ...Spring.config.stiff },
+                onResolve: onClose
+            });
         }
 
         return () => {
             setIsDrawerClosed(false);
         };
-    }, [api, closeDrawer, isOpen, openDrawer]);
+    }, [
+        Spring.config.stiff,
+        api,
+        closeDrawer,
+        height,
+        isOpen,
+        onClose,
+        openDrawer
+    ]);
 
     const bind = Gesture.useDrag(
         ({
@@ -97,7 +120,11 @@ export const DrawerContent = memo((props: DrawerProps) => {
                     isBeforeClose={isDrawerClosed}
                 />
                 <Spring.a.div
-                    className={cls.sheet}
+                    className={classNames(
+                        cls.sheet,
+                        { [cls.background]: background },
+                        []
+                    )}
                     style={{
                         display,
                         bottom: `calc(-100vh + ${height - 100}px)`,

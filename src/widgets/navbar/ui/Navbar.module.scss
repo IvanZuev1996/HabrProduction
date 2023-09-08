@@ -59,3 +59,25 @@
     align-items: center;
     margin-left: auto;
 }
+
+.DrawerSection {
+    width: 100%;
+    border-radius: 14px;
+    background: var(--bg-color);
+
+    .DrawerItem {
+        width: 100%;
+        padding: 14px 0;
+        border-bottom: 1px solid gray;
+        display: flex;
+        justify-content: center;
+    }
+
+    .DrawerItemRed {
+        color: var(--red-light);
+    }
+
+    .DrawerItem:last-child {
+        border: none;
+    }
+}

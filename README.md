@@ -448,3 +448,4 @@ Clear.args = {
 -   Написаны [e2e-тесты](/cypress/e2e/article/article-list.cy.ts) на страницу статей
 -   Написаны [e2e-тесты](/cypress/e2e/article/article-details.cy.ts) на страницу статьи
 -   Написаны [e2e-тесты](/cypress/e2e/profile/profile-edit.cy.ts) на страницу профиля
+-   Добавлен компонент drawer внутри [navbar](src/widgets/navbar/ui/Navbar.tsx) для переключения страниц на мобильной версии
