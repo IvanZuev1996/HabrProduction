@@ -1500,6 +1500,12 @@
       "userId": "1",
       "text": "fdewf",
       "id": "X8-3VML"
+    },
+    {
+      "articleId": "13",
+      "userId": "1",
+      "text": "fewfwefwe",
+      "id": "kz5RGI4"
     }
   ],
   "users": [
@@ -1705,6 +1711,76 @@
       "userId": "1",
       "feedback": "So GOOD Article! Thanks!",
       "id": "i3R50tD"
+    },
+    {
+      "articleId": "13",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "dwadwdwadwa",
+      "id": "OpC17SO"
+    },
+    {
+      "articleId": "13",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "dwadwdwadwa",
+      "id": "JXS2HVQ"
+    },
+    {
+      "articleId": "13",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "Very good",
+      "id": "Twwe7Xw"
+    },
+    {
+      "articleId": "7",
+      "rate": 3,
+      "userId": "1",
+      "feedback": "fewfwe",
+      "id": "kvOpv9R"
+    },
+    {
+      "articleId": "7",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "fewfwe",
+      "id": "4Jk-HVc"
+    },
+    {
+      "articleId": "6",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "fewfwefwe",
+      "id": "bXYhSLd"
+    },
+    {
+      "articleId": "6",
+      "rate": 2,
+      "userId": "1",
+      "feedback": "rfde3wfew",
+      "id": "xonJD5Q"
+    },
+    {
+      "articleId": "6",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "rfde3wfew",
+      "id": "f203bxm"
+    },
+    {
+      "articleId": "6",
+      "rate": 4,
+      "userId": "1",
+      "feedback": "rfde3wfew",
+      "id": "TM6oYuw"
+    },
+    {
+      "articleId": "17",
+      "rate": 5,
+      "userId": "1",
+      "feedback": "Very good article!",
+      "id": "MBE7NHW"
     }
   ],
   "profile-ratings": [

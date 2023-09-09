@@ -89,7 +89,7 @@ export const RatingCard = memo((props: RatingCardProps) => {
                     selectedStars={starsCount}
                 />
             </VStack>
-            {isMobile && isMobile !== null ? (
+            {isMobile ? (
                 <Drawer isOpen={isModalOpen} lazy onClose={cancelHandler}>
                     <VStack align="center" justify="center" gap="32" max>
                         {modalContent}

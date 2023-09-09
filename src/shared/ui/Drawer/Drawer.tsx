@@ -59,8 +59,8 @@ export const DrawerContent = memo((props: DrawerProps) => {
             api.start({
                 y: height,
                 immediate: false,
-                config: { ...Spring.config.stiff },
-                onResolve: onClose
+                config: { ...Spring.config.stiff }
+                // onResolve: onClose
             });
         }
 
