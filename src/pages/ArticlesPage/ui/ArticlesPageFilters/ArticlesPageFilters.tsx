@@ -6,13 +6,20 @@ import { ArticleView, ArticleSortField, ArticleType } from '@/entities/Article';
 import { ArticleSortSelector } from '@/features/ArticleSortSelector';
 import { ArticleTypeTabs } from '@/features/ArticleTypeTabs';
 import { ArticleViewSelector } from '@/features/ArticleViewSelector';
+import FilterIcon from '@/shared/assets/icons/filter-icon.svg';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useDebounce } from '@/shared/lib/hooks/useDebounce/useDebounce';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { useDrawer } from '@/shared/lib/hooks/useDrawer/useDrawer';
 import { SortOrder } from '@/shared/types/sort';
+import { Button } from '@/shared/ui/Button';
 import { Card } from '@/shared/ui/Card';
+import { Drawer } from '@/shared/ui/Drawer';
+import { Icon } from '@/shared/ui/Icon';
 import { Input } from '@/shared/ui/Input';
-import { HStack } from '@/shared/ui/Stack';
+import { HStack, VStack } from '@/shared/ui/Stack';
+import { Text } from '@/shared/ui/Text';
 
 import {
     getArticlesPageOrder,
@@ -34,6 +41,8 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
     const { className } = props;
     const { t } = useTranslation();
     const dispatch = useAppDispatch();
+    const isMobileAgent = useDevice();
+    const { isDrawerOpen, onCloseDrawer, onOpenDrawer } = useDrawer();
     const view = useSelector(getArticlesPageView);
     const order = useSelector(getArticlesPageOrder);
     const sort = useSelector(getArticlesPageSort);
@@ -88,6 +97,62 @@ export const ArticlesPageFilters = memo((props: ArticlesPageFiltersProps) => {
         },
         [fetchData, dispatch]
     );
+
+    if (isMobileAgent) {
+        return (
+            <VStack gap="16" className={classNames('', {}, [className])} max>
+                <Drawer
+                    isOpen={isDrawerOpen}
+                    onClose={onCloseDrawer}
+                    height={400}
+                    lazy
+                >
+                    <VStack justify="center" align="start">
+                        <Text text={t('Фильтр')} />
+                        <ArticleTypeTabs
+                            onChangeType={onChangeType}
+                            onTabClick={onCloseDrawer}
+                            value={type}
+                            className={cls.tabs}
+                        />
+                    </VStack>
+                </Drawer>
+                <Card className={cls.search}>
+                    <Input
+                        placeholder={t('Поиск...')}
+                        onChange={onChangeSearch}
+                        value={search}
+                        data-testid="ArticlesPageFilters.Input"
+                    />
+                </Card>
+                <HStack
+                    justify="center"
+                    align="center"
+                    max
+                    className={cls.filters}
+                >
+                    <ArticleSortSelector
+                        className={cls.sortSelector}
+                        onChangeOrder={onChangeOrder}
+                        onChangeSort={onChangeSort}
+                        order={order}
+                        sort={sort}
+                    />
+                    <HStack
+                        align="center"
+                        justify="center"
+                        gap="8"
+                        max
+                        className={cls.sortSelector}
+                        onClick={onOpenDrawer}
+                    >
+                        <Button>{t('Фильтр')}</Button>
+                        <Icon Svg={FilterIcon} width={30} height={30} />
+                    </HStack>
+                </HStack>
+            </VStack>
+        );
+    }
 
     return (
         <div className={classNames('', {}, [className])}>

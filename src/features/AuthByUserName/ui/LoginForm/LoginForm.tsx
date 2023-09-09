@@ -10,7 +10,8 @@ import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { Input } from '@/shared/ui/Input';
-import { Text, TextTheme } from '@/shared/ui/Text';
+import { HStack } from '@/shared/ui/Stack';
+import { Text, TextAlign, TextSize, TextTheme } from '@/shared/ui/Text';
 
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
@@ -20,7 +21,6 @@ import { loginByUsername } from '../../model/services/loginByUsername/loginByUse
 import { loginActions, loginReducer } from '../../model/slice/loginSlice';
 
 import cls from './LoginForm.module.scss';
-
 
 export interface LoginFormProps {
     className?: string;
@@ -72,6 +72,8 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     <Text
                         title={t('Не верный логин или пароль')}
                         theme={TextTheme.ERROR}
+                        size={TextSize.S}
+                        align={TextAlign.CENTER}
                     />
                 )}
                 <Input
@@ -81,6 +83,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     autoFocus
                     onChange={onChangeUsername}
                     value={username}
+                    readonly={isLoading}
                 />
                 <Input
                     type="text"
@@ -88,6 +91,7 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     placeholder={t('Введите пароль')}
                     onChange={onChangePassword}
                     value={password}
+                    readonly={isLoading}
                 />
                 <Button
                     theme={ButtonTheme.BACKGROUND}
@@ -95,7 +99,9 @@ const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
                     onClick={onLoginClick}
                     disabled={isLoading}
                 >
-                    {t('Войти')}
+                    <HStack align="center" justify="center" max>
+                        {t('Войти')}
+                    </HStack>
                 </Button>
             </div>
         </DynamicModuleLoader>

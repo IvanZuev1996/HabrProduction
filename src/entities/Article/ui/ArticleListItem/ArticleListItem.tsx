@@ -27,10 +27,11 @@ interface ArticleListItemProps {
     article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    max?: boolean;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const { className, article, view, target } = props;
+    const { className, article, view, target, max } = props;
     const { t } = useTranslation();
 
     const types = (
@@ -98,7 +99,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <AppLink
-            className={classNames('', {}, [className, cls[view]])}
+            className={classNames('', { [cls.max]: max }, [
+                className,
+                cls[view]
+            ])}
             to={getRouteArticleDetails(article.id)}
             target={target}
             data-testid="ArticleListItem"

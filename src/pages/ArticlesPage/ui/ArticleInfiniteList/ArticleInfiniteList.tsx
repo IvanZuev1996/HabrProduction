@@ -2,7 +2,8 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { ArticleList } from '@/entities/Article';
+import { ArticleList, ArticleView } from '@/entities/Article';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Text } from '@/shared/ui/Text';
 
 import {
@@ -19,6 +20,7 @@ interface ArticleInfiniteListProps {
 export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
     const { className } = props;
     const { t } = useTranslation();
+    const isMobileAgent = useDevice();
 
     const articles = useSelector(getArticles.selectAll);
     const isLoading = useSelector(getArticlesPageIsLoading);
@@ -31,7 +33,7 @@ export const ArticleInfiniteList = memo((props: ArticleInfiniteListProps) => {
 
     return (
         <ArticleList
-            view={view}
+            view={isMobileAgent ? ArticleView.BIG : view}
             articles={articles}
             isLoading={isLoading}
             className={className}

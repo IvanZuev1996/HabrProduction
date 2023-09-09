@@ -85,7 +85,7 @@ export const ArticleDetails = memo((props: ArticleDetailsProps) => {
                     className={cls.avatar}
                 />
                 <Skeleton width={300} height={32} border="6px" />
-                <Skeleton width={600} height={24} border="6px" />
+                <Skeleton width={300} height={24} border="6px" />
                 <Skeleton width="100%" height={200} border="6px" />
                 <Skeleton width="100%" height={200} border="6px" />
             </VStack>

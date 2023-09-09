@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 
 import { ArticleSortField } from '@/entities/Article';
 import { classNames } from '@/shared/lib/helpers/classNames';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { SortOrder } from '@/shared/types/sort';
 import { Select, SelectOption } from '@/shared/ui/Select';
 import { HStack } from '@/shared/ui/Stack';
@@ -18,6 +19,7 @@ interface ArticleSortSelectorProps {
 export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
     const { className, sort, order, onChangeOrder, onChangeSort } = props;
     const { t } = useTranslation();
+    const isMobileAgent = useDevice();
 
     const orderOptions = useMemo<SelectOption<SortOrder>[]>(
         () => [
@@ -50,6 +52,18 @@ export const ArticleSortSelector = memo((props: ArticleSortSelectorProps) => {
         ],
         [t]
     );
+
+    if (isMobileAgent) {
+        return (
+            <HStack className={classNames('', {}, [className])} gap="8" max>
+                <Select
+                    onChange={onChangeSort}
+                    value={sort}
+                    options={sortFieldOptions}
+                />
+            </HStack>
+        );
+    }
 
     return (
         <HStack className={classNames('', {}, [className])} gap="8">

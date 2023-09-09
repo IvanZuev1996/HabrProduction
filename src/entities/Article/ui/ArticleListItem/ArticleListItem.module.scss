@@ -51,6 +51,10 @@
     cursor: pointer;
     transition: 0.2s;
 
+    .max {
+        width: 100%;
+    }
+
     .skeletonPosition {
         margin-top: 8px;
     }

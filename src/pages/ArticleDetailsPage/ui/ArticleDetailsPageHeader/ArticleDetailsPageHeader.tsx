@@ -4,12 +4,16 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { getArticleDetailsData } from '@/entities/Article';
+import LeftArrow from '@/shared/assets/icons/left-arrow.svg';
 import { getRouteArticleEdit, getRouteArticles } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
+import { Icon } from '@/shared/ui/Icon';
 import { HStack } from '@/shared/ui/Stack';
 
 import { getCanEditArticle } from '../../model/selectors/article/article';
+
+import cls from './ArticleDetailsPageHeader.module.scss';
 
 interface ArticleDetailsPageHeaderProps {
     className?: string;
@@ -35,10 +39,10 @@ export const ArticleDetailsPageHeader = memo(
             <HStack
                 max
                 justify="between"
-                className={classNames('', {}, [className])}
+                className={classNames(cls.header, {}, [className])}
             >
                 <Button onClick={onBackToList} theme={ButtonTheme.CLEAR}>
-                    {t('Назад к списку')}
+                    <Icon Svg={LeftArrow} width={30} height={30} />
                 </Button>
                 {canEdit && (
                     <Button
