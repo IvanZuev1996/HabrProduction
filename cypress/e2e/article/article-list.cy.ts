@@ -21,8 +21,6 @@ describe('Пользователь заходит на страницу спис
         cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
     });
 
-    // TODO: Написать тест-кейсы на поиск, сортировку, переключение типов статей
-
     it('и вводит запрос в поисковую строку', () => {
         cy.getByTestId('ArticlesPageFilters.Input').type(
             currentArticleData.title
@@ -31,7 +29,26 @@ describe('Пользователь заходит на страницу спис
     });
 
     it('и переключает фильтрацию статей на SCIENCE', () => {
+        cy.getByTestId('ArticlesPageFilters.Input').type(
+            currentArticleData.title
+        );
         cy.getByTestId('Tabs.SCIENCE').click();
-        cy.getByTestId('ArticleListItem.Types').should('have.length', 0);
+        cy.getByTestId('ArticleListItem').should('have.length', 0);
+    });
+
+    it('и переключает фильтрацию статей на IT', () => {
+        cy.getByTestId('ArticlesPageFilters.Input').type(
+            currentArticleData.title
+        );
+        cy.getByTestId('Tabs.IT').click();
+        cy.getByTestId('ArticleListItem').should('have.length', 1);
+    });
+
+    it('и переключает фильтрацию статей на ECONOMICS', () => {
+        cy.getByTestId('ArticlesPageFilters.Input').type(
+            currentArticleData.title
+        );
+        cy.getByTestId('Tabs.ECONOMICS').click();
+        cy.getByTestId('ArticleListItem').should('have.length', 0);
     });
 });
