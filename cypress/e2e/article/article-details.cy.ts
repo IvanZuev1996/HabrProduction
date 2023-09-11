@@ -52,4 +52,14 @@ describe('Пользователь заходит на страницу стат
         cy.setRate(5, 'some feedback');
         cy.get('[data-selected=true]').should('have.length', 5);
     });
+
+    it('и ставит оценку (с фикстурами)', () => {
+        cy.intercept('GET', '**/articles/**', {
+            fixture: 'article-details.json'
+        });
+        cy.getByTestId('ArticleDetails.Info');
+        cy.getByTestId('RatingCard').scrollIntoView();
+        cy.setRate(5, 'some feedback');
+        cy.get('[data-selected=true]').should('have.length', 5);
+    });
 });

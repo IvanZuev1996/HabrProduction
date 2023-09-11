@@ -21,6 +21,13 @@ describe('Пользователь заходит на страницу спис
         cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
     });
 
+    it('и статьи успешно загружаются (с фикстурами)', () => {
+        cy.intercept('GET', '**/articles*', {
+            fixture: 'articles.json'
+        });
+        cy.getByTestId('ArticleListItem').should('have.length.greaterThan', 3);
+    });
+
     it('и вводит запрос в поисковую строку', () => {
         cy.getByTestId('ArticlesPageFilters.Input').type(
             currentArticleData.title

@@ -29,9 +29,9 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
     const { isOpen } = useSelector(getSidebarState);
-    const dispatch = useAppDispatch();
     const [isAuthModal, setIsAuthModal] = useState(false);
     const { isDrawerOpen, onCloseDrawer, onOpenDrawer } = useDrawer();
     const isMobileAgent = useDevice();

@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { VStack } from '@/shared/ui/Stack';
@@ -15,21 +14,17 @@ interface ArticleImageBlockComponentProps {
 }
 
 export const ArticleImageBlockComponent = memo(
-    ({ className, block }: ArticleImageBlockComponentProps) => {
-        const { t } = useTranslation();
-
-        return (
-            <VStack
-                justify="center"
-                align="center"
-                max
-                className={classNames('', {}, [className])}
-            >
-                <img src={block.src} alt={block.title} className={cls.img} />
-                {block.title && (
-                    <Text text={block.title} align={TextAlign.CENTER} />
-                )}
-            </VStack>
-        );
-    }
+    ({ className, block }: ArticleImageBlockComponentProps) => (
+        <VStack
+            justify="center"
+            align="center"
+            max
+            className={classNames('', {}, [className])}
+        >
+            <img src={block.src} alt={block.title} className={cls.img} />
+            {block.title && (
+                <Text text={block.title} align={TextAlign.CENTER} />
+            )}
+        </VStack>
+    )
 );
