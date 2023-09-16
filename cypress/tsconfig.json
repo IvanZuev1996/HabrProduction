@@ -6,6 +6,6 @@
         "isolatedModules": false,
         "allowJs": true
     },
-    "include": ["**/*.ts"],
+    "include": ["**/*.ts", "**/*.tsx", "../src/**/*.d.ts"],
     "extends": "../tsconfig.json"
 }
