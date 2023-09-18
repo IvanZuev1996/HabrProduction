@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Rating } from '@/entities/Rating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -31,7 +30,6 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [
-        withMock,
         StoreDecorator({
             user: {
                 authData: {
@@ -85,3 +83,14 @@ SelectedStarsNormal.parameters = {
 
 export const NotSelectedStarsNormal = Template.bind({});
 NotSelectedStarsNormal.args = { articleId: '1' };
+
+NotSelectedStarsNormal.parameters = {
+    mockData: [
+        {
+            url: `${__API__}/article-ratings?userId=1&articleId=1`,
+            method: 'GET',
+            status: 200,
+            response: []
+        }
+    ]
+}

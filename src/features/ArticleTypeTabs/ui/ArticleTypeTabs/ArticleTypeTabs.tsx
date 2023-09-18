@@ -9,10 +9,11 @@ interface ArticleTypeTabsProps {
     className?: string;
     value: ArticleType;
     onChangeType: (type: ArticleType) => void;
+    onTabClick?: () => void;
 }
 
 export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
-    const { className, value, onChangeType } = props;
+    const { className, value, onChangeType, onTabClick } = props;
     const { t } = useTranslation();
 
     const typeTabs = useMemo<TabItem[]>(
@@ -37,17 +38,18 @@ export const ArticleTypeTabs = memo((props: ArticleTypeTabsProps) => {
         [t]
     );
 
-    const onTabClick = useCallback(
+    const onTabClickHadler = useCallback(
         (tab: TabItem) => {
             onChangeType(tab.value as ArticleType);
+            onTabClick?.();
         },
-        [onChangeType]
+        [onChangeType, onTabClick]
     );
 
     return (
         <Tabs
             tabs={typeTabs}
-            onTabClick={onTabClick}
+            onTabClick={onTabClickHadler}
             value={value}
             className={classNames('', {}, [className])}
         />

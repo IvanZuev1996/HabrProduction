@@ -64,7 +64,7 @@
     );
     ```
 
-3. Если компонент использует внутри себя запросы на сервер, то они мокаются помощью [storybook-addon-mock](https://storybook-addon-mock.netlify.app/?path=/docs/docs-installation--docs). Для этого в качестве декараторов по умолчаю нужно добавить декоратор `withMock` и указать свойство `mockData` внутри свойства parameters у сторикейса.
+3. Если компонент использует внутри себя запросы на сервер, то они мокаются помощью [storybook-addon-mock](https://storybook-addon-mock.netlify.app/?path=/docs/docs-installation--docs). Для этого необходимо указать свойство `mockData` внутри свойства parameters у сторикейса.
 
     Пример использования:
 
@@ -72,15 +72,13 @@
     // YourComponent.stories.tsx
 
     import { ComponentStory, ComponentMeta } from '@storybook/react';
-    import withMock from 'storybook-addon-mock';
 
     export default {
         title: '{ComponentLayer}/{ComponentName}',
         component: ComponentName,
         argTypes: {
             backgroundColor: { control: 'color' }
-        },
-        decorators: [withMock]
+        }
     } as ComponentMeta<typeof ComponentName>;
 
     const Template: ComponentStory<typeof ComponentName> = (args) => (

@@ -1,0 +1,11 @@
+{
+    "id": "1",
+    "firstname": "Test firstname",
+    "lastname": "Test lastname",
+    "age": 19,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Moscow",
+    "username": "testuser",
+    "avatar": "https://work2.ru/upload/iblock/704/wicwpqq6kozl4woijhcfrpvlmgvwvqy7.jpg"
+}

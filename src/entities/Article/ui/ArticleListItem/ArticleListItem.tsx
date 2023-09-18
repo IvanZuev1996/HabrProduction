@@ -27,13 +27,20 @@ interface ArticleListItemProps {
     article: Article;
     view: ArticleView;
     target?: HTMLAttributeAnchorTarget;
+    max?: boolean;
 }
 
 export const ArticleListItem = memo((props: ArticleListItemProps) => {
-    const { className, article, view, target } = props;
+    const { className, article, view, target, max } = props;
     const { t } = useTranslation();
 
-    const types = <Text text={article.type.join(', ')} className={cls.types} />;
+    const types = (
+        <Text
+            text={article.type.join(', ')}
+            className={cls.types}
+            data-testid="ArticleListItem.Types"
+        />
+    );
     const views = (
         <>
             <Text text={String(article.views)} className={cls.views} />
@@ -47,7 +54,10 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
         ) as ArticleTextBlock;
 
         return (
-            <div className={classNames('', {}, [className, cls[view]])}>
+            <div
+                className={classNames('', {}, [className, cls[view]])}
+                data-testid="ArticleListItem"
+            >
                 <Card className={cls.card}>
                     <div className={cls.header}>
                         <Avatar size={30} src={article.user.avatar} />
@@ -89,9 +99,13 @@ export const ArticleListItem = memo((props: ArticleListItemProps) => {
 
     return (
         <AppLink
-            className={classNames('', {}, [className, cls[view]])}
+            className={classNames('', { [cls.max]: max }, [
+                className,
+                cls[view]
+            ])}
             to={getRouteArticleDetails(article.id)}
             target={target}
+            data-testid="ArticleListItem"
         >
             <Card>
                 <div className={cls.imageWrapper}>

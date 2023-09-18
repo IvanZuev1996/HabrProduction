@@ -31,7 +31,7 @@ npm run start:dev или npm run start:dev:vite - запуск сервера + 
 | `npm run test:ui:html`     | Генерация HTML отчета для скриншотных тестов            |
 | `npm run storybook`        | запуск Storybook                                        |
 | `npm run storybook:build`  | Сборка storybook билда                                  |
-| `npm run generate:slice`   | Скрипт для генерации FSD слайсов                        |
+| `npm run create:slice`     | Скрипт для генерации FSD слайсов                        |
 
 ---
 
@@ -429,6 +429,9 @@ Clear.args = {
 -   Добавлен скрипт [clear-cache](/scripts/clear-cache.js) для очистки папки с кешем после установки новых зависимостей
 -   Добавлен хелпер [buildSelector](src/shared/lib/store/buildSelector.ts) для изолирования хука useSelector;
 -   Добавлен хелпер [buildSlice](src/shared/lib/store/buildSlice.ts) для того, чтобы забиндить dispatch к экшенам и не использовать его в каждом компоненте
+
+#### e2e cypress тесты. Prettier. Lint staged. Отчеты в CI. Автофикс для путей. Облачный сервер. Nginx. https.
+
 -   Добавлен компонент [AppImage](src/shared/ui/AppImage/AppImage.tsx) для lazy-подгрузки изображений
 -   Написаны [тесты](src/app/providers/router/ui/AppRouter.test.tsx) на роутер
 -   Обновлен react-testing-library до версии 14.0.0
@@ -438,3 +441,13 @@ Clear.args = {
 -   Обновлен файл main.yml для генерации html-репортов на github
 -   Добавлен репорт unit-тесттов в файл main.yml
 -   Добавлен [index.html файл](/reports/index.html) для перехода на страницу с отчетами скриншотных и unit тестов
+-   Обновлен кастомный [eslint-plugin](https://www.npmjs.com/package/eslint-plugin-babun4ek-fsd-plugin/v/0.0.15?activeTab=readme). Рефакторинг
+-   Обновлен redux-toolkit, react-redux до актуальных версий. Обновлен storybook, исправлен loki
+-   Добавлен [cypress](https://www.cypress.io) для e2e тестирования
+-   Написаны [e2e-тесты](/cypress/e2e/common/routing.cy.ts) на роутинг
+-   Написаны [e2e-тесты](/cypress/e2e/article/article-list.cy.ts) на страницу статей
+-   Написаны [e2e-тесты](/cypress/e2e/article/article-details.cy.ts) на страницу статьи
+-   Написаны [e2e-тесты](/cypress/e2e/profile/profile-edit.cy.ts) на страницу профиля
+-   Добавлен компонент drawer внутри [navbar](src/widgets/navbar/ui/Navbar.tsx) для переключения страниц на мобильной версии
+-   Создан компонент [ModalPage](src/shared/ui/Modal/ui/ModalPage/ModalPage.tsx) для отрисовки дополнительных страниц для мобильной версии приложения
+-   Настроены изолированные тесты на компоненты в cypress

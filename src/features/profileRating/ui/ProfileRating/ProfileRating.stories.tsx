@@ -1,5 +1,4 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import withMock from 'storybook-addon-mock';
 
 import { Rating } from '@/entities/Rating';
 import { StoreDecorator } from '@/shared/config/storybook/StoreDecorator/StoreDecorator';
@@ -31,7 +30,6 @@ export default {
         backgroundColor: { control: 'color' }
     },
     decorators: [
-        withMock,
         StoreDecorator({
             user: {
                 authData: {
@@ -51,17 +49,17 @@ export default {
     parameters: {
         mockData: [
             {
-                url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+                url: `${__API__}/profile-ratings?userId=2&profileId=1`,
                 method: 'POST',
                 status: 200,
                 response: null,
                 body: ratings[0]
             },
             {
-                url: `${__API__}/profile-ratings?userId=1&profileId=1`,
+                url: `${__API__}/profile-ratings?userId=2&profileId=1`,
                 method: 'GET',
                 status: 200,
-                response: null
+                response: []
             }
         ]
     }

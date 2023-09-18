@@ -11,10 +11,15 @@ import MenuIcon from '@/shared/assets/icons/menu-icon.svg';
 import { getRouteArticleCreate } from '@/shared/const/router';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
+import { useDrawer } from '@/shared/lib/hooks/useDrawer/useDrawer';
 import { AppLink } from '@/shared/ui/AppLink';
 import { Button, ButtonSize, ButtonTheme } from '@/shared/ui/Button';
+import { Drawer } from '@/shared/ui/Drawer';
 import { HStack } from '@/shared/ui/Stack';
 import { Text, TextSize, TextWeight } from '@/shared/ui/Text';
+
+import { Menu } from '../Menu/Menu';
 
 import cls from './Navbar.module.scss';
 
@@ -24,10 +29,12 @@ interface NavbarProps {
 
 export const Navbar = memo(({ className }: NavbarProps) => {
     const { t } = useTranslation();
+    const dispatch = useAppDispatch();
     const authData = useSelector(getUserAuthData);
     const { isOpen } = useSelector(getSidebarState);
-    const dispatch = useAppDispatch();
     const [isAuthModal, setIsAuthModal] = useState(false);
+    const { isDrawerOpen, onCloseDrawer, onOpenDrawer } = useDrawer();
+    const isMobileAgent = useDevice();
 
     const onToggleSidebar = useCallback(() => {
         dispatch(sidebarActions.toggleState(!isOpen));
@@ -38,10 +45,58 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     }, []);
 
     const onShowModal = useCallback(() => {
+        onCloseDrawer();
         setIsAuthModal(true);
-    }, []);
+    }, [onCloseDrawer]);
 
     if (authData) {
+        if (isMobileAgent) {
+            return (
+                <header
+                    data-testid="navbar"
+                    className={classNames(cls.Navbar, {}, [className])}
+                >
+                    <Drawer
+                        isOpen={isDrawerOpen}
+                        onClose={onCloseDrawer}
+                        background={false}
+                        height={400}
+                        lazy
+                    >
+                        <Menu
+                            userId={authData.id}
+                            onCloseDrawer={onCloseDrawer}
+                        />
+                    </Drawer>
+                    <Button
+                        data-testid="sidebar-toggle"
+                        theme={ButtonTheme.CLEAR}
+                        className={cls.button}
+                        onClick={onOpenDrawer}
+                    >
+                        <MenuIcon className={cls.menuIcon} />
+                    </Button>
+                    <Text
+                        title={t('Habr')}
+                        className={cls.appName}
+                        size={TextSize.S}
+                        weight={TextWeight.BOLD}
+                    />
+                    <HStack className={cls.articleCreateBlock}>
+                        <HStack
+                            gap="32"
+                            align="center"
+                            justify="center"
+                            className={cls.actions}
+                        >
+                            <NotificationPopup />
+                            <AvatarDropdown />
+                        </HStack>
+                    </HStack>
+                </header>
+            );
+        }
+
         return (
             <header
                 data-testid="navbar"
@@ -61,7 +116,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                     size={TextSize.S}
                     weight={TextWeight.BOLD}
                 />
-                <div className={cls.articleCreateBlock}>
+                <HStack className={cls.articleCreateBlock}>
                     <AppLink
                         to={getRouteArticleCreate()}
                         className={cls.createArticle}
@@ -79,7 +134,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                         <NotificationPopup />
                         <AvatarDropdown />
                     </HStack>
-                </div>
+                </HStack>
             </header>
         );
     }
@@ -89,11 +144,25 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             className={classNames(cls.Navbar, {}, [className])}
             data-testid="navbar"
         >
+            {isMobileAgent && (
+                <Drawer
+                    isOpen={isDrawerOpen}
+                    onClose={onCloseDrawer}
+                    background={false}
+                    height={250}
+                    lazy
+                >
+                    <Menu
+                        onCloseDrawer={onCloseDrawer}
+                        onShowModal={onShowModal}
+                    />
+                </Drawer>
+            )}
             <Button
                 data-testid="sidebar-toggle"
                 theme={ButtonTheme.CLEAR}
                 className={cls.button}
-                onClick={onToggleSidebar}
+                onClick={isMobileAgent ? onOpenDrawer : onToggleSidebar}
             >
                 <MenuIcon className={cls.menuIcon} />
             </Button>

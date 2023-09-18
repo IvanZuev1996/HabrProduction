@@ -1,5 +1,4 @@
 import { memo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import { getRouteProfile } from '@/shared/const/router';
 import { classNames, Mods } from '@/shared/lib/helpers/classNames';
@@ -21,7 +20,6 @@ interface CommentCardProps {
 
 export const CommentCard = memo((props: CommentCardProps) => {
     const { className, comment, isLoading } = props;
-    const { t } = useTranslation();
 
     const mods: Mods = {
         [cls.isLoading]: isLoading
@@ -33,6 +31,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
                 max
                 gap="8"
                 className={classNames(cls.CommentCard, mods, [className])}
+                data-testid="CommentCard.Loading"
             >
                 <div className={cls.header}>
                     <Skeleton border="50%" width={40} height={40} />
@@ -58,6 +57,7 @@ export const CommentCard = memo((props: CommentCardProps) => {
             max
             gap="8"
             className={classNames(cls.CommentCard, {}, [className])}
+            data-testid="CommentCard.Content"
         >
             <AppLink
                 className={cls.header}
