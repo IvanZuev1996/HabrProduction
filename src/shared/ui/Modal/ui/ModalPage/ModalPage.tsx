@@ -53,6 +53,10 @@ export const ModalPageContent = memo((props: ModalPageProps) => {
         }
     }, [isOpen, openModal]);
 
+    if (!isOpen) {
+        return null;
+    }
+
     return (
         <Portal>
             <Spring.a.div

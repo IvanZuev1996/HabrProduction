@@ -14,9 +14,9 @@ interface LoginModalProps {
 }
 
 export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => {
-    const isModalAgent = useDevice();
+    const isMobileAgent = useDevice();
 
-    if (isModalAgent) {
+    if (isMobileAgent) {
         return (
             <ModalPage
                 className={classNames('', {}, [className])}

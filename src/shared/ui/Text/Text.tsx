@@ -71,8 +71,8 @@ export const Text = memo((props: TextProps) => {
                 className,
                 cls[theme],
                 cls[align],
-                cls[size],
-                cls[weight]
+                cls[weight],
+                cls[size]
             ])}
         >
             {title && (

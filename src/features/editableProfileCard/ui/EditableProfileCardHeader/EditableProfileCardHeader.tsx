@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getUserAuthData } from '@/entities/User';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { useAppDispatch } from '@/shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Button, ButtonTheme } from '@/shared/ui/Button';
 import { HStack } from '@/shared/ui/Stack';
 import { Text } from '@/shared/ui/Text';
@@ -25,6 +26,7 @@ export const EditableProfileCardHeader = memo(
         const readonly = useSelector(getProfileReadonly);
         const authData = useSelector(getUserAuthData);
         const profileData = useSelector(getProfileData);
+        const isMobile = useDevice();
         const dispatch = useAppDispatch();
 
         const canEdit = authData?.id === profileData?.id;
@@ -40,6 +42,10 @@ export const EditableProfileCardHeader = memo(
         const onSave = useCallback(() => {
             dispatch(updateProfileData());
         }, [dispatch]);
+
+        if (isMobile) {
+            return null;
+        }
 
         return (
             <HStack

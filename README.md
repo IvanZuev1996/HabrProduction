@@ -451,3 +451,4 @@ Clear.args = {
 -   Добавлен компонент drawer внутри [navbar](src/widgets/navbar/ui/Navbar.tsx) для переключения страниц на мобильной версии
 -   Создан компонент [ModalPage](src/shared/ui/Modal/ui/ModalPage/ModalPage.tsx) для отрисовки дополнительных страниц для мобильной версии приложения
 -   Настроены изолированные тесты на компоненты в cypress
+-   Добавлены различные виды страницы ProfilePage в зависимости от userAgent
