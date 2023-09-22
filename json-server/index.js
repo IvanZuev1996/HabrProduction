@@ -5,8 +5,12 @@ const https = require('https');
 const path = require('path');
 
 const options = {
-    key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
-    cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem'))
+    key: fs.readFileSync(
+        '/etc/letsencrypt/live/habr-production.ru/privkey.pem'
+    ),
+    cert: fs.readFileSync(
+        '/etc/letsencrypt/live/habr-production.ru/fullchain.pem'
+    )
 };
 
 const server = jsonServer.create();
