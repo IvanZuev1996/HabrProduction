@@ -452,3 +452,5 @@ Clear.args = {
 -   Создан компонент [ModalPage](src/shared/ui/Modal/ui/ModalPage/ModalPage.tsx) для отрисовки дополнительных страниц для мобильной версии приложения
 -   Настроены изолированные тесты на компоненты в cypress
 -   Добавлены различные виды страницы ProfilePage в зависимости от userAgent
+-   Арендован удаленный сервер, доменное имя [habr-production.ru](https://habr-production.ru), получен ssl-сертификат через [lets-encrypt](https://letsencrypt.org) для работы с https.
+-   Настроен https для [сервера на node js](/json-server/index.js)
