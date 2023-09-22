@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { ModalPage } from './ModalPage';
 
 export default {
-    title: 'shared/ModalPage',
+    title: 'shared/Modal/ModalPage',
     component: ModalPage,
     argTypes: {
         backgroundColor: { control: 'color' }
@@ -16,4 +16,7 @@ const Template: ComponentStory<typeof ModalPage> = (args) => (
 );
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    children: 'TEXT MODAL PAGE CONTENT',
+    isOpen: true
+};

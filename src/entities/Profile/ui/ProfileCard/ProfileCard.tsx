@@ -1,20 +1,22 @@
+import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Country, CountrySelect } from '@/entities/Country';
-import { classNames, Mods } from '@/shared/lib/helpers/classNames';
-import { Avatar } from '@/shared/ui/Avatar';
-import { Input } from '@/shared/ui/Input';
+import { Country } from '@/entities/Country';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { useDevice } from '@/shared/lib/hooks/useDevice/useDevice';
 import { Loader } from '@/shared/ui/Loader';
-import { HStack, VStack } from '@/shared/ui/Stack';
+import { HStack } from '@/shared/ui/Stack';
 import { Text, TextAlign, TextTheme } from '@/shared/ui/Text';
 
-import { Currency, CurrencySelect } from '../../../Currency';
+import { Currency } from '../../../Currency';
 import { ValidateProfileError } from '../../model/consts/consts';
 import { Profile } from '../../model/types/profile';
+import { DesktopProfileCard } from '../DesktopProfileCard';
+import { MobileProfileCard } from '../MobileProfileCard';
 
 import cls from './ProfileCard.module.scss';
 
-interface ProfileCardProps {
+export interface ProfileCardProps {
     className?: string;
     data?: Profile;
     isLoading?: boolean;
@@ -49,6 +51,7 @@ export const ProfileCard = (props: ProfileCardProps) => {
         onChangeCountry
     } = props;
     const { t } = useTranslation('profile');
+    const isMobile = useDevice();
 
     if (isLoading) {
         return (
@@ -85,149 +88,43 @@ export const ProfileCard = (props: ProfileCardProps) => {
         );
     }
 
-    const mods: Mods = {
-        [cls.editing]: !readonly
-    };
+    if (isMobile) {
+        return (
+            <Suspense fallback={<Loader />}>
+                <MobileProfileCard
+                    className={className}
+                    data={data}
+                    onChangeAge={onChangeAge}
+                    onChangeAvatar={onChangeAvatar}
+                    onChangeCity={onChangeCity}
+                    onChangeCountry={onChangeCountry}
+                    onChangeCurrency={onChangeCurrency}
+                    onChangeFirstname={onChangeFirstname}
+                    onChangeLastname={onChangeLastname}
+                    onChangeUsername={onChangeUsername}
+                    readonly={readonly}
+                    validateErrors={validateErrors}
+                />
+            </Suspense>
+        );
+    }
 
     return (
-        <VStack
-            gap="8"
-            max
-            className={classNames(cls.ProfileCard, mods, [className])}
-        >
-            {data?.avatar && (
-                <HStack justify="center" max>
-                    <Avatar src={data?.avatar} alt={t('avatar')} />
-                </HStack>
-            )}
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Ваше имя')} className={cls.text} />
-                <Input
-                    value={data?.firstname}
-                    placeholder={t('Ваше имя')}
-                    onChange={onChangeFirstname}
-                    readonly={readonly}
-                    data-testid="ProfileCard.Firstname"
-                    className={classNames(
-                        cls.input,
-                        {
-                            [cls.validateError]: validateErrors?.includes(
-                                ValidateProfileError.INCORRECT_FIRSTNAME
-                            )
-                        },
-                        []
-                    )}
-                />
-            </HStack>
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Ваша фамилия')} className={cls.text} />
-                <Input
-                    value={data?.lastname}
-                    placeholder={t('Ваша фамилия')}
-                    onChange={onChangeLastname}
-                    readonly={readonly}
-                    data-testid="ProfileCard.Lastname"
-                    className={classNames(
-                        cls.input,
-                        {
-                            [cls.validateError]: validateErrors?.includes(
-                                ValidateProfileError.INCORRECT_LASTNAME
-                            )
-                        },
-                        []
-                    )}
-                />
-            </HStack>
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Ваш возраст')} className={cls.text} />
-                <Input
-                    value={data?.age || ''}
-                    placeholder={t('Ваш возраст')}
-                    onChange={onChangeAge}
-                    readonly={readonly}
-                    data-testid="ProfileCard.Age"
-                    className={classNames(
-                        cls.input,
-                        {
-                            [cls.validateError]: validateErrors?.includes(
-                                ValidateProfileError.INCORRECT_AGE
-                            )
-                        },
-                        []
-                    )}
-                />
-            </HStack>
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Город')} className={cls.text} />
-                <Input
-                    value={data?.city}
-                    placeholder={t('Город')}
-                    onChange={onChangeCity}
-                    readonly={readonly}
-                    data-testid="ProfileCard.City"
-                    className={classNames(
-                        cls.input,
-                        {
-                            [cls.validateError]: validateErrors?.includes(
-                                ValidateProfileError.INCORRECT_CITY
-                            )
-                        },
-                        []
-                    )}
-                />
-            </HStack>
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Имя пользователя')} className={cls.text} />
-                <Input
-                    value={data?.username}
-                    placeholder={t('Имя пользователя')}
-                    onChange={onChangeUsername}
-                    readonly={readonly}
-                    data-testid="ProfileCard.Username"
-                    className={classNames(
-                        cls.input,
-                        {
-                            [cls.validateError]: validateErrors?.includes(
-                                ValidateProfileError.INCORRECT_USERNAME
-                            )
-                        },
-                        []
-                    )}
-                />
-            </HStack>
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Аватар')} className={cls.text} />
-                <Input
-                    value={
-                        __PROJECT__ !== 'storybook'
-                            ? data?.avatar
-                            : 'hello storybook'
-                    }
-                    placeholder={t('Введите ссылку на аватар')}
-                    className={cls.input}
-                    onChange={onChangeAvatar}
-                    readonly={readonly}
-                    data-testid="ProfileCard.AvatarLink"
-                />
-            </HStack>
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Укажите валюту')} className={cls.text} />
-                <CurrencySelect
-                    className={cls.select}
-                    value={data?.currency}
-                    readonly={readonly}
-                    onChange={onChangeCurrency}
-                />
-            </HStack>
-            <HStack max className={cls.infoItem}>
-                <Text text={t('Укажите страну')} className={cls.text} />
-                <CountrySelect
-                    className={cls.select}
-                    value={data?.country}
-                    readonly={readonly}
-                    onChange={onChangeCountry}
-                />
-            </HStack>
-        </VStack>
+        <Suspense fallback={<Loader />}>
+            <DesktopProfileCard
+                className={className}
+                data={data}
+                onChangeAge={onChangeAge}
+                onChangeAvatar={onChangeAvatar}
+                onChangeCity={onChangeCity}
+                onChangeCountry={onChangeCountry}
+                onChangeCurrency={onChangeCurrency}
+                onChangeFirstname={onChangeFirstname}
+                onChangeLastname={onChangeLastname}
+                onChangeUsername={onChangeUsername}
+                readonly={readonly}
+                validateErrors={validateErrors}
+            />
+        </Suspense>
     );
 };
