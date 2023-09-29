@@ -5,6 +5,13 @@ npm install - устанавка необходимых зависимостей
 npm run start:dev или npm run start:dev:vite - запуск сервера + frontend проекта в dev режиме
 ```
 
+> ## **Авторизация**
+
+```
+login: showMe
+password: 123
+```
+
 ---
 
 > ## **Скрипты**
