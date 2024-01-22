@@ -461,3 +461,8 @@ Clear.args = {
 -   Добавлены различные виды страницы ProfilePage в зависимости от userAgent
 -   Арендован удаленный сервер, доменное имя [habr-production.ru](https://habr-production.ru), получен ssl-сертификат через [lets-encrypt](https://letsencrypt.org) для работы с https.
 -   Настроен https для [сервера на node js](/json-server/index.js)
+
+#### Модели ветвления GIT. Концепция Feature flags. Настройки пользователя Json settings. Автоматика по удалению старого кода.
+
+-   Обновлен хелпер создание селектора [buildSelector](/src/shared/lib/store/buildSelector.ts) для возможности прокидывать неограниченное кол-во пропсов.
+-   Добавлена концепция featureFlags - изменения функционала для определенных пользователей

@@ -1528,6 +1528,10 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": true
+      },
       "avatar": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
     },
     {
@@ -1537,6 +1541,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": false,
+        "isCounterEnabled": false
+      },
       "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
     },
     {
@@ -1546,6 +1554,10 @@
       "roles": [
         "MANAGER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      },
       "avatar": "https://work2.ru/upload/iblock/704/wicwpqq6kozl4woijhcfrpvlmgvwvqy7.jpg"
     },
     {
@@ -1555,6 +1567,10 @@
       "roles": [
         "ADMIN"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      },
       "avatar": "https://work2.ru/upload/iblock/704/wicwpqq6kozl4woijhcfrpvlmgvwvqy7.jpg"
     },
     {
@@ -1564,6 +1580,10 @@
       "roles": [
         "USER"
       ],
+      "features": {
+        "isArticleRatingEnabled": true,
+        "isCounterEnabled": false
+      },
       "avatar": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
     }
   ],
@@ -1813,6 +1833,13 @@
       "userId": "1",
       "feedback": "Very good article!",
       "id": "MBE7NHW"
+    },
+    {
+      "articleId": "7",
+      "rate": 2,
+      "userId": "3",
+      "feedback": "So good article!",
+      "id": "pf6jyVE"
     }
   ],
   "profile-ratings": [
