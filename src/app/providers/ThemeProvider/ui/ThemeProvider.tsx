@@ -13,16 +13,13 @@ const ThemeProvider = (props: ThemeProviderProps) => {
     const { children, initialTheme } = props;
     const { theme: defaultTheme = Theme.LIGHT } = useJsonSettings();
 
-    const [isThemeInited, setIsThemeInited] = useState<boolean>(false);
     const [theme, setTheme] = useState<Theme>(initialTheme || defaultTheme);
+
     document.body.className = theme;
 
     useEffect(() => {
-        if (!isThemeInited) return;
-
         setTheme(defaultTheme);
-        setIsThemeInited(true);
-    }, [defaultTheme, isThemeInited]);
+    }, [defaultTheme]);
 
     const defaultProps = useMemo(
         () => ({

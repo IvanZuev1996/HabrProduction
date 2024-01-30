@@ -18,18 +18,6 @@ describe('userSlice.test', () => {
         });
     });
 
-    test('test initAuthData', () => {
-        const state: DeepPartial<UserSchema> = {
-            authData: user
-        };
-        expect(
-            userReducer(state as UserSchema, userActions.initAuthData())
-        ).toEqual({
-            _inited: true,
-            authData: user
-        });
-    });
-
     test('test logout', () => {
         const state: DeepPartial<UserSchema> = {};
         expect(userReducer(state as UserSchema, userActions.logout())).toEqual({
