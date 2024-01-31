@@ -1533,9 +1533,10 @@
         "isCounterEnabled": true
       },
       "jsonSettings": {
-        "theme": "app_dark_theme",
+        "theme": "app_light_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageHasBeenOpen": true
       },
       "avatar": "https://cdn-icons-png.flaticon.com/512/3135/3135768.png"
     },
@@ -1553,7 +1554,8 @@
       "jsonSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageHasBeenOpen": true
       },
       "avatar": "https://cdn-icons-png.flaticon.com/512/2202/2202112.png"
     },
@@ -1571,7 +1573,8 @@
       "jsonSettings": {
         "theme": "app_light_theme",
         "isFirstVisit": true,
-        "settingsPageHasBeenOpen": false
+        "settingsPageHasBeenOpen": false,
+        "isArticlePageHasBeenOpen": true
       },
       "avatar": "https://work2.ru/upload/iblock/704/wicwpqq6kozl4woijhcfrpvlmgvwvqy7.jpg"
     },
