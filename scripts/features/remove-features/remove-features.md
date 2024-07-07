@@ -8,7 +8,7 @@
 Пример использованиея скрипта:
 
 ```
-npx ts-node ./remove-features.ts isCounterEnabled on
+npm run remove-feature isCounterEnabled on
 ```
 
 -   `isCounterEnabled` - название фичи-флага

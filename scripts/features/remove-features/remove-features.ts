@@ -1,4 +1,9 @@
-import { Project, SyntaxKind, Node } from 'ts-morph';
+import { Project, SyntaxKind } from 'ts-morph';
+
+import { isToggleComponent } from './helpers/is-toggle-component';
+import { isToggleFunction } from './helpers/is-toggle-function';
+import { replaceToggleComponent } from './helpers/replace-toggle-component';
+import { replaceToggleFunc } from './helpers/replace-toggle-func';
 
 const removeFeatureName = process.argv[2]; // example: isArticleEnabled
 const featureState = process.argv[3]; // example: off, on
@@ -22,54 +27,14 @@ project.addSourceFilesAtPaths('src/**/*.tsx');
 
 const files = project.getSourceFiles();
 
-const isToggleFunction = (node: Node) => {
-    let isToggleFeature = false;
-
-    node.forEachChild((child) => {
-        if (
-            child.isKind(SyntaxKind.Identifier) &&
-            child.getText() === 'toggleFeatures'
-        ) {
-            isToggleFeature = true;
-        }
-    });
-
-    return isToggleFeature;
-};
-
 files.forEach((sourceFile) => {
     sourceFile.forEachDescendant((node) => {
         if (node.isKind(SyntaxKind.CallExpression) && isToggleFunction(node)) {
-            const objectOptions = node.getFirstDescendantByKind(
-                SyntaxKind.ObjectLiteralExpression
-            );
+            replaceToggleFunc(node, removeFeatureName, featureState);
+        }
 
-            if (!objectOptions) return;
-
-            const onFunctionProperty = objectOptions.getProperty('on');
-            const offFunctionProperty = objectOptions.getProperty('off');
-            const featureNameProperty = objectOptions.getProperty('name');
-
-            const onFunction = onFunctionProperty?.getFirstDescendantByKind(
-                SyntaxKind.ArrowFunction
-            );
-            const offFunction = offFunctionProperty?.getFirstDescendantByKind(
-                SyntaxKind.ArrowFunction
-            );
-            const featureName = featureNameProperty
-                ?.getFirstDescendantByKind(SyntaxKind.StringLiteral)
-                ?.getText()
-                .slice(1, -1);
-
-            if (featureName !== removeFeatureName) return;
-
-            if (featureState === 'on') {
-                node.replaceWithText(onFunction?.getBody().getText() ?? '');
-            }
-
-            if (featureState === 'off') {
-                node.replaceWithText(offFunction?.getBody().getText() ?? '');
-            }
+        if (node.isKind(SyntaxKind.JsxSelfClosingElement) && isToggleComponent(node)) {
+            replaceToggleComponent(node, removeFeatureName, featureState);
         }
     });
 });

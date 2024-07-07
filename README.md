@@ -497,3 +497,5 @@ _Для автоматического удаления фичей исполь�
 -   Создан [скрипт](/scripts/features/remove-features/remove-features.ts) для автоматического удаления/включения фичей по названию их флага
 -   Добавлены настройки пользователя - jsonSettings для сохранения темы в базу данных
 -   Добавлено модальное окно, которое показывается пользователю только один раз с помощью jsonSettings
+-   Добавлен компонент [ToggleFeature](/src/shared/lib/features/ToggleFeatures/ToggleFeatures.tsx) для удобной работы с компонентами вместе с фичи-флагами. 
+-   Обновлен скрипт [remove-features](/scripts/features/remove-features/remove-features.ts) для работы с компонентами

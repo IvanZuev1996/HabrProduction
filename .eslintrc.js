@@ -70,7 +70,8 @@ module.exports = {
                     'role',
                     'as',
                     'fill',
-                    'alt'
+                    'alt',
+                    'feature'
                 ]
             }
         ],
